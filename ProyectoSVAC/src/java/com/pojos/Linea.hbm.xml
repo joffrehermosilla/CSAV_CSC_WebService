@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Linea" table="linea" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoLinea" type="java.lang.Integer">
+            <column name="codigo_linea" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreLinea" type="string">
+            <column name="nombre_linea" length="45" />
+        </property>
+        <property name="iconoLinea" type="binary">
+            <column name="icono_linea" />
+        </property>
+        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_linea" />
+            </key>
+            <one-to-many class="com.pojos.Producto" />
+        </set>
+        <set name="cuotaPorLineas" table="cuota_por_linea" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_linea" />
+            </key>
+            <one-to-many class="com.pojos.CuotaPorLinea" />
+        </set>
+    </class>
+</hibernate-mapping>

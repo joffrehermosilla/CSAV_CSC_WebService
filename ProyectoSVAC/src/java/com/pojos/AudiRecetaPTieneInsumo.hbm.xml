@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiRecetaPTieneInsumo" table="audi_receta_p_tiene_insumo" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiRecetaProductoTieneInsumo" type="java.lang.Integer">
+            <column name="codigo_audi_receta_producto_tiene_insumo" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="fkcodigoProductoOld" type="java.lang.Integer">
+            <column name="fkcodigo_producto_old" />
+        </property>
+        <property name="fkcodigoInsumoOld" type="java.lang.Integer">
+            <column name="fkcodigo_insumo_old" />
+        </property>
+        <property name="fkcodigoRecetaProductoOld" type="java.lang.Integer">
+            <column name="fkcodigo_receta_producto_old" />
+        </property>
+        <property name="fkcodigoProductoNew" type="java.lang.Integer">
+            <column name="fkcodigo_producto_new" />
+        </property>
+        <property name="fkcodigoInsumoNew" type="java.lang.Integer">
+            <column name="fkcodigo_insumo_new" />
+        </property>
+        <property name="fkcodigoRecetaProductoNew" type="java.lang.Integer">
+            <column name="fkcodigo_receta_producto_new" />
+        </property>
+    </class>
+</hibernate-mapping>

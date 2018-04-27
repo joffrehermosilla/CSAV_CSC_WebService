@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Producto" table="producto" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoProducto" type="java.lang.Integer">
+            <column name="codigo_producto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estadoProducto" class="com.pojos.EstadoProducto" fetch="select">
+            <column name="fkcodigo_estado_producto" />
+        </many-to-one>
+        <many-to-one name="linea" class="com.pojos.Linea" fetch="select">
+            <column name="fkcodigo_linea" />
+        </many-to-one>
+        <many-to-one name="tipoProducto" class="com.pojos.TipoProducto" fetch="select">
+            <column name="fkcodigo_tipo_producto" />
+        </many-to-one>
+        <property name="nombreProducto" type="string">
+            <column name="nombre_producto" length="45" />
+        </property>
+        <property name="ingresoAlmacenProducto" type="timestamp">
+            <column name="ingreso_almacen_producto" length="19" />
+        </property>
+        <property name="salidaAlmacenProducto" type="timestamp">
+            <column name="salida_almacen_producto" length="19" />
+        </property>
+        <property name="stockProducto" type="string">
+            <column name="stock_producto" length="45" />
+        </property>
+        <property name="preparacionProducto" type="string">
+            <column name="preparacion_producto" length="150" />
+        </property>
+        <property name="fotoProducto" type="binary">
+            <column name="foto_producto" />
+        </property>
+        <property name="coloresProducto" type="string">
+            <column name="colores_producto" length="45" />
+        </property>
+        <property name="qrProducto" type="string">
+            <column name="qr_producto" length="150" />
+        </property>
+        <property name="pvvProducto" type="java.lang.Float">
+            <column name="pvv_producto" precision="12" scale="0" />
+        </property>
+        <property name="pvfProducto" type="java.lang.Float">
+            <column name="pvf_producto" precision="12" scale="0" />
+        </property>
+        <set name="cuotas" table="cuota" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_producto" />
+            </key>
+            <one-to-many class="com.pojos.Cuota" />
+        </set>
+        <set name="clienteTienePreferencias" table="cliente_tiene_preferencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_producto" />
+            </key>
+            <one-to-many class="com.pojos.ClienteTienePreferencia" />
+        </set>
+        <set name="productoPorPedidos" table="producto_por_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_producto" />
+            </key>
+            <one-to-many class="com.pojos.ProductoPorPedido" />
+        </set>
+        <set name="recetaProductoTieneInsumos" table="receta_producto_tiene_insumo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_producto" />
+            </key>
+            <one-to-many class="com.pojos.RecetaProductoTieneInsumo" />
+        </set>
+    </class>
+</hibernate-mapping>

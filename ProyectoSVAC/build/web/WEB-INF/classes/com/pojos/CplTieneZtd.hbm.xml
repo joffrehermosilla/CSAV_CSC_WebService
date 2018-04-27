@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.CplTieneZtd" table="cpl_tiene_ztd" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoCplTieneZtd" type="java.lang.Integer">
+            <column name="codigo_cpl_tiene_ztd" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cuotaPorLinea" class="com.pojos.CuotaPorLinea" fetch="select">
+            <column name="fkcodigo_cuota_por_linea" />
+        </many-to-one>
+        <many-to-one name="zonaTieneDistrito" class="com.pojos.ZonaTieneDistrito" fetch="select">
+            <column name="fkcodigo_zona_tiene_distrito" />
+        </many-to-one>
+        <property name="cuotaAsignada" type="java.lang.Float">
+            <column name="cuota_asignada" precision="12" scale="0" />
+        </property>
+        <property name="cuotaRealizada" type="java.lang.Float">
+            <column name="cuota_realizada" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

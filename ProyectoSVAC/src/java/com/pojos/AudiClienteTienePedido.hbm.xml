@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiClienteTienePedido" table="audi_cliente_tiene_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiClienteTienePedido" type="java.lang.Integer">
+            <column name="codigo_audi_cliente_tiene_pedido" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="fkcodigoClienteOld" type="java.lang.Integer">
+            <column name="fkcodigo_cliente_old" />
+        </property>
+        <property name="fkcodigoVendedorOld" type="java.lang.Integer">
+            <column name="fkcodigo_vendedor_old" />
+        </property>
+        <property name="fkcodigoIgvVentaOld" type="java.lang.Integer">
+            <column name="fkcodigo_igv_venta_old" />
+        </property>
+        <property name="fkcodigoPromocionVentaOld" type="java.lang.Integer">
+            <column name="fkcodigo_promocion_venta_old" />
+        </property>
+        <property name="fkcodigoEstadoClienteTienePedidoOld" type="java.lang.Integer">
+            <column name="fkcodigo_estado_cliente_tiene_pedido_old" />
+        </property>
+        <property name="fkcodigoFacturaClienteTienePedidoOld" type="java.lang.Integer">
+            <column name="fkcodigo_factura_cliente_tiene_pedido_old" />
+        </property>
+        <property name="descuentoWebPedidoOld" type="java.lang.Float">
+            <column name="descuento_web_pedido_old" precision="12" scale="0" />
+        </property>
+        <property name="precioUniDescIgvOld" type="java.lang.Float">
+            <column name="precio_uni_desc_igv_old" precision="12" scale="0" />
+        </property>
+        <property name="precioUniDescSinIgvOld" type="java.lang.Float">
+            <column name="precio_uni_desc_sin_igv_old" precision="12" scale="0" />
+        </property>
+        <property name="fechaPedidoOld" type="timestamp">
+            <column name="fecha_pedido_old" length="19" />
+        </property>
+        <property name="fechaEntregaOld" type="timestamp">
+            <column name="fecha_entrega_old" length="19" />
+        </property>
+        <property name="cantidadProductoOld" type="java.lang.Integer">
+            <column name="cantidad_producto_old" />
+        </property>
+        <property name="montoPorDescuentosOld" type="java.lang.Float">
+            <column name="monto_por_descuentos_old" precision="12" scale="0" />
+        </property>
+        <property name="fkcodigoClienteNew" type="java.lang.Integer">
+            <column name="fkcodigo_cliente_new" />
+        </property>
+        <property name="fkcodigoVendedorNew" type="java.lang.Integer">
+            <column name="fkcodigo_vendedor_new" />
+        </property>
+        <property name="fkcodigoIgvVentaNew" type="java.lang.Integer">
+            <column name="fkcodigo_igv_venta_new" />
+        </property>
+        <property name="fkcodigoPromocionVentaNew" type="java.lang.Integer">
+            <column name="fkcodigo_promocion_venta_new" />
+        </property>
+        <property name="fkcodigoEstadoClienteTienePedidoNew" type="java.lang.Integer">
+            <column name="fkcodigo_estado_cliente_tiene_pedido_new" />
+        </property>
+        <property name="fkcodigoFacturaClienteTienePedidoNew" type="java.lang.Integer">
+            <column name="fkcodigo_factura_cliente_tiene_pedido_new" />
+        </property>
+        <property name="descuentoWebPedidoNew" type="java.lang.Float">
+            <column name="descuento_web_pedido_new" precision="12" scale="0" />
+        </property>
+        <property name="precioUniDescIgvNew" type="java.lang.Float">
+            <column name="precio_uni_desc_igv_new" precision="12" scale="0" />
+        </property>
+        <property name="precioUniDescSinIgvNew" type="java.lang.Float">
+            <column name="precio_uni_desc_sin_igv_new" precision="12" scale="0" />
+        </property>
+        <property name="fechaPedidoNew" type="timestamp">
+            <column name="fecha_pedido_new" length="19" />
+        </property>
+        <property name="fechaEntregaNew" type="timestamp">
+            <column name="fecha_entrega_new" length="19" />
+        </property>
+        <property name="cantidadProductoNew" type="java.lang.Integer">
+            <column name="cantidad_producto_new" />
+        </property>
+        <property name="montoPorDescuentosNew" type="java.lang.Float">
+            <column name="monto_por_descuentos_new" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

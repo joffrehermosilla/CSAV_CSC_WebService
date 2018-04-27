@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AuditoriaProducto" table="auditoria_producto" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAuditoriaProducto" type="java.lang.Integer">
+            <column name="codigo_auditoria_producto" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="nombreProductoOld" type="string">
+            <column name="nombre_producto_old" length="45" />
+        </property>
+        <property name="ingresoAlmacenProductoOld" type="timestamp">
+            <column name="ingreso_almacen_producto_old" length="19" />
+        </property>
+        <property name="salidaAlmacenProductoOld" type="timestamp">
+            <column name="salida_almacen_producto_old" length="19" />
+        </property>
+        <property name="stockProductoOld" type="string">
+            <column name="stock_producto_old" length="45" />
+        </property>
+        <property name="preparacionProductoOld" type="string">
+            <column name="preparacion_producto_old" length="150" />
+        </property>
+        <property name="fotoProductoOld" type="binary">
+            <column name="foto_producto_old" />
+        </property>
+        <property name="coloresProductoOld" type="string">
+            <column name="colores_producto_old" length="45" />
+        </property>
+        <property name="qrProductoOld" type="string">
+            <column name="qr_producto_old" length="150" />
+        </property>
+        <property name="pvvProductoOld" type="java.lang.Float">
+            <column name="pvv_producto_old" precision="12" scale="0" />
+        </property>
+        <property name="pvfProductoOld" type="java.lang.Float">
+            <column name="pvf_producto_old" precision="12" scale="0" />
+        </property>
+        <property name="fkcodigoLineaOld" type="java.lang.Integer">
+            <column name="fkcodigo_linea_old" />
+        </property>
+        <property name="fkcodigoTipoProductoOld" type="java.lang.Integer">
+            <column name="fkcodigo_tipo_producto_old" />
+        </property>
+        <property name="fkcodigoEstadoProductoOld" type="java.lang.Integer">
+            <column name="fkcodigo_estado_producto_old" />
+        </property>
+        <property name="nombreProductoNew" type="string">
+            <column name="nombre_producto_new" length="45" />
+        </property>
+        <property name="ingresoAlmacenProductoNew" type="timestamp">
+            <column name="ingreso_almacen_producto_new" length="19" />
+        </property>
+        <property name="salidaAlmacenProductoNew" type="timestamp">
+            <column name="salida_almacen_producto_new" length="19" />
+        </property>
+        <property name="stockProductoNew" type="string">
+            <column name="stock_producto_new" length="45" />
+        </property>
+        <property name="preparacionProductoNew" type="string">
+            <column name="preparacion_producto_new" length="150" />
+        </property>
+        <property name="fotoProductoNew" type="binary">
+            <column name="foto_producto_new" />
+        </property>
+        <property name="coloresProductoNew" type="string">
+            <column name="colores_producto_new" length="45" />
+        </property>
+        <property name="qrProductoNew" type="string">
+            <column name="qr_producto_new" length="150" />
+        </property>
+        <property name="pvvProductoNew" type="java.lang.Float">
+            <column name="pvv_producto_new" precision="12" scale="0" />
+        </property>
+        <property name="pvfProductoNew" type="java.lang.Float">
+            <column name="pvf_producto_new" precision="12" scale="0" />
+        </property>
+        <property name="fkcodigoLineaNew" type="java.lang.Integer">
+            <column name="fkcodigo_linea_new" />
+        </property>
+        <property name="fkcodigoTipoProductoNew" type="java.lang.Integer">
+            <column name="fkcodigo_tipo_producto_new" />
+        </property>
+        <property name="fkcodigoEstadoProductoNew" type="java.lang.Integer">
+            <column name="fkcodigo_estado_producto_new" />
+        </property>
+    </class>
+</hibernate-mapping>

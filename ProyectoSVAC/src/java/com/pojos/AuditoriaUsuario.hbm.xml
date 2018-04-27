@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AuditoriaUsuario" table="auditoria_usuario" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiUsuario" type="java.lang.Integer">
+            <column name="codigo_audi_usuario" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="nombreUsuarioOld" type="string">
+            <column name="nombre_usuario_old" length="45" />
+        </property>
+        <property name="apellidoUsuarioOld" type="string">
+            <column name="apellido_usuario_old" length="45" />
+        </property>
+        <property name="fechaNacimientoUsuarioOld" type="timestamp">
+            <column name="fecha_nacimiento_usuario_old" length="19" />
+        </property>
+        <property name="direccionUsuarioOld" type="string">
+            <column name="direccion_usuario_old" length="90" />
+        </property>
+        <property name="nombreLogeoUsuarioOld" type="string">
+            <column name="nombre_logeo_usuario_old" length="90" />
+        </property>
+        <property name="passwordUsuarioOld" type="string">
+            <column name="password_usuario_old" length="10" />
+        </property>
+        <property name="fotoUsuarioOld" type="binary">
+            <column name="foto_usuario_old" />
+        </property>
+        <property name="fkcodigoDistritoOld" type="java.lang.Integer">
+            <column name="fkcodigo_distrito_old" />
+        </property>
+        <property name="fkcodigoTipoUsuarioOld" type="java.lang.Integer">
+            <column name="fkcodigo_tipo_usuario_old" />
+        </property>
+        <property name="fkcodigoEstadoUsuarioOld" type="java.lang.Integer">
+            <column name="fkcodigo_estado_usuario_old" />
+        </property>
+        <property name="nombreUsuarioNew" type="string">
+            <column name="nombre_usuario_new" length="45" />
+        </property>
+        <property name="apellidoUsuarioNew" type="string">
+            <column name="apellido_usuario_new" length="45" />
+        </property>
+        <property name="fechaNacimientoUsuarioNew" type="timestamp">
+            <column name="fecha_nacimiento_usuario_new" length="19" />
+        </property>
+        <property name="direccionUsuarioNew" type="string">
+            <column name="direccion_usuario_new" length="90" />
+        </property>
+        <property name="nombreLogeoUsuarioNew" type="string">
+            <column name="nombre_logeo_usuario_new" length="90" />
+        </property>
+        <property name="passwordUsuarioNew" type="string">
+            <column name="password_usuario_new" length="10" />
+        </property>
+        <property name="fotoUsuarioNew" type="binary">
+            <column name="foto_usuario_new" />
+        </property>
+        <property name="fkcodigoDistritoNew" type="java.lang.Integer">
+            <column name="fkcodigo_distrito_new" />
+        </property>
+        <property name="fkcodigoTipoUsuarioNew" type="java.lang.Integer">
+            <column name="fkcodigo_tipo_usuario_new" />
+        </property>
+        <property name="fkcodigoEstadoUsuarioNew" type="java.lang.Integer">
+            <column name="fkcodigo_estado_usuario_new" />
+        </property>
+    </class>
+</hibernate-mapping>

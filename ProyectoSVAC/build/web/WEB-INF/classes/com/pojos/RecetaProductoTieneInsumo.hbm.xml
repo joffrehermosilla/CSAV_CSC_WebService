@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.RecetaProductoTieneInsumo" table="receta_producto_tiene_insumo" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoRecetaProductoTieneInsumo" type="java.lang.Integer">
+            <column name="codigo_receta_producto_tiene_insumo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="insumo" class="com.pojos.Insumo" fetch="select">
+            <column name="fkcodigo_insumo" />
+        </many-to-one>
+        <many-to-one name="producto" class="com.pojos.Producto" fetch="select">
+            <column name="fkcodigo_producto" />
+        </many-to-one>
+        <many-to-one name="recetaProducto" class="com.pojos.RecetaProducto" fetch="select">
+            <column name="fkcodigo_receta_producto" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

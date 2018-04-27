@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiPromocionVenta" table="audi_promocion_venta" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiPromocionVenta" type="java.lang.Integer">
+            <column name="codigo_audi_promocion_venta" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="cantidadSkuPedidoOld" type="java.lang.Integer">
+            <column name="cantidad_sku_pedido_old" />
+        </property>
+        <property name="descuentoSkuPedidoOld" type="java.lang.Float">
+            <column name="descuento_sku_pedido_old" precision="12" scale="0" />
+        </property>
+        <property name="fechaInicioPromocionOld" type="timestamp">
+            <column name="fecha_inicio_promocion_old" length="19" />
+        </property>
+        <property name="fechaExpiracionPromocionOld" type="timestamp">
+            <column name="fecha_expiracion_promocion_old" length="19" />
+        </property>
+        <property name="descripcionPromocionOld" type="string">
+            <column name="descripcion_promocion_old" length="100" />
+        </property>
+        <property name="cantidadSkuPedidoNew" type="java.lang.Integer">
+            <column name="cantidad_sku_pedido_new" />
+        </property>
+        <property name="descuentoSkuPedidoNew" type="java.lang.Float">
+            <column name="descuento_sku_pedido_new" precision="12" scale="0" />
+        </property>
+        <property name="fechaInicioPromocionNew" type="timestamp">
+            <column name="fecha_inicio_promocion_new" length="19" />
+        </property>
+        <property name="fechaExpiracionPromocionNew" type="timestamp">
+            <column name="fecha_expiracion_promocion_new" length="19" />
+        </property>
+        <property name="descripcionPromocionNew" type="string">
+            <column name="descripcion_promocion_new" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

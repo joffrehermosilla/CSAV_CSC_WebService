@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.TipoUsuario" table="tipo_usuario" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoTipoUsuario" type="java.lang.Integer">
+            <column name="codigo_tipo_usuario" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreTipoUsuario" type="string">
+            <column name="nombre_tipo_usuario" length="30" not-null="true" />
+        </property>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_tipo_usuario" />
+            </key>
+            <one-to-many class="com.pojos.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

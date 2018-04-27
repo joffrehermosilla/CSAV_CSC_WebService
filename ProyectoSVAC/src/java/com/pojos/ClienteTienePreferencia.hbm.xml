@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.ClienteTienePreferencia" table="cliente_tiene_preferencia" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoPreferenciaSku" type="java.lang.Integer">
+            <column name="codigo_preferencia_sku" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="com.pojos.Cliente" fetch="select">
+            <column name="fkcodigo_cliente" />
+        </many-to-one>
+        <many-to-one name="producto" class="com.pojos.Producto" fetch="select">
+            <column name="fkcodigo_producto" />
+        </many-to-one>
+        <property name="fechaVotoPreferencia" type="timestamp">
+            <column name="fecha_voto_preferencia" length="19" />
+        </property>
+        <property name="cantidadPuntos" type="java.lang.Float">
+            <column name="cantidad_puntos" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

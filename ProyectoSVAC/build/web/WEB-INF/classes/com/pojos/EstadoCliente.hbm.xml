@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.EstadoCliente" table="estado_cliente" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoEstadoCliente" type="java.lang.Integer">
+            <column name="codigo_estado_cliente" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreEstadoCliente" type="string">
+            <column name="nombre_estado_cliente" length="45" not-null="true" />
+        </property>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_estado_cliente" />
+            </key>
+            <one-to-many class="com.pojos.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>

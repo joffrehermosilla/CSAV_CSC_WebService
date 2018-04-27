@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.IgvVenta" table="igv_venta" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoIgvVenta" type="java.lang.Integer">
+            <column name="codigo_igv_venta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoImpuesto" class="com.pojos.TipoImpuesto" fetch="select">
+            <column name="fkcodigo_tipo_impuesto" />
+        </many-to-one>
+        <property name="porcentajeIgvVenta" type="java.lang.Float">
+            <column name="porcentaje_igv_venta" precision="12" scale="0" />
+        </property>
+        <set name="clienteTienePedidos" table="cliente_tiene_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_igv_venta" />
+            </key>
+            <one-to-many class="com.pojos.ClienteTienePedido" />
+        </set>
+    </class>
+</hibernate-mapping>
