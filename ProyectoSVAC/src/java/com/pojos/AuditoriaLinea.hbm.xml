@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AuditoriaLinea" table="auditoria_linea" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiLinea" type="java.lang.Integer">
+            <column name="codigo_audi_linea" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="nombreLineaOld" type="string">
+            <column name="nombre_linea_old" length="45" />
+        </property>
+        <property name="iconoLineaOld" type="binary">
+            <column name="icono_linea_old" />
+        </property>
+        <property name="nombreLineaNew" type="string">
+            <column name="nombre_linea_new" length="45" />
+        </property>
+        <property name="iconoLineaNew" type="binary">
+            <column name="icono_linea_new" />
+        </property>
+    </class>
+</hibernate-mapping>

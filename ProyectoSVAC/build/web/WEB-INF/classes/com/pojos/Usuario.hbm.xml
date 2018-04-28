@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Usuario" table="usuario" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoUsuario" type="java.lang.Integer">
+            <column name="codigo_usuario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="distrito" class="com.pojos.Distrito" fetch="select">
+            <column name="fkcodigo_distrito" />
+        </many-to-one>
+        <many-to-one name="estadoUsuario" class="com.pojos.EstadoUsuario" fetch="select">
+            <column name="fkcodigo_estado_usuario" />
+        </many-to-one>
+        <many-to-one name="tipoUsuario" class="com.pojos.TipoUsuario" fetch="select">
+            <column name="fkcodigo_tipo_usuario" />
+        </many-to-one>
+        <property name="nombreUsuario" type="string">
+            <column name="nombre_usuario" length="45" />
+        </property>
+        <property name="apellidoUsuario" type="string">
+            <column name="apellido_usuario" length="45" />
+        </property>
+        <property name="fechaNacimientoUsuario" type="timestamp">
+            <column name="fecha_nacimiento_usuario" length="19" />
+        </property>
+        <property name="direccionUsuario" type="string">
+            <column name="direccion_usuario" length="90" />
+        </property>
+        <property name="nombreLogeoUsuario" type="string">
+            <column name="nombre_logeo_usuario" length="90" />
+        </property>
+        <property name="passwordUsuario" type="string">
+            <column name="password_usuario" length="10" />
+        </property>
+        <property name="fotoUsuario" type="binary">
+            <column name="foto_usuario" />
+        </property>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_usuario" />
+            </key>
+            <one-to-many class="com.pojos.Cliente" />
+        </set>
+        <set name="vendedors" table="vendedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_usuario" />
+            </key>
+            <one-to-many class="com.pojos.Vendedor" />
+        </set>
+    </class>
+</hibernate-mapping>

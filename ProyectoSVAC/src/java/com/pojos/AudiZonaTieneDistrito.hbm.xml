@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiZonaTieneDistrito" table="audi_zona_tiene_distrito" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiZonaTieneDistrito" type="java.lang.Integer">
+            <column name="codigo_audi_zona_tiene_distrito" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="fkcodigoZonaOld" type="java.lang.Integer">
+            <column name="fkcodigo_zona_old" />
+        </property>
+        <property name="fkcodigoDistritoOld" type="java.lang.Integer">
+            <column name="fkcodigo_distrito_old" />
+        </property>
+        <property name="fkcodigoZonaNew" type="java.lang.Integer">
+            <column name="fkcodigo_zona_new" />
+        </property>
+        <property name="fkcodigoDistritoNew" type="java.lang.Integer">
+            <column name="fkcodigo_distrito_new" />
+        </property>
+    </class>
+</hibernate-mapping>

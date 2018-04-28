@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Pais" table="pais" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoPais" type="java.lang.Integer">
+            <column name="codigo_pais" />
+            <generator class="identity" />
+        </id>
+        <property name="nombrePais" type="string">
+            <column name="nombre_pais" length="30" not-null="true" />
+        </property>
+        <set name="provincias" table="provincia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_pais" />
+            </key>
+            <one-to-many class="com.pojos.Provincia" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AuditoriaCliente" table="auditoria_cliente" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiCliente" type="java.lang.Integer">
+            <column name="codigo_audi_cliente" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="razonsocialClienteOld" type="string">
+            <column name="razonsocial_cliente_old" length="45" />
+        </property>
+        <property name="fkcodigoUsuarioOld" type="java.lang.Integer">
+            <column name="fkcodigo_usuario_old" />
+        </property>
+        <property name="fkcodigoRegimenClienteOld" type="java.lang.Integer">
+            <column name="fkcodigo_regimen_cliente_old" />
+        </property>
+        <property name="fkcodigoEstadoClienteOld" type="java.lang.Integer">
+            <column name="fkcodigo_estado_cliente_old" />
+        </property>
+        <property name="latitudClienteOld" type="java.lang.Float">
+            <column name="latitud_cliente_old" precision="12" scale="0" />
+        </property>
+        <property name="longitudClienteOld" type="java.lang.Float">
+            <column name="longitud_cliente_old" precision="12" scale="0" />
+        </property>
+        <property name="typeClienteOld" type="string">
+            <column name="type_cliente_old" length="45" />
+        </property>
+        <property name="fotoUbicacionClienteOld" type="binary">
+            <column name="foto_ubicacion_cliente_old" />
+        </property>
+        <property name="rucClienteOld" type="string">
+            <column name="ruc_cliente_old" length="45" />
+        </property>
+        <property name="dniClienteOld" type="string">
+            <column name="dni_cliente_old" length="45" />
+        </property>
+        <property name="fechaEmpadronamientoClienteOld" type="timestamp">
+            <column name="fecha_empadronamiento_cliente_old" length="19" />
+        </property>
+        <property name="razonsocialClienteNew" type="string">
+            <column name="razonsocial_cliente_new" length="45" />
+        </property>
+        <property name="fkcodigoUsuarioNew" type="java.lang.Integer">
+            <column name="fkcodigo_usuario_new" />
+        </property>
+        <property name="fkcodigoRegimenClienteNew" type="java.lang.Integer">
+            <column name="fkcodigo_regimen_cliente_new" />
+        </property>
+        <property name="fkcodigoEstadoClienteNew" type="java.lang.Integer">
+            <column name="fkcodigo_estado_cliente_new" />
+        </property>
+        <property name="latitudClienteNew" type="java.lang.Float">
+            <column name="latitud_cliente_new" precision="12" scale="0" />
+        </property>
+        <property name="longitudClienteNew" type="java.lang.Float">
+            <column name="longitud_cliente_new" precision="12" scale="0" />
+        </property>
+        <property name="typeClienteNew" type="string">
+            <column name="type_cliente_new" length="45" />
+        </property>
+        <property name="fotoUbicacionClienteNew" type="binary">
+            <column name="foto_ubicacion_cliente_new" />
+        </property>
+        <property name="rucClienteNew" type="string">
+            <column name="ruc_cliente_new" length="45" />
+        </property>
+        <property name="dniClienteNew" type="string">
+            <column name="dni_cliente_new" length="45" />
+        </property>
+        <property name="fechaEmpadronamientoClienteNew" type="timestamp">
+            <column name="fecha_empadronamiento_cliente_new" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

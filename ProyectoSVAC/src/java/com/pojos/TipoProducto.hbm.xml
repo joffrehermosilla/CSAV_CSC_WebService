@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.TipoProducto" table="tipo_producto" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoTipoProducto" type="java.lang.Integer">
+            <column name="codigo_tipo_producto" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreTipoProducto" type="string">
+            <column name="nombre_tipo_producto" length="45" />
+        </property>
+        <property name="tiempoenhornoTipoProducto" type="java.lang.Float">
+            <column name="tiempoenhorno_tipo_producto" precision="12" scale="0" />
+        </property>
+        <property name="temperaturaenhornoTipoProducto" type="java.lang.Float">
+            <column name="temperaturaenhorno_tipo_producto" precision="12" scale="0" />
+        </property>
+        <property name="fotoTipoProducto" type="binary">
+            <column name="foto_tipo_producto" />
+        </property>
+        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_tipo_producto" />
+            </key>
+            <one-to-many class="com.pojos.Producto" />
+        </set>
+    </class>
+</hibernate-mapping>

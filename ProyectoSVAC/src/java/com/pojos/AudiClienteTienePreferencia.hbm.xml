@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiClienteTienePreferencia" table="audi_cliente_tiene_preferencia" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiClienteTienePedido" type="java.lang.Integer">
+            <column name="codigo_audi_cliente_tiene_pedido" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="fkcodigoClienteOld" type="java.lang.Integer">
+            <column name="fkcodigo_cliente_old" />
+        </property>
+        <property name="fkcodigoProductoOld" type="java.lang.Integer">
+            <column name="fkcodigo_producto_old" />
+        </property>
+        <property name="fechaVotoPreferenciaOld" type="timestamp">
+            <column name="fecha_voto_preferencia_old" length="19" />
+        </property>
+        <property name="cantidadPuntosOld" type="java.lang.Integer">
+            <column name="cantidad_puntos_old" />
+        </property>
+        <property name="fkcodigoClienteNew" type="java.lang.Integer">
+            <column name="fkcodigo_cliente_new" />
+        </property>
+        <property name="fkcodigoProductoNew" type="java.lang.Integer">
+            <column name="fkcodigo_producto_new" />
+        </property>
+        <property name="fechaVotoPreferenciaNew" type="timestamp">
+            <column name="fecha_voto_preferencia_new" length="19" />
+        </property>
+        <property name="cantidadPuntosNew" type="java.lang.Integer">
+            <column name="cantidad_puntos_new" />
+        </property>
+    </class>
+</hibernate-mapping>

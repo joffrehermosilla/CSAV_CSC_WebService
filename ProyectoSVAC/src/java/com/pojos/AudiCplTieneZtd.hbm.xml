@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiCplTieneZtd" table="audi_cpl_tiene_ztd" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiCplTieneZtd" type="java.lang.Integer">
+            <column name="codigo_audi_cpl_tiene_ztd" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="fkcodigoCuotaPorLineaOld" type="java.lang.Integer">
+            <column name="fkcodigo_cuota_por_linea_old" />
+        </property>
+        <property name="fkcodigoZonaTieneDistritoOld" type="java.lang.Integer">
+            <column name="fkcodigo_zona_tiene_distrito_old" />
+        </property>
+        <property name="cuotaAsignadaOld" type="java.lang.Float">
+            <column name="cuota_asignada_old" precision="12" scale="0" />
+        </property>
+        <property name="cuotaRealizadaOld" type="java.lang.Float">
+            <column name="cuota_realizada_old" precision="12" scale="0" />
+        </property>
+        <property name="fkcodigoCuotaPorLineaNew" type="java.lang.Integer">
+            <column name="fkcodigo_cuota_por_linea_new" />
+        </property>
+        <property name="fkcodigoZonaTieneDistritoNew" type="java.lang.Integer">
+            <column name="fkcodigo_zona_tiene_distrito_new" />
+        </property>
+        <property name="cuotaAsignadaNew" type="java.lang.Float">
+            <column name="cuota_asignada_new" precision="12" scale="0" />
+        </property>
+        <property name="cuotaRealizadaNew" type="java.lang.Float">
+            <column name="cuota_realizada_new" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

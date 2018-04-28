@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Cliente" table="cliente" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoCliente" type="java.lang.Integer">
+            <column name="codigo_cliente" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estadoCliente" class="com.pojos.EstadoCliente" fetch="select">
+            <column name="fkcodigo_estado_cliente" />
+        </many-to-one>
+        <many-to-one name="regimenCliente" class="com.pojos.RegimenCliente" fetch="select">
+            <column name="fkcodigo_regimen_cliente" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.pojos.Usuario" fetch="select">
+            <column name="fkcodigo_usuario" />
+        </many-to-one>
+        <property name="razonsocialCliente" type="string">
+            <column name="razonsocial_cliente" length="45" />
+        </property>
+        <property name="latitudCliente" type="java.lang.Float">
+            <column name="latitud_cliente" precision="12" scale="0" />
+        </property>
+        <property name="longitudCliente" type="java.lang.Float">
+            <column name="longitud_cliente" precision="12" scale="0" />
+        </property>
+        <property name="typeCliente" type="string">
+            <column name="type_cliente" length="45" />
+        </property>
+        <property name="fotoUbicacionCliente" type="binary">
+            <column name="foto_ubicacion_cliente" />
+        </property>
+        <property name="rucCliente" type="string">
+            <column name="ruc_cliente" length="45" />
+        </property>
+        <property name="dniCliente" type="string">
+            <column name="dni_cliente" length="45" />
+        </property>
+        <property name="fechaEmpadronamientoCliente" type="timestamp">
+            <column name="fecha_empadronamiento_cliente" length="19" />
+        </property>
+        <set name="clienteTienePedidos" table="cliente_tiene_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_cliente" />
+            </key>
+            <one-to-many class="com.pojos.ClienteTienePedido" />
+        </set>
+        <set name="clienteTienePreferencias" table="cliente_tiene_preferencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_cliente" />
+            </key>
+            <one-to-many class="com.pojos.ClienteTienePreferencia" />
+        </set>
+    </class>
+</hibernate-mapping>

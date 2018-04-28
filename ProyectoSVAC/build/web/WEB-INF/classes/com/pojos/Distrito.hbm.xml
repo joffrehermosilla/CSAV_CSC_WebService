@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Distrito" table="distrito" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoDistrito" type="java.lang.Integer">
+            <column name="codigo_distrito" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="ciudad" class="com.pojos.Ciudad" fetch="select">
+            <column name="fkcodigo_ciudad" />
+        </many-to-one>
+        <property name="nombreDistrito" type="string">
+            <column name="nombre_distrito" length="20" />
+        </property>
+        <set name="zonaTieneDistritos" table="zona_tiene_distrito" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_distrito" />
+            </key>
+            <one-to-many class="com.pojos.ZonaTieneDistrito" />
+        </set>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_distrito" />
+            </key>
+            <one-to-many class="com.pojos.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

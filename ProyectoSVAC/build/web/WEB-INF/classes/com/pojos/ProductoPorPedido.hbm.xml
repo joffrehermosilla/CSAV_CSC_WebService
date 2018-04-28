@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.ProductoPorPedido" table="producto_por_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoProductoPorPedido" type="java.lang.Integer">
+            <column name="codigo_producto_por_pedido" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clienteTienePedido" class="com.pojos.ClienteTienePedido" fetch="select">
+            <column name="fkcodigo_pedido_web" />
+        </many-to-one>
+        <many-to-one name="producto" class="com.pojos.Producto" fetch="select">
+            <column name="fkcodigo_producto" />
+        </many-to-one>
+        <property name="descuentoPromocion" type="java.lang.Float">
+            <column name="descuento_promocion" precision="12" scale="0" />
+        </property>
+        <property name="valorNeto" type="java.lang.Float">
+            <column name="valor_neto" precision="12" scale="0" />
+        </property>
+        <property name="valorConIgv" type="java.lang.Float">
+            <column name="valor_con_igv" precision="12" scale="0" />
+        </property>
+        <property name="cantidadProducto" type="java.lang.Integer">
+            <column name="cantidad_producto" />
+        </property>
+    </class>
+</hibernate-mapping>

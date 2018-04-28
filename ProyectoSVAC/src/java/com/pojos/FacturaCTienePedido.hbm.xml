@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.FacturaCTienePedido" table="factura_c_tiene_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoFacturaClienteTienePedido" type="java.lang.Integer">
+            <column name="codigo_factura_cliente_tiene_pedido" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreFacturaClienteTienePedido" type="string">
+            <column name="nombre_factura_cliente_tiene_pedido" length="45" />
+        </property>
+        <set name="clienteTienePedidos" table="cliente_tiene_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_factura_cliente_tiene_pedido" />
+            </key>
+            <one-to-many class="com.pojos.ClienteTienePedido" />
+        </set>
+    </class>
+</hibernate-mapping>
