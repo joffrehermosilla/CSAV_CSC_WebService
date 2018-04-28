@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.TipoImpuesto" table="tipo_impuesto" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoTipoImpuesto" type="java.lang.Integer">
+            <column name="codigo_tipo_impuesto" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreTipoImpuesto" type="string">
+            <column name="nombre_tipo_impuesto" length="45" />
+        </property>
+        <property name="porcentajeTipoImpuesto" type="java.lang.Float">
+            <column name="porcentaje_tipo_impuesto" precision="12" scale="0" />
+        </property>
+        <set name="igvVentas" table="igv_venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_tipo_impuesto" />
+            </key>
+            <one-to-many class="com.pojos.IgvVenta" />
+        </set>
+    </class>
+</hibernate-mapping>

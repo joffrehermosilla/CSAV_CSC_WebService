@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Area" table="area" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoArea" type="java.lang.Integer">
+            <column name="codigo_area" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreArea" type="string">
+            <column name="nombre_area" length="30" />
+        </property>
+        <set name="vendedors" table="vendedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_area" />
+            </key>
+            <one-to-many class="com.pojos.Vendedor" />
+        </set>
+    </class>
+</hibernate-mapping>

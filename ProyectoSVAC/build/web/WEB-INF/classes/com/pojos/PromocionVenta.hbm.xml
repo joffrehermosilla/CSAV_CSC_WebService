@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.PromocionVenta" table="promocion_venta" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoPromocionVenta" type="java.lang.Integer">
+            <column name="codigo_promocion_venta" />
+            <generator class="identity" />
+        </id>
+        <property name="cantidadSkuPedido" type="java.lang.Integer">
+            <column name="cantidad_sku_pedido" />
+        </property>
+        <property name="descuentoSkuPedido" type="java.lang.Float">
+            <column name="descuento_sku_pedido" precision="12" scale="0" />
+        </property>
+        <property name="fechaInicioPromocion" type="timestamp">
+            <column name="fecha_inicio_promocion" length="19" />
+        </property>
+        <property name="fechaExpiracionPromocion" type="timestamp">
+            <column name="fecha_expiracion_promocion" length="19" />
+        </property>
+        <property name="descripcionPromocion" type="string">
+            <column name="descripcion_promocion" length="100" />
+        </property>
+        <set name="clienteTienePedidos" table="cliente_tiene_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_promocion_venta" />
+            </key>
+            <one-to-many class="com.pojos.ClienteTienePedido" />
+        </set>
+    </class>
+</hibernate-mapping>

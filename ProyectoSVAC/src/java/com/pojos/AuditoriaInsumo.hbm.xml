@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AuditoriaInsumo" table="auditoria_insumo" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiInsumo" type="java.lang.Integer">
+            <column name="codigo_audi_insumo" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="nombreInsumoOld" type="string">
+            <column name="nombre_insumo_old" length="45" />
+        </property>
+        <property name="marcaInsumoOld" type="string">
+            <column name="marca_insumo_old" length="45" />
+        </property>
+        <property name="fechaIngresoInsumoOld" type="timestamp">
+            <column name="fecha_ingreso_insumo_old" length="19" />
+        </property>
+        <property name="pesoInsumoOld" type="java.lang.Float">
+            <column name="peso_insumo_old" precision="12" scale="0" />
+        </property>
+        <property name="presentacionInsumoOld" type="string">
+            <column name="presentacion_insumo_old" length="45" />
+        </property>
+        <property name="precioUnitarioInsumoOld" type="java.lang.Float">
+            <column name="precio_unitario_insumo_old" precision="12" scale="0" />
+        </property>
+        <property name="nombreInsumoNew" type="string">
+            <column name="nombre_insumo_new" length="45" />
+        </property>
+        <property name="marcaInsumoNew" type="string">
+            <column name="marca_insumo_new" length="45" />
+        </property>
+        <property name="fechaIngresoInsumoNew" type="timestamp">
+            <column name="fecha_ingreso_insumo_new" length="19" />
+        </property>
+        <property name="pesoInsumoNew" type="java.lang.Float">
+            <column name="peso_insumo_new" precision="12" scale="0" />
+        </property>
+        <property name="presentacionInsumoNew" type="string">
+            <column name="presentacion_insumo_new" length="45" />
+        </property>
+        <property name="precioUnitarioInsumoNew" type="java.lang.Float">
+            <column name="precio_unitario_insumo_new" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

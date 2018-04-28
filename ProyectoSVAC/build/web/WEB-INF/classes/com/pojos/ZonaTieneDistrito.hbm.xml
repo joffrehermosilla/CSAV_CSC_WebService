@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.ZonaTieneDistrito" table="zona_tiene_distrito" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoZonaTieneDistrito" type="java.lang.Integer">
+            <column name="codigo_zona_tiene_distrito" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="distrito" class="com.pojos.Distrito" fetch="select">
+            <column name="fkcodigo_distrito" />
+        </many-to-one>
+        <many-to-one name="zona" class="com.pojos.Zona" fetch="select">
+            <column name="fkcodigo_zona" />
+        </many-to-one>
+        <set name="cplTieneZtds" table="cpl_tiene_ztd" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_zona_tiene_distrito" />
+            </key>
+            <one-to-many class="com.pojos.CplTieneZtd" />
+        </set>
+    </class>
+</hibernate-mapping>

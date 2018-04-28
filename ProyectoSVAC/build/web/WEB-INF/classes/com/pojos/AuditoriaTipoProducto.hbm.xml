@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AuditoriaTipoProducto" table="auditoria_tipo_producto" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiTipoProducto" type="java.lang.Integer">
+            <column name="codigo_audi_tipo_producto" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="nombreTipoProductoOld" type="string">
+            <column name="nombre_tipo_producto_old" length="45" />
+        </property>
+        <property name="tiempoenhornoTipoProductoOld" type="java.lang.Float">
+            <column name="tiempoenhorno_tipo_producto_old" precision="12" scale="0" />
+        </property>
+        <property name="temperaturaenhornoTipoProductoOld" type="java.lang.Float">
+            <column name="temperaturaenhorno_tipo_producto_old" precision="12" scale="0" />
+        </property>
+        <property name="fotoTipoProductoOld" type="binary">
+            <column name="foto_tipo_producto_old" />
+        </property>
+        <property name="nombreTipoProductoNew" type="string">
+            <column name="nombre_tipo_producto_new" length="45" />
+        </property>
+        <property name="tiempoenhornoTipoProductoNew" type="java.lang.Float">
+            <column name="tiempoenhorno_tipo_producto_new" precision="12" scale="0" />
+        </property>
+        <property name="temperaturaenhornoTipoProductoNew" type="java.lang.Float">
+            <column name="temperaturaenhorno_tipo_producto_new" precision="12" scale="0" />
+        </property>
+        <property name="fotoTipoProductoNew" type="binary">
+            <column name="foto_tipo_producto_new" />
+        </property>
+    </class>
+</hibernate-mapping>

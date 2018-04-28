@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.ClienteTienePedido" table="cliente_tiene_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoPedidoWeb" type="java.lang.Integer">
+            <column name="codigo_pedido_web" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="com.pojos.Cliente" fetch="select">
+            <column name="fkcodigo_cliente" />
+        </many-to-one>
+        <many-to-one name="estadoClienteTienePedido" class="com.pojos.EstadoClienteTienePedido" fetch="select">
+            <column name="fkcodigo_estado_cliente_tiene_pedido" />
+        </many-to-one>
+        <many-to-one name="facturaCTienePedido" class="com.pojos.FacturaCTienePedido" fetch="select">
+            <column name="fkcodigo_factura_cliente_tiene_pedido" />
+        </many-to-one>
+        <many-to-one name="igvVenta" class="com.pojos.IgvVenta" fetch="select">
+            <column name="fkcodigo_igv_venta" />
+        </many-to-one>
+        <many-to-one name="promocionVenta" class="com.pojos.PromocionVenta" fetch="select">
+            <column name="fkcodigo_promocion_venta" />
+        </many-to-one>
+        <many-to-one name="vendedor" class="com.pojos.Vendedor" fetch="select">
+            <column name="fkcodigo_vendedor" />
+        </many-to-one>
+        <property name="descuentoWebPedido" type="java.lang.Float">
+            <column name="descuento_web_pedido" precision="12" scale="0" />
+        </property>
+        <property name="precioUniDescIgv" type="java.lang.Float">
+            <column name="precio_uni_desc_igv" precision="12" scale="0" />
+        </property>
+        <property name="precioUniDescSinIgv" type="java.lang.Float">
+            <column name="precio_uni_desc_sin_igv" precision="12" scale="0" />
+        </property>
+        <property name="fechaPedido" type="timestamp">
+            <column name="fecha_pedido" length="19" />
+        </property>
+        <property name="fechaEntrega" type="timestamp">
+            <column name="fecha_entrega" length="19" />
+        </property>
+        <property name="cantidadProducto" type="java.lang.Integer">
+            <column name="cantidad_producto" />
+        </property>
+        <property name="montoPorDescuentos" type="java.lang.Float">
+            <column name="monto_por_descuentos" precision="12" scale="0" />
+        </property>
+        <set name="productoPorPedidos" table="producto_por_pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fkcodigo_pedido_web" />
+            </key>
+            <one-to-many class="com.pojos.ProductoPorPedido" />
+        </set>
+    </class>
+</hibernate-mapping>

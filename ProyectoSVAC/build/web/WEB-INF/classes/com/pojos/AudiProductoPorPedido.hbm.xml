@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiProductoPorPedido" table="audi_producto_por_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiProductoPorPedido" type="java.lang.Integer">
+            <column name="codigo_audi_producto_por_pedido" />
+            <generator class="identity" />
+        </id>
+        <property name="fkcodigoPedidoWebOld" type="java.lang.Integer">
+            <column name="fkcodigo_pedido_web_old" />
+        </property>
+        <property name="fkcodigoProductoOld" type="java.lang.Integer">
+            <column name="fkcodigo_producto_old" />
+        </property>
+        <property name="descuentoPromocionOld" type="java.lang.Float">
+            <column name="descuento_promocion_old" precision="12" scale="0" />
+        </property>
+        <property name="valorNetoOld" type="java.lang.Float">
+            <column name="valor_neto_old" precision="12" scale="0" />
+        </property>
+        <property name="valorConIgvOld" type="java.lang.Float">
+            <column name="valor_con_igv_old" precision="12" scale="0" />
+        </property>
+        <property name="cantidadProductoOld" type="java.lang.Integer">
+            <column name="cantidad_producto_old" />
+        </property>
+        <property name="fkcodigoPedidoWebNew" type="java.lang.Integer">
+            <column name="fkcodigo_pedido_web_new" />
+        </property>
+        <property name="fkcodigoProductoNew" type="java.lang.Integer">
+            <column name="fkcodigo_producto_new" />
+        </property>
+        <property name="descuentoPromocionNew" type="java.lang.Float">
+            <column name="descuento_promocion_new" precision="12" scale="0" />
+        </property>
+        <property name="valorNetoNew" type="java.lang.Float">
+            <column name="valor_neto_new" precision="12" scale="0" />
+        </property>
+        <property name="valorConIgvNew" type="java.lang.Float">
+            <column name="valor_con_igv_new" precision="12" scale="0" />
+        </property>
+        <property name="cantidadProductoNew" type="java.lang.Integer">
+            <column name="cantidad_producto_new" />
+        </property>
+    </class>
+</hibernate-mapping>
