@@ -8,7 +8,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a data-toggle="modal" data-target=".loginModal" href="#">Crear una cuenta</a></li>
+                <li><a href="#">Crear una cuenta</a></li>
                 <li><a data-toggle="modal" data-target=".loginModal" href="#">Iniciar Sesion</a></li>
             </ul>
         </div>

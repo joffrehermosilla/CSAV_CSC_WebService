@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster" />
         <link href="http://localhost:8084/ProyectoSVAC/resources/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://localhost:8084/ProyectoSVAC/resources/css-views/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="http://localhost:8084/ProyectoSVAC/resources/css-views/fontawesome-stars.css" rel="stylesheet" type="text/css"/>
         <link href="http://localhost:8084/ProyectoSVAC/resources/css-views/select/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js-views/select/bootstrap-select.min.js" type="text/javascript"></script>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js-views/jquery.barrating.min.js" type="text/javascript"></script>
