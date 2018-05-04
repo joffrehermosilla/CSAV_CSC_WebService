@@ -6,7 +6,7 @@
         
         <%@include file="navBarAdmin.jsp"%>
         
-        <div class="container-fluid" style="padding-bottom: 35px;">
+        <div class="container-fluid" style="padding-bottom: 30px; padding-top: 5px;">
             <div class="row">
                 <div class="col-lg-3">&nbsp;</div>
                 <div class="col-lg-6">
@@ -33,7 +33,7 @@
                     <div class="col-lg-10">
                         <div class="tab-content">
 
-                            <div class="tab-pane fade in active" id="productosN" ng-init="getProducto()">
+                            <div class="tab-pane fade in active" id="productosN">
                                 <table class="table table-striped" style="font-size: 15px;">
                                     <tr>
                                         <th>Código</th>
@@ -41,18 +41,20 @@
                                         <th>Calificacion</th>
                                         <th>Ingreso</th>
                                         <th>Salida</th>
-                                        <th>Cantidad Pedido</th>
+                                        <th>Cantidad (unidad)</th>
                                         <th>Vista Previa</th>
                                     </tr>
                                     <!--{{personaUsuario.nombrePersona}}-->
                                     <tr ng-repeat="producto in ProductoList">
                                         <td>{{producto.codigo_producto}}</td>
                                         <td>{{producto.nombre_producto}}</td>
-                                        <td>{{producto.nombrePersona}}</td>
+                                        <td>
+                                            <input type="text" value="{{producto.promedioPuntaje}}" name="cRatingBar" id="idPuntaje" readonly="true" style="width: 35px;">
+                                        </td>
                                         <td>{{producto.ingreso_almacen_producto}}</td>
                                         <td>{{producto.salida_almacen_producto}}</td>
-                                        <td>{{producto.stock_producto}}</td>
-                                        <td><button class="btn btn-danger" data-ng-click="eliminar($event)" value="{{personaUsuario.idPersona}}" > Eliminar </button></td>
+                                        <td>{{producto.cantidadUnidad}}</td>
+                                        <td><button class="btn btn-info" value="{{producto.codigo_producto}}" > Ver </button></td>
                                     </tr>
                                 </table>
                             </div>
@@ -66,17 +68,8 @@
                                                     <span style="color: #FCFFFF; font-weight: 600;">VENDEDORES</span>
                                                </div>
                                                <div class="list-group" style="overflow-y: scroll; height: 400px; background-color: #bed2c9;" id="list-tab" role="tablist">
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Home</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Profile</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Messages</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
-                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" >Settings</a>
+                                                   <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" 
+                                                      ng-repeat="vendedor in VendedorList" ng-click="getNombreVendedor()"><input type="hidden" ng-model="idVendedor" value="{{vendedor.codigo_vendedor}}">{{vendedor.codigo_venta_vendedor}}</a>
                                                </div>
                                             </div>
                                         </div>
@@ -86,44 +79,42 @@
                                                     <section id="seccionReporte" style="padding-bottom: 12px;">
                                                         <table style="width:100%; border: none; font-size: 15px;">
                                                             <tr style="height: 50px;">
-                                                              <th style="width: 130px;">VENDEDOR:</th>
-                                                              <td style="width: 170px;">Bill Gates</td>
-                                                              <th style="width: 300px;"><span>Seleccione el reporte según su código:</span></th>
-                                                              <td>
-                                                                <select class="selectpicker" style="margin-left: 15px;" data-width="fit">
-                                                                    <option>Mustard</option>
-                                                                    <option>Ketchup</option>
-                                                                    <option>Relish</option>
-                                                                </select>
-                                                              </td>
+                                                                <th style="width: 110px;">VENDEDOR:</th>
+                                                                <td style="width: 135px;" ng-repeat="nombVen in NombreVendedor">{{nombVen.nombre_usuario}} {{nombVen.apellido_usuario}}</td>
+                                                                <th style="width: 300px;"><span>Seleccione el reporte según su código:</span></th>
+                                                                <td>
+                                                                    <select id="selReporte" class="form-control" ng-change="getDatosGeneral()" ng-model="modReporte">
+                                                                        <option ng-repeat="reporte in CodigoReporte" value="{{reporte.codigo_pedido_web}}">{{reporte.codigo_reporte}}</option>
+                                                                    </select>
+                                                                </td>
                                                             </tr>
                                                         </table>
                                                     </section>
                                                     <section id="seccionDatosGenerales" class="sectionPadding">
-                                                        <h5 style="font-weight: bold;">DATOS GENERALES:</h5>
+                                                        <h5 style="font-weight: bold;">DATOS GENERALES</h5>
                                                         <table style="width:100%; border: none; font-size: 15px;">
                                                             <tr style="height: 50px;">
                                                               <th style="width: 170px;">Nombre del cliente:</th>
-                                                              <td>Bill Gates</td>
+                                                              <td>{{DatosGenerales.nombreCompleto}}</td>
                                                               <th style="width: 120px;">Monto Total:</th>
-                                                              <td>aaaaaa</td>
+                                                              <td>{{DatosGenerales.precio_uni_desc_igv}}</td>
                                                             </tr>
                                                             <tr style="height: 50px;">
                                                               <th>Fecha del pedido:</th>
-                                                              <td>20/10/18</td>
+                                                              <td>{{DatosGenerales.fecha_pedido}}</td>
                                                               <th>IGV</th>
-                                                              <td>awdwadawdwa</td>
+                                                              <td>{{DatosGenerales.porcentaje_igv_venta}}</td>
                                                             </tr>
                                                             <tr style="height: 50px;">
                                                               <th>Ubicación:</th>
-                                                              <td>awdadwadddddddddddddwdwdw dw dwdawdawdawd awdawdawdwa dawdawdaw</td>
+                                                              <td style="width: 300px;">{{DatosGenerales.direccion_usuario}}</td>
                                                               <th>Monto sin IGV:</th>
-                                                              <td>awdwad</td>
+                                                              <td>{{DatosGenerales.precio_uni_desc_sin_igv}}</td>
                                                             </tr>
                                                         </table>
                                                     </section>
-                                                    <section id="seccionPedido" class="sectionPadding" ng-init="getPedidoReporte()">
-                                                        <h5 style="font-weight: bold;">LISTADO DEL PEDIDO:</h5>
+                                                    <section id="seccionPedido" class="sectionPadding">
+                                                        <h5 style="font-weight: bold;">LISTADO DEL PEDIDO</h5>
                                                         <table class="table table-striped" style="font-size: 15px;">
                                                             <tr>
                                                                 <th>Código</th>
@@ -133,12 +124,12 @@
                                                                 <th>Vista Previa</th>
                                                             </tr>
                                                             <!--{{personaUsuario.nombrePersona}}-->
-                                                            <tr ng-repeat="pedido in PedidoList">
+                                                            <tr ng-repeat="pedido in pedidoCliente">
                                                                 <td>{{pedido.codigo_producto}}</td>
                                                                 <td>{{pedido.nombre_producto}}</td>
-                                                                <td>{{pedido.stock_producto}}</td>
-                                                                <td>{{pedido.colores_producto}}</td>
-                                                                <td><button class="btn btn-danger"> Ver </button></td>
+                                                                <td>{{pedido.valor_neto}}</td>
+                                                                <td>{{pedido.cantidadProductoPed}}</td>
+                                                                <td><button class="btn btn-info" value="{{pedido.codigo_pedido_web}}"> Ver </button></td>
                                                             </tr>
                                                         </table>
                                                     </section>
@@ -150,72 +141,59 @@
                             </div>
 
                             <div class="tab-pane fade" id="catalogoN">
-                                <div class="row">
-                                    <div class="col-lg-1">&nbsp;</div>
-                                    <div class="col-lg-10">
-                                        <div style="padding-left: 65px;">
-                                            <h5 style="font-weight: bold;">Filtre su busqueda segun:</h5>
-                                            <table style="width:100%; border: none; font-size: 15px;">
-                                                <tr style="height: 35px;">
-                                                  <th style="width: 170px;">Tipo de Producto:</th>
-                                                  <td>
-                                                    <select class="selectpicker" style="margin-left: 15px;">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
-                                                    </select>
-                                                  </td>
-                                                  <th style="width: 120px;">Nombre del Producto:</th>
-                                                  <td>
-                                                    <select class="selectpicker" style="margin-left: 15px;">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
-                                                    </select>
-                                                  </td>
-                                                  <th style="width: 120px;">Rango del Precio:</th>
-                                                  <td>
-                                                    <select class="selectpicker" style="margin-left: 15px;">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
-                                                    </select>
-                                                  </td>
-                                                </tr>
-                                                <tr style="height: 35px;">
-                                                  <th>Puntuación:</th>
-                                                  <td>
-                                                    <select class="selectpicker" style="margin-left: 15px;">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
-                                                    </select>
-                                                  </td>
-                                                  <th>Cantidad (Stock):</th>
-                                                  <td>
-                                                    <select class="selectpicker" style="margin-left: 15px;">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
-                                                    </select>
-                                                  </td>
-                                                  <th style="width: 120px;">Fecha:</th>
-                                                  <td>
-                                                    <select class="selectpicker" style="margin-left: 15px;">
-                                                        <option>Mustard</option>
-                                                        <option>Ketchup</option>
-                                                        <option>Relish</option>
-                                                    </select>
-                                                  </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1">&nbsp;</div>
-                                </div>
-
+                                <h5 style="font-weight: bold;">FILTRE SU BÚSQUEDA SEGÚN</h5>
+                                <%@include file="filtrosCatAdmin.jsp"%>
+                                <hr>
+                                <ul class="nav nav-pills pull-right" style="padding-top: 12px; padding-bottom: 12px;">
+                                    <li role="presentation" class="active" style="padding-right: 10px;">
+                                        <button type="submit" class="btn btn-group btn-warning" 
+                                                ng-click="actualizaCatalogo()"><span class="fa fa-book" aria-hidden="true"></span>&nbsp;&nbsp;Actualiza Catalogo</button>
+                                    </li>
+                                    <li role="presentation" style="padding-right: 10px;">
+                                        <button type="submit" class="btn btn-group btn-success" data-toggle="modal" data-target="#modalAgregaArticulo">
+                                            <span class="fa fa-check-square-o" aria-hidden="true"></span>&nbsp;&nbsp;Agregar Artículo</button>
+                                    </li>
+                                    <li role="presentation">
+                                        <button class="btn btn-group btn-default"><span class="fa fa-plus-square" aria-hidden="true"></span>&nbsp;&nbsp;Generar Cuota</button>
+                                    </li>
+                                </ul>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Nombre Producto</th>
+                                        <th>Tipo Producto</th>
+                                        <th>Tiempo en horno</th>
+                                        <th>Temperatura en horno</th>
+                                        <th>Valor Neto</th>
+                                        <th>Valor con IGV</th>
+                                        <th>Preparación</th>
+                                        <th>Colores</th>
+                                        <th>Insumo</th>
+                                        <th>Modelo Receta</th>
+                                        <th>Imagen</th>
+                                        <th>Cantidad Mas Pedido</th>
+                                        <th>Puntaje Total</th>
+                                        <th>Quitar Artículo</th>
+                                    </tr>
+                                    <tr ng-repeat="cat in Catalogo">
+                                        <td>{{cat.cat_nombre_producto}}</td>
+                                        <td>{{cat.cat_nombre_tipo_producto}}</td>
+                                        <td>{{cat.cat_tiempoenhorno_tipo_producto}}</td>
+                                        <td>{{cat.cat_temperaturaenhorno_tipo_producto}}</td>
+                                        <td>{{cat.cat_valor_neto}}</td>
+                                        <td>{{cat.cat_valor_con_igv}}</td>
+                                        <td>{{cat.cat_preparacion_producto}}</td>
+                                        <td>{{cat.cat_colores_producto}}</td>
+                                        <td>{{cat.cat_nombre_insumo}}</td>
+                                        <td>{{cat.cat_modelo_receta_producto}}</td>
+                                        <td>{{cat.cat_foto_producto}}</td>
+                                        <td>{{cat.cantidadMasPedido}}</td>
+                                        <td>{{cat.promedioTotalProd}}</td>
+                                        <td><button class="btn btn-danger" data-ng-click="quitarArticulo($event)" value="{{cat.cat_codigo_producto}}">
+                                                <span class="fa fa-trash-o" aria-hidden="true"></span>&nbsp;&nbsp;Quitar</button></td>
+                                    </tr>
+                                </table>
                             </div>
-
+                                
                         </div>
                     </div>
                     <div class="col-lg-1">&nbsp;</div>
@@ -223,7 +201,33 @@
             </div>
         </div>
         
-
+        <div id="modalAgregaArticulo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="background-color: #eeeeee;border-color: #4c4f53; border-style: solid;">
+                        <form id="agregaArticulo">
+                            <div style="padding: 30px 30px 20px 30px;">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <p>Articulos quitados del catalogo:</p>
+                                        <select class="form-control" ng-model="articuloSacado">
+                                            <option ng-repeat="arti in ArticulosSacados" value="{{arti.cat_codigo_producto}}">{{arti.cat_nombre_producto}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1" style="text-align: center;">
+                                        <div style="border-left:1px solid #c5c5c5;height:120px;"></div>
+                                    </div>
+                                    <div class="col-lg-5" style="text-align: center;">
+                                        <button class="btn btn-success" style="margin-top: 30px; height: 50px;" ng-click="agregaArticulo()">
+                                            <span class="fa fa-check-square-o" aria-hidden="true"></span>&nbsp;&nbsp;Añadir al catalogo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </body>
 </html>

@@ -1,9 +1,8 @@
 package DTO;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
-public class ProductoListaDTO {
+public class ProductoxClienteDTO {
     
     int codigo_producto;
     String nombre_producto;
@@ -19,6 +18,18 @@ public class ProductoListaDTO {
     int fkcodigo_linea;
     int fkcodigo_tipo_producto;
     int fkcodigo_estado_producto;
+    
+    int codigo_usuario;
+    String nombre_usuario;
+    String apellido_usuario;
+    Date fecha_nacimiento_usuario;
+    String direccion_usuario;
+    String nombre_logeo_usuario;
+    String password_usuario;
+    Byte[] foto_usuario;
+    int fkcodigo_distrito;
+    int fkcodigo_tipo_usuario;
+    int fkcodigo_estado_usuario;
     
     int codigo_cliente;
     String razonsocial_cliente;
@@ -38,9 +49,6 @@ public class ProductoListaDTO {
     int fkcodigo_producto;
     Date fecha_voto_preferencia;
     float cantidad_puntos;
-
-    double promedioPuntaje;
-    BigDecimal cantidadUnidad;
 
     public int getCodigo_producto() {
         return codigo_producto;
@@ -152,6 +160,94 @@ public class ProductoListaDTO {
 
     public void setFkcodigo_estado_producto(int fkcodigo_estado_producto) {
         this.fkcodigo_estado_producto = fkcodigo_estado_producto;
+    }
+
+    public int getCodigo_usuario() {
+        return codigo_usuario;
+    }
+
+    public void setCodigo_usuario(int codigo_usuario) {
+        this.codigo_usuario = codigo_usuario;
+    }
+
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
+    }
+
+    public String getApellido_usuario() {
+        return apellido_usuario;
+    }
+
+    public void setApellido_usuario(String apellido_usuario) {
+        this.apellido_usuario = apellido_usuario;
+    }
+
+    public Date getFecha_nacimiento_usuario() {
+        return fecha_nacimiento_usuario;
+    }
+
+    public void setFecha_nacimiento_usuario(Date fecha_nacimiento_usuario) {
+        this.fecha_nacimiento_usuario = fecha_nacimiento_usuario;
+    }
+
+    public String getDireccion_usuario() {
+        return direccion_usuario;
+    }
+
+    public void setDireccion_usuario(String direccion_usuario) {
+        this.direccion_usuario = direccion_usuario;
+    }
+
+    public String getNombre_logeo_usuario() {
+        return nombre_logeo_usuario;
+    }
+
+    public void setNombre_logeo_usuario(String nombre_logeo_usuario) {
+        this.nombre_logeo_usuario = nombre_logeo_usuario;
+    }
+
+    public String getPassword_usuario() {
+        return password_usuario;
+    }
+
+    public void setPassword_usuario(String password_usuario) {
+        this.password_usuario = password_usuario;
+    }
+
+    public Byte[] getFoto_usuario() {
+        return foto_usuario;
+    }
+
+    public void setFoto_usuario(Byte[] foto_usuario) {
+        this.foto_usuario = foto_usuario;
+    }
+
+    public int getFkcodigo_distrito() {
+        return fkcodigo_distrito;
+    }
+
+    public void setFkcodigo_distrito(int fkcodigo_distrito) {
+        this.fkcodigo_distrito = fkcodigo_distrito;
+    }
+
+    public int getFkcodigo_tipo_usuario() {
+        return fkcodigo_tipo_usuario;
+    }
+
+    public void setFkcodigo_tipo_usuario(int fkcodigo_tipo_usuario) {
+        this.fkcodigo_tipo_usuario = fkcodigo_tipo_usuario;
+    }
+
+    public int getFkcodigo_estado_usuario() {
+        return fkcodigo_estado_usuario;
+    }
+
+    public void setFkcodigo_estado_usuario(int fkcodigo_estado_usuario) {
+        this.fkcodigo_estado_usuario = fkcodigo_estado_usuario;
     }
 
     public int getCodigo_cliente() {
@@ -289,23 +385,8 @@ public class ProductoListaDTO {
     public void setCantidad_puntos(float cantidad_puntos) {
         this.cantidad_puntos = cantidad_puntos;
     }
-
-    public double getPromedioPuntaje() {
-        return promedioPuntaje;
-    }
-
-    public void setPromedioPuntaje(double promedioPuntaje) {
-        this.promedioPuntaje = promedioPuntaje;
-    }
-
-    public BigDecimal getCantidadUnidad() {
-        return cantidadUnidad;
-    }
-
-    public void setCantidadUnidad(BigDecimal cantidadUnidad) {
-        this.cantidadUnidad = cantidadUnidad;
-    }
-
     
-
+    
+    
+    
 }

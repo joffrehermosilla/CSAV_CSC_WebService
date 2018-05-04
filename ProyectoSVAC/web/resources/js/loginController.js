@@ -15,11 +15,15 @@ app.controller("loginCtrl", function($scope, $http, $window) {
             //Aqui estoy recogiendo el idUsuario en sesion
             sessionStorage.setItem('idUsuarioLogged', response.data.codigo_usuario);
             sessionStorage.setItem('fkidTipoUsuario', response.data.fkcodigo_tipo_usuario);
-            alert("idUsuario: "+sessionStorage.getItem('idUsuarioLogged')+"\ntipoUsuario: "+sessionStorage.getItem('fkidTipoUsuario'));
-            $window.location.href = 'http://localhost:8084/ProyectoSVAC/resources/views/gestionCatalogo.jsp';
-            
+            //Direccionamiento segun tipo de usuario
+            if(sessionStorage.getItem("fkidTipoUsuario") === "1") {
+                $window.location.href = 'http://localhost:8084/ProyectoSVAC/resources/views/gestionCatalogo.jsp';
+            }
+            if(sessionStorage.getItem("fkidTipoUsuario") === "4") {
+                $window.location.href = 'http://localhost:8084/ProyectoSVAC/resources/views/gestionPreferencia.jsp';
+            }
         }, function errorCallback(response) {
-            alert("No existe tal usuario");
+            alert("Nombre de usuario o password incorrecto");
         });
     };
 });
