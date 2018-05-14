@@ -45,29 +45,29 @@ app.controller("preferenciaCtrl", function($scope, $http, $window) {
     
     $scope.setCodigoProducto = function(event) {
         var idProductoCalif = event.target.value;
-        localStorage.clear();
-        localStorage.setItem("idProductoCalif", idProductoCalif);
+
+        $scope.calificar = function() {
+            var codigoUsuario = sessionStorage.getItem("idUsuarioLogged");
+            var puntosProducto = document.getElementById("setProductoPuntos").value;
+            
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8084/ProyectoSVAC/webresources/preferencia/calificaProducto',
+                data: { codigo_usuario : codigoUsuario,
+                        codigo_producto : idProductoCalif,
+                        cantidad_puntos : puntosProducto
+                }
+            }).then(function successCallback(response) {
+                alert("Producto calificado");
+                
+            }, function errorCallback(response) {
+                alert("Error aqui");
+            });
+        };
+        
     };
     
-    $scope.calificar = function() {
-        var idProductoCalif = localStorage.getItem("idProductoCalif");
-        var codigoUsuario = sessionStorage.getItem("idUsuarioLogged");
-        var puntosProducto = document.getElementById("setProductoPuntos").value;
-
-        $http({
-            method: 'POST',
-            url: 'http://localhost:8084/ProyectoSVAC/webresources/preferencia/calificaProducto',
-            data: { fkcodigo_cliente : codigoUsuario,
-                    codigo_producto : idProductoCalif,
-                    cantidad_puntos : puntosProducto
-            }
-        }).then(function successCallback(response) {
-            alert("Producto calificado");
-            
-        }, function errorCallback(response) {
-            alert("Producto calificado");
-        });
-    };
+    
     
     //LogOut
     $scope.cerrarSesion = function() {

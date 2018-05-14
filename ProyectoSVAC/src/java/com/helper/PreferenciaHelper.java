@@ -67,17 +67,8 @@ public class PreferenciaHelper {
     public void calificaProducto(int codigoUsuario, int codigoProducto, float cantidadPuntos){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        
-        Query queryUsuario = session.createSQLQuery("SELECT cli.codigo_cliente FROM cliente as cli INNER JOIN usuario as usu ON (usu.codigo_usuario = cli.fkcodigo_usuario)\n" +
-                                             "WHERE (usu.codigo_usuario = :codigoUsuario)");
-        queryUsuario.setParameter("codigoUsuario", codigoUsuario);
-        
-        List lista = queryUsuario.list();
-        ProductoxClienteDTO idCliente = (ProductoxClienteDTO) lista.get(0);
-        
-        Query query = session.createSQLQuery("INSERT INTO cliente_tiene_preferencia(`fkcodigo_cliente`,`fkcodigo_producto`,`fecha_voto_preferencia`,`cantidad_puntos`) "
-                                           + "VALUES(:codigoCliente,:codigoProducto,CURRENT_DATE,:cantidadPuntos)");
-        query.setParameter("codigoCliente", idCliente);
+        Query query = session.createSQLQuery("CALL sp_calificaProducto(:codigoUsuario,:codigoProducto,:cantidadPuntos)");
+        query.setParameter("codigoUsuario", codigoUsuario);
         query.setParameter("codigoProducto", codigoProducto);
         query.setParameter("cantidadPuntos", cantidadPuntos);
         query.executeUpdate();

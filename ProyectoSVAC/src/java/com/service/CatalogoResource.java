@@ -95,9 +95,10 @@ public class CatalogoResource {
     public String getNombreVendedor(String data) {
         Gson gson =new Gson();
         List lista = null;
+        System.out.println("getNombreVendedorRRRRR ----> "+data);
         ReporteVendedorDTO vendedorDTO = gson.fromJson(data, ReporteVendedorDTO.class);
         try {
-            lista = catalogoHelper.getVendedorNombre(vendedorDTO.getCodigo_vendedor());
+            lista = catalogoHelper.getVendedorNombre(vendedorDTO.getCodigo_venta_vendedor());
         } catch(Exception e) {
             System.out.println("getNombreVendedor: "+e.getMessage());
         }
@@ -112,7 +113,7 @@ public class CatalogoResource {
         List lista = null;
         ReporteVendedorDTO vendedorDTO = gson.fromJson(data, ReporteVendedorDTO.class);
         try {
-            lista = catalogoHelper.getCodigoReporte(vendedorDTO.getCodigo_vendedor());
+            lista = catalogoHelper.getCodigoReporte(vendedorDTO.getCodigo_venta_vendedor());
         } catch(Exception e) {
             System.out.println("getCodigoReporte: "+e.getMessage());
         }

@@ -2,7 +2,6 @@
 //            initialRating: getPuntaje.value
 //        });
 
-
 var app = angular.module("myCatalogo",['ngStorage','angularUtils.directives.dirPagination']);
 
 app.controller("catalogoCtrl", function($scope, $http, $window) {
@@ -57,31 +56,32 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
     };
     
     //Consulta el nombre del vendedor y el reporte del pedido
-    var codigoVendedor;
-    $scope.getNombreVendedor = function(){
-        codigoVendedor = 1;
+    var codigoVentaVendedor;
+    $scope.getNombreVendedor = function(event){
+        codigoVentaVendedor = event.target.value;
         $http({
             method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getNombreVendedor',
-            data: { codigo_vendedor   : codigoVendedor  }
+            data: { codigo_venta_vendedor   : codigoVentaVendedor  }
         }).then(function successCallback(response) {
             $scope.NombreVendedor = response.data;
             $scope.getReporteID();
         }, function errorCallback(response) {
             alert("Error en nombre");
         });
-    };
-    $scope.getReporteID = function(){
-        codigoVendedor = 1;
+        
+        $scope.getReporteID = function(){
         $http({
             method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getCodigoReporte',
-            data: { codigo_vendedor   : codigoVendedor }
+            data: { codigo_venta_vendedor   : codigoVentaVendedor }
         }).then(function successCallback(response) {
             $scope.CodigoReporte = response.data;
         }, function errorCallback(response) {
             alert("Error en reporte");
         });
+    };
+        
     };
     
     //Consulta en detalle los datos generales y el pedido
