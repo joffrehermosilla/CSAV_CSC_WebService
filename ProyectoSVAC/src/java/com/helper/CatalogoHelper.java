@@ -43,36 +43,36 @@ public class CatalogoHelper {
     public List<ReporteVendedorDTO> getVendedorList(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT `codigo_vendedor`,`codigo_venta_vendedor` FROM `vendedor`").setResultTransformer(Transformers.aliasToBean(ReporteVendedorDTO.class));
+        Query q = session.createSQLQuery("SELECT `codigo_venta_vendedor` FROM `vendedor`").setResultTransformer(Transformers.aliasToBean(ReporteVendedorDTO.class));
         List<ReporteVendedorDTO> resultList=q.list();
         transaction.commit();
         session.close();
         return resultList;
     }
     
-    public List<ReporteVendedorDTO> getVendedorNombre(int codigoVendedor){
+    public List<ReporteVendedorDTO> getVendedorNombre(String codigoVentaVendedor){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Query q = session.createSQLQuery("SELECT usu.nombre_usuario, usu.apellido_usuario\n" +
                                          "FROM   vendedor as ven INNER JOIN\n" +
-                                         "   	 usuario as usu ON (ven.fkcodigo_usuario = usu.codigo_usuario)\n" +
-                                         "WHERE	(ven.codigo_vendedor = :codigoVendedor)").setResultTransformer(Transformers.aliasToBean(ReporteVendedorDTO.class));
-        q.setParameter("codigoVendedor", codigoVendedor);
+                                         "usuario as usu ON (ven.fkcodigo_usuario = usu.codigo_usuario)\n" +
+                                         "WHERE	(ven.codigo_venta_vendedor = :codigoVentaVendedor)").setResultTransformer(Transformers.aliasToBean(ReporteVendedorDTO.class));
+        q.setParameter("codigoVentaVendedor", codigoVentaVendedor);
         List<ReporteVendedorDTO> lista = q.list();
         transaction.commit();
         session.close();
         return lista;
     }
     
-    public List<ReporteVendedorDTO> getCodigoReporte(int codigoVendedor){
+    public List<ReporteVendedorDTO> getCodigoReporte(String codigoVentaVendedor){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Query q = session.createSQLQuery("SELECT cliPed.codigo_pedido_web, CONCAT('REP','_0',cliPed.codigo_pedido_web,':',cli.fkcodigo_usuario) as codigo_reporte\n" +
                                          "FROM   vendedor as ven INNER JOIN \n" +
                                          "       cliente_tiene_pedido as cliPed ON (ven.codigo_vendedor = cliPed.fkcodigo_vendedor) INNER JOIN\n" +
                                          "       cliente as cli ON (cli.codigo_cliente = cliPed.fkcodigo_cliente)\n" +
-                                         "WHERE (ven.codigo_vendedor = :codigoVendedor)").setResultTransformer(Transformers.aliasToBean(ReporteVendedorDTO.class));
-        q.setParameter("codigoVendedor", codigoVendedor);
+                                         "WHERE (ven.codigo_venta_vendedor = :codigoVentaVendedor)").setResultTransformer(Transformers.aliasToBean(ReporteVendedorDTO.class));
+        q.setParameter("codigoVentaVendedor", codigoVentaVendedor);
         List<ReporteVendedorDTO> lista = q.list();
         transaction.commit();
         session.close();

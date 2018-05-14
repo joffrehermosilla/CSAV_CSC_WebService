@@ -69,7 +69,10 @@
                                                </div>
                                                <div class="list-group" style="overflow-y: scroll; height: 400px; background-color: #bed2c9;" id="list-tab" role="tablist">
                                                    <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" 
-                                                      ng-repeat="vendedor in VendedorList" ng-click="getNombreVendedor()"><input type="hidden" ng-model="idVendedor" value="{{vendedor.codigo_vendedor}}">{{vendedor.codigo_venta_vendedor}}</a>
+                                                      ng-repeat="vendedor in VendedorList">
+                                                       <button style="width: 280px; background: none; color: inherit; border: none; padding: 0; font: inherit;
+                                                                      cursor: pointer; outline: inherit;" data-ng-click="getNombreVendedor($event)"
+                                                                      value="{{vendedor.codigo_venta_vendedor}}">{{vendedor.codigo_venta_vendedor}}</button></a>
                                                </div>
                                             </div>
                                         </div>

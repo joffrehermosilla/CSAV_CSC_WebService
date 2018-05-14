@@ -93,6 +93,7 @@ public class PreferenciaResource {
     public Response calificaProducto(String data) {
         Response respuesta = null;
         Gson gson =new Gson();
+        System.out.println("puntos ---> "+data);
         ProductoxClienteDTO productoxClienteDTO = gson.fromJson(data, ProductoxClienteDTO.class);
         try{
             preferenciaHelper.calificaProducto(productoxClienteDTO.getCodigo_usuario(), 

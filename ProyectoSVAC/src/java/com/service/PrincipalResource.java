@@ -50,10 +50,8 @@ public class PrincipalResource {
         UsuarioDTO respuesta = null;
         try {
             respuesta = principalhelper.iniciarSession(usuarioDTO);
-            System.out.println("aaa------>"+gson.toJson(respuesta));
-            System.out.println("------>"+gson.toJson(respuesta.getCodigo_usuario()));
         }catch(NullPointerException e){
-            System.out.println("controlado aqui.."+e.getMessage());
+            System.out.println("loginUsuario controlado aqui.."+e.getMessage());
         }
         return gson.toJson(respuesta);
     }
