@@ -1,6 +1,4 @@
 <%@include file="head.jspf" %>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js/preferenciaController.js" type="text/javascript"></script>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>
 </head>
     <body ng-app="myPreferencia" ng-controller="preferenciaCtrl" ng-init="getCatalogoCalificados()">
         <%@include file="navBarCliente.jsp"%>
@@ -122,6 +120,10 @@
                 });
             });
         </script>
+        
+        <%@include file="foot.jspf" %>
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/preferenciaController.js" type="text/javascript"></script>
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>
         
     </body>
 </html>

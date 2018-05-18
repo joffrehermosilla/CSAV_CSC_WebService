@@ -1,3 +1,16 @@
+var hyperlinkLogin = document.getElementById("hyperlinkLogin");
+var hyperlinkSignIn = document.getElementById("hyperlinkSignIn");
+function clickRegistrar() {
+    hyperlinkLogin.removeClass('active');
+    hyperlinkSignIn.setAttribute("class","active");
+    $('.nav-tabs a[href="#panel8"]').tab('show');
+}
+function clickLogin() {
+    hyperlinkSignIn.removeClass('active');
+    hyperlinkLogin.setAttribute("class","active");
+    $('.nav-tabs a[href="#panel7"]').tab('show');
+}
+
 var app = angular.module("myLogin",['ngStorage','angularUtils.directives.dirPagination']);
 
 app.controller("loginCtrl", function($scope, $http, $window) {

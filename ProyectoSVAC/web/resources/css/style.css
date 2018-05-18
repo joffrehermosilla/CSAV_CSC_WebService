@@ -1,12 +1,15 @@
-h1 {
+.titulogo {
     font-family: Lobster;
-    font-size: 24px;
+    font-size: 40px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 26.4px;
+    padding-bottom: 15px;
+    padding-top: 6px;
 }
-.titulogo {
+
+.titulogoSesion {
     font-family: Lobster;
     font-size: 24px;
     font-style: normal;
