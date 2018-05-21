@@ -620,7 +620,7 @@
                             </ul>
                             <!-- Tab panels -->
                             <div class="tab-content">
-                                <!--Panel 7-->
+                                <!--LOGIN   -->
                                 <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
                                     <div class="container">
                                         <div class="row">
@@ -640,13 +640,13 @@
                                                     <div class="md-form form-sm mb-4">
                                                         <i class="fa fa-envelope prefix"></i>
                                                         <input type="text" id="modalLRInput10" class="form-control form-control-sm validate" ng-model="username">
-                                                        <label data-error="wrong" data-success="right" for="modalLRInput10">Tu nombre de usuario</label>
+                                                        <label for="modalLRInput10">Tu nombre de usuario</label>
                                                     </div>
 
                                                     <div class="md-form form-sm mb-5">
                                                         <i class="fa fa-lock prefix"></i>
                                                         <input type="password" id="modalLRInput11" class="form-control form-control-sm validate" ng-model="password">
-                                                        <label data-error="wrong" data-success="right" for="modalLRInput11">Tu contraseña</label>
+                                                        <label for="modalLRInput11">Tu contraseña</label>
                                                     </div>
                                                     <div class="text-center mt-2" style="padding-bottom: 8px;">
                                                         <button class="btn btn-success" type="submit" ng-click="loginRegistro()"
@@ -660,32 +660,77 @@
                                 </div>
                                 <!--/.Panel 7-->
 
-                                <!--Panel 8-->
+                                <!--REGISTRO-->
                                 <div class="tab-pane fade" id="panel8" role="tabpanel">
-                                    <!--Body-->
-                                    <div class="modal-body">
-                                        <div class="md-form form-sm mb-5">
-                                            <i class="fa fa-envelope prefix"></i>
-                                            <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-1">&nbsp;</div>
+                                            <div class="col-lg-10">
+                                                <!--Body-->
+                                                <div class="modal-body mb-1">
+                                                    <div class="row">
+                                                        <form name="registro" ng-submit="sumbitForm(registro.$valid)">
+                                                            <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro.name.$pristine && registro.name.$invalid }">
+                                                                <label for="modalLRInput15">Your name</label>
+                                                                <input type="text" name="name" id="modalLRInput15" ng-model="name" class="form-control form-control-sm validate" required> 
+                                                                <span ng-show="!registro.name.$pristine && registro.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                            </div>
+                                                        </form>&nbsp;&nbsp;&nbsp;
+                                                        <form name="registro1" ng-submit="sumbitForm(registro1.$valid)">
+                                                            <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
+                                                                <label for="modalLRInput16">Your lastname</label>
+                                                                <input type="text" name="lastname" id="modalLRInput16" ng-model="lastname" class="form-control form-control-sm validate" required> 
+                                                                <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                            </div>
+                                                        </form>
+                                                        </div>
+                                                    <div class="row">
+                                                        <form name="registro2" ng-submit="sumbitForm(registro2.$valid)">
+                                                            <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro2.name.$pristine && registro2.name.$invalid }">
+                                                                <label for="modalLRInput17">Your username</label>
+                                                                <input type="text" name="username" id="modalLRInput17" ng-model="username" class="form-control form-control-sm validate" required> 
+                                                                <span ng-show="!registro2.lastname.$pristine && registro2.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                            </div>
+                                                        </form>&nbsp;&nbsp;&nbsp;
+                                                        <form name="registro2" ng-submit="sumbitForm(registro2.$valid)">
+                                                            <div class="md-form form-sm lg-4">
+                                                                <label for="modalLRInput18">Type of Client</label><br><br>
+                                                                <select id="list">
+                                                                    <option value="client">Cliente</option>
+                                                                    <option value="admin">Administrador</option>
+                                                                    <option value="vend">Vendedor</option>
+                                                                    <option value="art">Artesano</option>         
+                                                                    <option value="alm">Almacen</option>
+                                                                </select>
+                                                            </div>
+                                                        </form> 
+                                                        </div>
+                                                    <div class="row">
+                                                        <div class="md-form form-sm lg-4">
+                                                            <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                                            <label for="modalLRInput12">Your email</label>
+                                                        </div>&nbsp;&nbsp;&nbsp;
+                                                        <div class="md-form form-sm lg-4">
+                                                            <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="md-form form-sm mb-12">
+                                                            <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                                            <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center form-sm mt-2" style="padding-bottom: 8px;">
+                                                        <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1">&nbsp;</div>
                                         </div>
-                                        <div class="md-form form-sm mb-5">
-                                            <i class="fa fa-lock prefix"></i>
-                                            <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                                        </div>
-                                        <div class="md-form form-sm mb-4">
-                                            <i class="fa fa-lock prefix"></i>
-                                            <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-                                        </div>
-                                        <div class="text-center form-sm mt-2" style="padding-bottom: 8px;">
-                                            <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
-                                        </div>
+                                        <!--/.Panel 8-->
                                     </div>
                                 </div>
-                                <!--/.Panel 8-->
-                            </div>
                         </div>
                         
                     </div>
@@ -694,10 +739,8 @@
             </div>
         </div>
         <!--Modal: Login / Register Form-->
-        
         <%@include file="resources/views/foot.jspf" %>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js/loginController.js" type="text/javascript"></script>
-        <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>
-        
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>     
     </body>
 </html>
