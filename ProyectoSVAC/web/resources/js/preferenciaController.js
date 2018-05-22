@@ -72,7 +72,7 @@ app.controller("preferenciaCtrl", function($scope, $http, $window) {
     //LogOut
     $scope.cerrarSesion = function() {
         sessionStorage.clear();
-        $window.location.href = 'http://localhost:8084/ProyectoSVAC/';
+        $window.location.href = '/ProyectoSVAC/';
     };
     
 });

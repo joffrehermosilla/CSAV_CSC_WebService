@@ -187,38 +187,32 @@
                 </ul>
                 <!-- Links -->
 
-                <form class="form-inline">
+                <form class="form-inline" style="padding-top: 5px;">
                   <div class="md-form my-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                   </div>
                 </form>
               </div>
               <!-- Collapsible content -->
-
             </nav>
             <!--/.Navbar-->
 
             <!--Section: Products v.3-->
             <section class="text-center mb-4">
-
               <!--Grid row-->
               <div class="row wow fadeIn">
-
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4">
-
                   <!--Card-->
                   <div class="card">
-
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
                       </a>
                     </div>
                     <!--Card image-->
-
                     <!--Card content-->
                     <div class="card-body text-center">
                       <!--Category & Title-->
@@ -232,17 +226,13 @@
                           </a>
                         </strong>
                       </h5>
-
                       <h4 class="font-weight-bold blue-text">
                         <strong>120$</strong>
                       </h4>
-
                     </div>
                     <!--Card content-->
-
                   </div>
                   <!--Card-->
-
                 </div>
                 <!--Grid column-->
 
@@ -253,7 +243,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -293,7 +283,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -335,7 +325,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -381,7 +371,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -423,7 +413,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -463,7 +453,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -505,7 +495,7 @@
                   <div class="card">
 
                     <!--Card image-->
-                    <div class="view overlay">
+                    <div class="overlay">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" alt="">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -630,7 +620,7 @@
                                                 <div class="modal-body mb-1">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <img src="resources/images/logoTaza.png" alt=""/>
+                                                            <img src="resources/images/logoTaza.png" alt="logoTaza"/>
                                                         </div>
                                                         <div class="col-lg-6" style="padding-top: 38px; text-align: center;">
                                                             <p class="titulogoSesion" style="font-size: 27px;">Bienvenido a</p>

@@ -30,10 +30,10 @@ app.controller("loginCtrl", function($scope, $http, $window) {
             sessionStorage.setItem('fkidTipoUsuario', response.data.fkcodigo_tipo_usuario);
             //Direccionamiento segun tipo de usuario
             if(sessionStorage.getItem("fkidTipoUsuario") === "1") {
-                $window.location.href = 'http://localhost:8084/ProyectoSVAC/resources/views/gestionCatalogo.jsp';
+                $window.location.href = '/ProyectoSVAC/resources/views/gestionCatalogo.jsp';
             }
             if(sessionStorage.getItem("fkidTipoUsuario") === "4") {
-                $window.location.href = 'http://localhost:8084/ProyectoSVAC/resources/views/gestionPreferencia.jsp';
+                $window.location.href = '/ProyectoSVAC/resources/views/gestionPreferencia.jsp';
             }
         }, function errorCallback(response) {
             alert("Nombre de usuario o password incorrecto");

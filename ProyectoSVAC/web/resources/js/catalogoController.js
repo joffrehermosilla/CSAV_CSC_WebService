@@ -17,8 +17,6 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             $scope.ListaNombres = response.data;
             $scope.getProducto();
             $scope.getVendedores();
-            $scope.getTipoProducto();
-            $scope.getNombreProducto();
             $scope.getCatalogo();
             $scope.getArticulosSacados();
         }, function errorCallback(response) {
@@ -112,31 +110,6 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
         });
     };
     
-    /*AQUI ES DONDE SE DESARROLLA LOS FILTROS DEL CATALOGO - modo tryhard*/
-    $scope.getTipoProducto = function() {
-        $http({
-            method: 'GET',
-            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getTipoProducto',
-            data: {
-            }
-        }).then(function successCallback(response) {
-            $scope.TipoProducto = response.data;
-        }, function errorCallback(response) {
-            alert("no funciona ERROOR");
-        });
-    };
-    $scope.getNombreProducto = function() {
-        $http({
-            method: 'GET',
-            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getNombreProducto',
-            data: {
-            }
-        }).then(function successCallback(response) {
-            $scope.NombreProducto = response.data;
-        }, function errorCallback(response) {
-            alert("no funciona ERROOR");
-        });
-    };
     //getCatalogo
     $scope.getCatalogo = function() {
         $http({
@@ -165,7 +138,7 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             alert("no funciona ERROOR");
         });
     };
-    //Actualiza Catalogo
+    //Herramientas
     $scope.quitarArticulo = function(event) {
         var idProducto = event.target.value;
         $http({
@@ -212,14 +185,10 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
         }
     };
     
-    //FILTROS
-    
-    
-    
     //LogOut
     $scope.cerrarSesion = function() {
         sessionStorage.clear();
-        $window.location.href = 'http://localhost:8084/ProyectoSVAC/';
+        $window.location.href = '/ProyectoSVAC/';
     };
     
 });

@@ -1,17 +1,13 @@
 <%@include file="head.jspf" %>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js/catalogoController.js" type="text/javascript"></script>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>
 </head>
     <body ng-app="myCatalogo" ng-controller="catalogoCtrl">
-        
         <%@include file="navBarAdmin.jsp"%>
-        
-        <div class="container-fluid" style="padding-bottom: 30px; padding-top: 5px;">
+        <div class="container-fluid" style="padding-bottom: 30px; padding-top: 85px;">
             <div class="row">
                 <div class="col-lg-3">&nbsp;</div>
                 <div class="col-lg-6">
                     <ul class="nav nav-pills nav-justified">
-                        <li class="nav-item active" style="padding-left: 5px; padding-right: 5px;">
+                        <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
                             <a class="nav-link active" data-toggle="pill" href="#productosN">Productos</a>
                         </li>
                         <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
@@ -26,14 +22,14 @@
             </div>
         </div>
         
-        <div>
+        <div style="padding-bottom: 20px;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-1">&nbsp;</div>
                     <div class="col-lg-10">
                         <div class="tab-content">
 
-                            <div class="tab-pane fade in active" id="productosN">
+                            <div class="tab-pane fade show active" id="productosN">
                                 <table class="table table-striped" style="font-size: 15px;">
                                     <tr>
                                         <th>Código</th>
@@ -70,7 +66,7 @@
                                                <div class="list-group" style="overflow-y: scroll; height: 400px; background-color: #bed2c9;" id="list-tab" role="tablist">
                                                    <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" 
                                                       ng-repeat="vendedor in VendedorList">
-                                                       <button style="width: 280px; background: none; color: inherit; border: none; padding: 0; font: inherit;
+                                                       <button style="width: 100%; background: none; color: inherit; border: none; padding: 0; font: inherit;
                                                                       cursor: pointer; outline: inherit;" data-ng-click="getNombreVendedor($event)"
                                                                       value="{{vendedor.codigo_venta_vendedor}}">{{vendedor.codigo_venta_vendedor}}</button></a>
                                                </div>
@@ -78,12 +74,12 @@
                                         </div>
                                         <div class="col-lg-8">
                                             <div class="tab-content" id="nav-tabContent">
-                                                <div class="tab-pane fade in active listaReporte">
+                                                <div class="tab-pane fade show active listaReporte">
                                                     <section id="seccionReporte" style="padding-bottom: 12px;">
                                                         <table style="width:100%; border: none; font-size: 15px;">
                                                             <tr style="height: 50px;">
                                                                 <th style="width: 110px;">VENDEDOR:</th>
-                                                                <td style="width: 135px;" ng-repeat="nombVen in NombreVendedor">{{nombVen.nombre_usuario}} {{nombVen.apellido_usuario}}</td>
+                                                                <td style="width: 160px;" ng-repeat="nombVen in NombreVendedor">{{nombVen.nombre_usuario}} {{nombVen.apellido_usuario}}</td>
                                                                 <th style="width: 300px;"><span>Seleccione el reporte según su código:</span></th>
                                                                 <td>
                                                                     <select id="selReporte" class="form-control" ng-change="getDatosGeneral()" ng-model="modReporte">
@@ -124,7 +120,6 @@
                                                                 <th>Nombre del producto</th>
                                                                 <th>Precio Unitario</th>
                                                                 <th>Cantidad</th>
-                                                                <th>Vista Previa</th>
                                                             </tr>
                                                             <!--{{personaUsuario.nombrePersona}}-->
                                                             <tr ng-repeat="pedido in pedidoCliente">
@@ -132,7 +127,6 @@
                                                                 <td>{{pedido.nombre_producto}}</td>
                                                                 <td>{{pedido.valor_neto}}</td>
                                                                 <td>{{pedido.cantidadProductoPed}}</td>
-                                                                <td><button class="btn btn-info" value="{{pedido.codigo_pedido_web}}"> Ver </button></td>
                                                             </tr>
                                                         </table>
                                                     </section>
@@ -144,57 +138,87 @@
                             </div>
 
                             <div class="tab-pane fade" id="catalogoN">
-                                <h5 style="font-weight: bold;">FILTRE SU BÚSQUEDA SEGÚN</h5>
-                                <%@include file="filtrosCatAdmin.jsp"%>
+                                <div class="row">
+                                    <div class="col-lg-4" style="text-align: left;">
+                                        <p style="margin-top: 30px; font-weight: lighter; font-size: 18px;">Catálogo TOP 10 artículos de Mayo</p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <ul class="nav nav-pills pull-right" style="padding-top: 12px; padding-bottom: 12px;">
+                                            <li role="presentation" class="active" style="padding-right: 10px;">
+                                                <button type="submit" class="btn btn-group btn-warning" data-toggle="modal" data-target="#modalActualiza">
+                                                <span class="fa fa-book" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Actualiza Catalogo</button>
+                                            </li>
+                                            <li role="presentation" style="padding-right: 10px;">
+                                                <button type="submit" class="btn btn-group btn-success" data-toggle="modal" data-target="#modalAgregaArticulo">
+                                                    <span class="fa fa-check-square-o" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Agregar Artículo</button>
+                                            </li>
+                                            <li role="presentation">
+                                                <button class="btn btn-group btn-default"><span class="fa fa-plus-square" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Generar Cuota</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr style="padding-bottom: 15px;">
+                                <div id="catalogoTOP">
+                                    <div class="row">
+                                        <div class="col-lg-4" ng-repeat="cat in Catalogo">
+                                            <div class="jumbotron">
+                                                <div class="card">
+                                                    <div class="overlay">
+                                                        <!--{{cat.cat_foto_producto}}-->
+                                                        <img src="../images/imageRandom.jpg" alt="imageRandom" style="width: 100%; height: 230px;"/>
+                                                    </div>
+                                                    <div class="card-body elegant-color white-text rounded-bottom">
+                                                        <div class="row">
+                                                            <div class="col-lg-8">
+                                                                <h4 class="card-title" style="margin-top: 5px;">{{cat.cat_nombre_producto}}</h4>
+                                                            </div>
+                                                            <div class="col-lg-4" style="text-align: right;">
+                                                                <button class="btn-floating btn-lg purple-gradient btn-danger" data-ng-click="quitarArticulo($event)" value="{{cat.cat_codigo_producto}}">
+                                                                <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="hr-light">
+                                                        <p class="card-text white-text">Precio: S/.{{cat.cat_valor_neto}}</p>
+                                                        <p class="card-text white-text">Con IGV: S/.{{cat.cat_valor_con_igv}}</p>
+                                                        <hr class="hr-light">
+                                                        <p class="card-text white-text">Tipo de Producto: {{cat.cat_nombre_tipo_producto}}</p>
+                                                        <p class="card-text white-text">Tiempo en horno: {{cat.cat_tiempoenhorno_tipo_producto}} horas</p>
+                                                        <p class="card-text white-text">Temperatura en horno: {{cat.cat_temperaturaenhorno_tipo_producto}} C°</p>
+                                                        <p class="card-text white-text">Preparación: {{cat.cat_preparacion_producto}}</p>
+                                                        <p class="card-text white-text">Colores: {{cat.cat_colores_producto}}</p>
+                                                        <p class="card-text white-text">Insumo: {{cat.cat_nombre_insumo}}</p>
+                                                        <p class="card-text white-text">Modelo de receta: {{cat.cat_modelo_receta_producto}}</p>
+                                                        <hr class="hr-light">
+                                                        <p class="card-text white-text">Cantidad total: {{cat.cantidadMasPedido}}</p>
+                                                        <p class="card-text white-text">Calificación: {{cat.promedioTotalProd}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <nav aria-label="pagination example">
+                                    <ul class="pagination justify-content-center pagination-lg pg-darkgrey">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
                                 <hr>
-                                <ul class="nav nav-pills pull-right" style="padding-top: 12px; padding-bottom: 12px;">
-                                    <li role="presentation" class="active" style="padding-right: 10px;">
-                                        <button type="submit" class="btn btn-group btn-warning" 
-                                                ng-click="actualizaCatalogo()"><span class="fa fa-book" aria-hidden="true"></span>&nbsp;&nbsp;Actualiza Catalogo</button>
-                                    </li>
-                                    <li role="presentation" style="padding-right: 10px;">
-                                        <button type="submit" class="btn btn-group btn-success" data-toggle="modal" data-target="#modalAgregaArticulo">
-                                            <span class="fa fa-check-square-o" aria-hidden="true"></span>&nbsp;&nbsp;Agregar Artículo</button>
-                                    </li>
-                                    <li role="presentation">
-                                        <button class="btn btn-group btn-default"><span class="fa fa-plus-square" aria-hidden="true"></span>&nbsp;&nbsp;Generar Cuota</button>
-                                    </li>
-                                </ul>
-                                <table class="table table-striped">
-                                    <tr>
-                                        <th>Nombre Producto</th>
-                                        <th>Tipo Producto</th>
-                                        <th>Tiempo en horno</th>
-                                        <th>Temperatura en horno</th>
-                                        <th>Valor Neto</th>
-                                        <th>Valor con IGV</th>
-                                        <th>Preparación</th>
-                                        <th>Colores</th>
-                                        <th>Insumo</th>
-                                        <th>Modelo Receta</th>
-                                        <th>Imagen</th>
-                                        <th>Cantidad Mas Pedido</th>
-                                        <th>Puntaje Total</th>
-                                        <th>Quitar Artículo</th>
-                                    </tr>
-                                    <tr ng-repeat="cat in Catalogo">
-                                        <td>{{cat.cat_nombre_producto}}</td>
-                                        <td>{{cat.cat_nombre_tipo_producto}}</td>
-                                        <td>{{cat.cat_tiempoenhorno_tipo_producto}}</td>
-                                        <td>{{cat.cat_temperaturaenhorno_tipo_producto}}</td>
-                                        <td>{{cat.cat_valor_neto}}</td>
-                                        <td>{{cat.cat_valor_con_igv}}</td>
-                                        <td>{{cat.cat_preparacion_producto}}</td>
-                                        <td>{{cat.cat_colores_producto}}</td>
-                                        <td>{{cat.cat_nombre_insumo}}</td>
-                                        <td>{{cat.cat_modelo_receta_producto}}</td>
-                                        <td>{{cat.cat_foto_producto}}</td>
-                                        <td>{{cat.cantidadMasPedido}}</td>
-                                        <td>{{cat.promedioTotalProd}}</td>
-                                        <td><button class="btn btn-danger" data-ng-click="quitarArticulo($event)" value="{{cat.cat_codigo_producto}}">
-                                                <span class="fa fa-trash-o" aria-hidden="true"></span>&nbsp;&nbsp;Quitar</button></td>
-                                    </tr>
-                                </table>
                             </div>
                                 
                         </div>
@@ -212,7 +236,7 @@
                             <div style="padding: 30px 30px 20px 30px;">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <p>Articulos quitados del catalogo:</p>
+                                        <p>Artículos quitados del catálogo:</p>
                                         <select class="form-control" ng-model="articuloSacado">
                                             <option ng-repeat="arti in ArticulosSacados" value="{{arti.cat_codigo_producto}}">{{arti.cat_nombre_producto}}</option>
                                         </select>
@@ -222,7 +246,7 @@
                                     </div>
                                     <div class="col-lg-5" style="text-align: center;">
                                         <button class="btn btn-success" style="margin-top: 30px; height: 50px;" ng-click="agregaArticulo()">
-                                            <span class="fa fa-check-square-o" aria-hidden="true"></span>&nbsp;&nbsp;Añadir al catalogo</button>
+                                            <span class="fa fa-check-square-o" aria-hidden="true"></span>&nbsp;&nbsp;Añadir</button>
                                     </div>
                                 </div>
                             </div>
@@ -232,5 +256,41 @@
             </div>
         </div>
         
+        <div id="modalActualiza" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div style="background-color: #eeeeee;border-color: #4c4f53; border-style: solid;">
+                        <form id="agregaArticulo">
+                            <div style="padding: 30px 30px 9px 30px;">
+                                <div class="row">
+                                    <div class="col-lg-8"><p>¿Desea actualizar el catálogo?</p></div>
+                                    <div class="col-lg-4" style="text-align: right;"><strong id="fechaAhora"></strong></div>
+                                </div>
+                                <span style="font-weight: 200;">*El catálogo debe actualizarse por cada mes*</span>
+                                <script>
+                                    var dateObj = new Date();
+                                    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+                                    var day = dateObj.getUTCDate() - 1;
+                                    var year = dateObj.getUTCFullYear();
+                                    newdate = day + "/" + month + "/" + year;
+                                    document.getElementById("fechaAhora").innerHTML = newdate;
+                                </script>
+                                <hr>
+                                <div style="display: flex; align-items: center; justify-content: flex-end;">
+                                    <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-group btn-warning" ng-click="actualizaCatalogo()">
+                                    <span class="fa fa-book" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Actualizar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <%@include file="foot.jspf" %>                        
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/catalogoController.js" type="text/javascript"></script>
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script> 
+                                
     </body>
 </html>

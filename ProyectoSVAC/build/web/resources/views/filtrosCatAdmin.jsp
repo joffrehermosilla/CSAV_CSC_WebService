@@ -10,10 +10,10 @@
         </select>
         <div style="padding-bottom: 4px; padding-top: 4px;"></div>
         <script>
-            $(function() {
-                $('#filtroEstrella').barrating({theme: 'fontawesome-stars'});
-                $('select').barrating('readonly', true);
-            });
+            //$(function() {
+            //    $('#filtroEstrella').barrating({theme: 'fontawesome-stars'});
+            //    $('select').barrating('readonly', true);
+            //});
         </script>
         <select class="selectpicker form-control" multiple title="Ranking" 
                 data-selected-text-format="count" name="cbEstrellas" id="idEstrellas">

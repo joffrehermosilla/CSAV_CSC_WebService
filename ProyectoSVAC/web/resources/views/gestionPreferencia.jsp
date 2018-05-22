@@ -2,8 +2,7 @@
 </head>
     <body ng-app="myPreferencia" ng-controller="preferenciaCtrl" ng-init="getCatalogoCalificados()">
         <%@include file="navBarCliente.jsp"%>
-        
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-top: 85px;">
             <div class="row">
                 <div class="col-lg-1">&nbsp;</div>
                 <div class="col-lg-10">
@@ -114,11 +113,11 @@
             </div>
         </div>
         <script>
-            $(function() {
-                $('#setProductoPuntos').barrating({
-                  theme: 'fontawesome-stars'
-                });
-            });
+            //$(function() {
+            //    $('#setProductoPuntos').barrating({
+            //      theme: 'fontawesome-stars'
+            //    });
+            //});
         </script>
         
         <%@include file="foot.jspf" %>
