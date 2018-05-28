@@ -16,8 +16,8 @@ var app = angular.module("myLogin",['ngStorage','angularUtils.directives.dirPagi
 app.controller("loginCtrl", function($scope, $http, $window) {
     //Login Nuevo Usuario
     $scope.loginRegistro = function(){
-        var nombreUsuario = $scope.username;
-        var passwordUsuario = $scope.password;
+        var nombreUsuario = $scope.txtUsername;
+        var passwordUsuario = $scope.txtPassword;
         $http({
             method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/principal/loginUsuario',

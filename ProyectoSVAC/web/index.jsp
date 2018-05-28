@@ -25,7 +25,6 @@
       }
     }
     </style>
-    <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body ng-app="myLogin" ng-controller="loginCtrl">
         <%@include file="resources/views/navBarPrinc.jsp"%>
@@ -629,13 +628,12 @@
                                                     </div>
                                                     <div class="md-form form-sm mb-4">
                                                         <i class="fa fa-envelope prefix"></i>
-                                                        <input type="text" id="modalLRInput10" class="form-control form-control-sm validate" ng-model="username">
+                                                        <input type="text" id="modalLRInput10" class="form-control form-control-sm validate" ng-model="txtUsername">
                                                         <label for="modalLRInput10">Tu nombre de usuario</label>
                                                     </div>
-
-                                                    <div class="md-form form-sm mb-5">
+                                                    <div class="md-form form-sm mb-5" style="margin-top: 40px;">
                                                         <i class="fa fa-lock prefix"></i>
-                                                        <input type="password" id="modalLRInput11" class="form-control form-control-sm validate" ng-model="password">
+                                                        <input type="password" id="modalLRInput11" class="form-control form-control-sm validate" ng-model="txtPassword">
                                                         <label for="modalLRInput11">Tu contraseña</label>
                                                     </div>
                                                     <div class="text-center mt-2" style="padding-bottom: 8px;">
@@ -657,61 +655,76 @@
                                             <div class="col-lg-1">&nbsp;</div>
                                             <div class="col-lg-10">
                                                 <!--Body-->
-                                                <div class="modal-body mb-1">
+                                                <div class="mb-1">
                                                     <div class="row">
-                                                        <form name="registro" ng-submit="sumbitForm(registro.$valid)">
-                                                            <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro.name.$pristine && registro.name.$invalid }">
-                                                                <label for="modalLRInput15">Your name</label>
-                                                                <input type="text" name="name" id="modalLRInput15" ng-model="name" class="form-control form-control-sm validate" required> 
-                                                                <span ng-show="!registro.name.$pristine && registro.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
-                                                            </div>
-                                                        </form>&nbsp;&nbsp;&nbsp;
-                                                        <form name="registro1" ng-submit="sumbitForm(registro1.$valid)">
-                                                            <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
-                                                                <label for="modalLRInput16">Your lastname</label>
-                                                                <input type="text" name="lastname" id="modalLRInput16" ng-model="lastname" class="form-control form-control-sm validate" required> 
-                                                                <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
-                                                            </div>
-                                                        </form>
+                                                        <div class="col-lg-6">
+                                                            <form name="formUsername" ng-submit="sumbitForm(registro.$valid)">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro.name.$pristine && registro.name.$invalid }">
+                                                                    <label for="forLbUsername">Username</label>
+                                                                    <input type="text" name="name" id="forLbUsername" ng-model="name" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!registro.name.$pristine && registro.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                </div>
+                                                            </form>
                                                         </div>
+                                                        <div class="col-lg-6">
+                                                            <form name="formPassword" ng-submit="sumbitForm(registro2.$valid)">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro2.name.$pristine && registro2.name.$invalid }">
+                                                                    <label for="forLbPassword">Password</label>
+                                                                    <input type="text" name="username" id="forLbPassword" ng-model="username" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!registro2.lastname.$pristine && registro2.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                     <div class="row">
-                                                        <form name="registro2" ng-submit="sumbitForm(registro2.$valid)">
-                                                            <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro2.name.$pristine && registro2.name.$invalid }">
-                                                                <label for="modalLRInput17">Your username</label>
-                                                                <input type="text" name="username" id="modalLRInput17" ng-model="username" class="form-control form-control-sm validate" required> 
-                                                                <span ng-show="!registro2.lastname.$pristine && registro2.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
-                                                            </div>
-                                                        </form>&nbsp;&nbsp;&nbsp;
-                                                        <form name="registro2" ng-submit="sumbitForm(registro2.$valid)">
+                                                        <div class="col-lg-6">
+                                                            <form name="formNombreUsuario" ng-submit="sumbitForm(registro.$valid)">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro.name.$pristine && registro.name.$invalid }">
+                                                                    <label for="forLbNombreUsuario">Primer Nombre</label>
+                                                                    <input type="text" name="name" id="forLbNombreUsuario" ng-model="name" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!registro.name.$pristine && registro.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <form name="formApellidoUsuario" ng-submit="sumbitForm(registro1.$valid)">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
+                                                                    <label for="forLbApellido">Apellido</label>
+                                                                    <input type="text" name="lastname" id="forLbApellido" ng-model="lastname" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-7">
                                                             <div class="md-form form-sm lg-4">
-                                                                <label for="modalLRInput18">Type of Client</label><br><br>
-                                                                <select id="list">
-                                                                    <option value="client">Cliente</option>
-                                                                    <option value="admin">Administrador</option>
-                                                                    <option value="vend">Vendedor</option>
-                                                                    <option value="art">Artesano</option>         
-                                                                    <option value="alm">Almacen</option>
-                                                                </select>
+                                                                <label for="date-picker">Fecha de Nacimiento</label>
+                                                                <input type="text" id="date-picker" class="form-control datepicker" readonly>
                                                             </div>
-                                                        </form> 
                                                         </div>
-                                                    <div class="row">
-                                                        <div class="md-form form-sm lg-4">
-                                                            <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                                            <label for="modalLRInput12">Your email</label>
-                                                        </div>&nbsp;&nbsp;&nbsp;
-                                                        <div class="md-form form-sm lg-4">
-                                                            <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="md-form form-sm mb-12">
-                                                            <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                                            <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                                                        <div class="col-lg-5">
+                                                            <form name="formDireccion" ng-submit="sumbitForm(registro1.$valid)">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
+                                                                    <label for="forLbDireccion">Distrito</label>
+                                                                    <input type="text" name="lastname" id="forLbDireccion" ng-model="lastname" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
-                                                    <div class="text-center form-sm mt-2" style="padding-bottom: 8px;">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <form name="formDistrito" ng-submit="sumbitForm(registro1.$valid)">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
+                                                                    <label for="forLbDistrito">Dirección</label>
+                                                                    <input type="text" name="lastname" id="forLbDistrito" ng-model="lastname" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center form-sm mt-2" style="padding-bottom: 18px; padding-top: 10px;">
                                                         <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
                                                     </div>
                                                 </div>
@@ -730,6 +743,7 @@
         </div>
         <!--Modal: Login / Register Form-->
         <%@include file="resources/views/foot.jspf" %>
+        <script>$('.datepicker').pickadate()</script>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js/loginController.js" type="text/javascript"></script>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>     
     </body>
