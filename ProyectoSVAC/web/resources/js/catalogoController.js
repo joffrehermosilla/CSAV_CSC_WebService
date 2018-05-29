@@ -1,7 +1,3 @@
-//        $('.getRatingBar').barrating({
-//            initialRating: getPuntaje.value
-//        });
-
 var app = angular.module("myCatalogo",['ngStorage','angularUtils.directives.dirPagination']);
 
 app.controller("catalogoCtrl", function($scope, $http, $window) {
@@ -33,6 +29,43 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             $scope.ProductoList = response.data;
+            var ratingBar;
+            angular.forEach($scope.ProductoList, function(value, key){
+                ratingBar = angular.element('#setProdPun'+value.codigo_producto);
+//                var tdInner = document.getElementById("a1quiInnerHTML");
+//                var sel = document.createElement("select");
+//                var opt1 = document.createElement("option");
+//                var opt2 = document.createElement("option");
+//                var opt3 = document.createElement("option");
+//                var opt4 = document.createElement("option");
+//                var opt5 = document.createElement("option");
+//                sel.setAttribute('id','setProdPuntos'+value.codigo_producto+'');
+//                tdInner.appendChild(sel);
+//                opt1.value = "1";
+//                opt1.text = "1";
+//                opt2.value = "2";
+//                opt2.text = "2";
+//                opt3.value = "3";
+//                opt3.text = "3";
+//                opt4.value = "4";
+//                opt4.text = "4";
+//                opt5.value = "5";
+//                opt5.text = "5";
+//                sel.add(opt1, null);
+//                sel.add(opt2, null);
+//                sel.add(opt3, null);
+//                sel.add(opt4, null);
+//                sel.add(opt5, null);
+//                
+//                window.onload = function() {
+//                    ratingBar.barrating({
+//                        theme: 'fontawesome-stars',
+//                        readonly: true,
+//                        initialRating: value.promedioPuntaje
+//                    });
+//                };
+                
+            });
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
@@ -119,6 +152,13 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             $scope.Catalogo = response.data;
+            $('#paginationCool').twbsPagination({
+                totalPages: response.data.length,
+                visiblePages: 4,
+                onPageClick: function (event, page) {
+//                    $('#catalogoTOP').text('Page ' + page);
+                }
+            });
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
@@ -161,7 +201,6 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             $scope.ArticulosSacados = response.data;
-            $('#selectArticulo').selectpicker('refresh');
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });

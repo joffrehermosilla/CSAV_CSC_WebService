@@ -27,3 +27,5 @@
 <script src="http://localhost:8084/ProyectoSVAC/js/picker.date.js" type="text/javascript"></script>
 <script src="http://localhost:8084/ProyectoSVAC/js/picker.time.js" type="text/javascript"></script>
 <script src="http://localhost:8084/ProyectoSVAC/js/legacy.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/jquery.barrating.min.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/jquery.twbsPagination.min.js" type="text/javascript"></script>
