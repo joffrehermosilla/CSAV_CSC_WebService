@@ -658,40 +658,61 @@
                                                 <div class="mb-1">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <form name="formUsername" ng-submit="sumbitForm(registro.$valid)">
-                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro.name.$pristine && registro.name.$invalid }">
+                                                            <form name="formUsername" ng-submit="formUsername.$valid">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' :formUsername.username.$invalid }">
                                                                     <label for="forLbUsername">Username</label>
-                                                                    <input type="text" name="name" id="forLbUsername" ng-model="name" class="form-control form-control-sm validate" required> 
-                                                                    <span ng-show="!registro.name.$pristine && registro.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                    <input type="text" name="username" id="forLbUsername" ng-model="username" class="form-control form-control-sm" required> 
+                                                                    <span ng-show="!formUsername.username.$pristine && formUsername.username.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                         <div class="col-lg-6">
-                                                            <form name="formPassword" ng-submit="sumbitForm(registro2.$valid)">
-                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro2.name.$pristine && registro2.name.$invalid }">
+                                                            <form name="formPassword" ng-submit="formPassword.$valid">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : formPassword.password.$invalid }">
                                                                     <label for="forLbPassword">Password</label>
-                                                                    <input type="text" name="username" id="forLbPassword" ng-model="username" class="form-control form-control-sm validate" required> 
-                                                                    <span ng-show="!registro2.lastname.$pristine && registro2.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                    <input type="text" name="password" id="forLbPassword" ng-model="password" class="form-control form-control-sm" required data-rule-minlength="8"> 
+                                                                    <span ng-show="!formPassword.password.$pristine && formPassword.password.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <form name="formNombreUsuario" ng-submit="sumbitForm(registro.$valid)">
-                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro.name.$pristine && registro.name.$invalid }">
+                                                            <form name="formNombreUsuario" ng-submit="formNombreUsuario.$valid">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !formNombreUsuario.name.$pristine && formNombreUsuario.name.$invalid }">
                                                                     <label for="forLbNombreUsuario">Primer Nombre</label>
-                                                                    <input type="text" name="name" id="forLbNombreUsuario" ng-model="name" class="form-control form-control-sm validate" required> 
-                                                                    <span ng-show="!registro.name.$pristine && registro.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                    <input type="text" name="name" id="forLbNombreUsuario" ng-model="name" class="form-control form-control-sm" required> 
+                                                                    <span ng-show="!formNombreUsuario.name.$pristine && formNombreUsuario.name.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
                                                                 </div>
                                                             </form>
+                                                            <script>
+                                                                var app = angular.module('myApp', []);
+                                                                app.directive('myDirective', function(){
+                                                                    return {
+                                                                        require: 'ngModel', 
+                                                                        link: function(scope, element, attr, mCtrl){
+                                                                            function myValidation(value){
+                                                                                 for (int i = 0; i < id.length(); i++) {
+                                                                                    char c = id.charAt(i);
+                                                                                        if (c < '0' || c > '9') {// !('0'<=c && c<='9')
+                                                                                            mCtrl.$setValidity('Numero', false);
+                                                                                        }
+                                                                                    }
+                                                                                   mCtrl.$setValidity('Numero', true);
+                                                                                    return value;
+                                                                            }
+                                                                           mCtrl.$parsers.push(myValidation);
+                                                                        }
+                                                                };
+                                                                });
+                                                            </script>
                                                         </div>
                                                         <div class="col-lg-6">
-                                                            <form name="formApellidoUsuario" ng-submit="sumbitForm(registro1.$valid)">
-                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
+                                                            <form name="formApellidoUsuario" ng-submit="formApellidoUsuario.$valid">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !formApellidoUsuario.lastname.$pristine && formApellidoUsuario.lastname.$invalid }">
                                                                     <label for="forLbApellido">Apellido</label>
                                                                     <input type="text" name="lastname" id="forLbApellido" ng-model="lastname" class="form-control form-control-sm validate" required> 
-                                                                    <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                                    <span ng-show="!formApellidoUsuario.lastname.$pristine && formApellidoUsuario.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -704,22 +725,27 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-5">
-                                                            <form name="formDireccion" ng-submit="sumbitForm(registro1.$valid)">
-                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
-                                                                    <label for="forLbDireccion">Distrito</label>
-                                                                    <input type="text" name="lastname" id="forLbDireccion" ng-model="lastname" class="form-control form-control-sm validate" required> 
-                                                                    <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
-                                                                </div>
+                                                            <form name="formDistrito">
+                                                               <div class="md-form form-sm lg-4">
+                                                               <div class="form-group">
+                                                               <label for="forLbDistrito">Distrito</label><br><br>
+                                                               <select class="form-control" id="district">
+                                                                   <option>Ancon</option>
+                                                                   <option>Lince</option>
+                                                                   <option>Jesus Maria</option>
+                                                               </select>
+                                                               </div>
+                                                               </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-12">
-                                                            <form name="formDistrito" ng-submit="sumbitForm(registro1.$valid)">
-                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !registro1.name.$pristine && registro1.name.$invalid }">
-                                                                    <label for="forLbDistrito">Dirección</label>
-                                                                    <input type="text" name="lastname" id="forLbDistrito" ng-model="lastname" class="form-control form-control-sm validate" required> 
-                                                                    <span ng-show="!registro1.lastname.$pristine && registro1.lastname.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
+                                                            <form name="formDireccion" ng-submit="formDireccion.$valid">
+                                                                <div class="md-form form-sm lg-4" ng-class="{ 'has-error' : !formDireccion.address.$pristine && formDireccion.address.$invalid }">
+                                                                    <label for="forLbDireccion">Dirección</label>
+                                                                    <input type="text" name="address" id="forLbDistrito" ng-model="address" class="form-control form-control-sm validate" required> 
+                                                                    <span ng-show="!formDireccion.address.$pristine && formDireccion.address.$invalid" class="active red-text">No debe dejar espacio en blanco</span>
                                                                 </div>
                                                             </form>
                                                         </div>
