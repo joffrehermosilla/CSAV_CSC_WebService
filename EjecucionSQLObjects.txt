@@ -26,6 +26,37 @@ TAMBIEM PUEDO HACER POR SP Y TRAERLO 10 REGISTROS COMPLETOS
 CODIGO SQL QUE SE DEBE EJECUTAR
 -------------------------------------------------------------------------------------
 
+CREATE TABLE `estado_catalogo` (
+  `codigo_estadoCatalogo` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50),
+  PRIMARY KEY (`codigo_estadoCatalogo`)
+)
+
+CREATE TABLE `catalogo` (
+  `codigo_catalogo` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_codigo_producto` int(11),
+  `cat_nombre_producto` varchar(50),
+  `cat_nombre_tipo_producto` varchar(50),
+  `cat_tiempoenhorno_tipo_producto` float,
+  `cat_temperaturaenhorno_tipo_producto` float,
+  `cat_valor_neto` float,
+  `cat_valor_con_igv` float,
+  `cat_foto_producto` blob,  
+  `cat_preparacion_producto` varchar(150),
+  `cat_colores_producto` varchar(50),
+  `cat_nombre_insumo` varchar(50),
+  `cat_modelo_receta_producto` varchar(50),
+  `cantidadMasPedido` int(11),
+  `promedioTotalProd` float,
+  `fkcodigo_estadoCatalogo` int(11),
+  PRIMARY KEY (`codigo_catalogo`),
+  FOREIGN KEY (`fkcodigo_estadoCatalogo`) REFERENCES `estado_catalogo`(`codigo_estadoCatalogo`)
+)
+
+INSERT INTO `ceramicasietecoyas`.`estado_catalogo` (`codigo_estadoCatalogo`,
+`descripcion`) 
+VALUES ('1','Habilitado'),('2','Deshabilitado');
+
 INSERT INTO `ceramicasietecoyas`.`cuota` (`monto_cuota`,
 `fkcodigo_mes`,
 `fkcodigo_producto`) 
@@ -148,36 +179,6 @@ ORDER BY pro.nombre_producto ASC
 
 ----------------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS `estado_catalogo`;
-CREATE TABLE `estado_catalogo` (
-  `codigo_estadoCatalogo` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(50),
-  PRIMARY KEY (`codigo_estadoCatalogo`)
-)
-
-DROP TABLE IF EXISTS `catalogo`;
-CREATE TABLE `catalogo` (
-  `codigo_catalogo` int(11) NOT NULL AUTO_INCREMENT,
-  `cat_codigo_producto` int(11),
-  `cat_nombre_producto` varchar(50),
-  `cat_nombre_tipo_producto` varchar(50),
-  `cat_tiempoenhorno_tipo_producto` float,
-  `cat_temperaturaenhorno_tipo_producto` float,
-  `cat_valor_neto` float,
-  `cat_valor_con_igv` float,
-  `cat_foto_producto` blob,  
-  `cat_preparacion_producto` varchar(150),
-  `cat_colores_producto` varchar(50),
-  `cat_nombre_insumo` varchar(50),
-  `cat_modelo_receta_producto` varchar(50),
-  `cantidadMasPedido` int(11),
-  `promedioTotalProd` float,
-  `fkcodigo_estadoCatalogo` int(11),
-  PRIMARY KEY (`codigo_catalogo`),
-  FOREIGN KEY (`fkcodigo_estadoCatalogo`) REFERENCES `estado_catalogo`(`codigo_estadoCatalogo`)
-)
-
-
 drop trigger IF EXISTS tra_relacionEstadoCatalogo;
 DELIMITER //
 CREATE TRIGGER tra_relacionEstadoCatalogo
@@ -296,7 +297,3 @@ DELIMITER ;
 		readonly: true
 	});
 </script>
-
-
-
-

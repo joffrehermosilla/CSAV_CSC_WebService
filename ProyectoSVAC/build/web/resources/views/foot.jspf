@@ -1,12 +1,12 @@
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 <!-- Bootstrap tooltips -->
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/popper.min.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/popper.min.js" type="text/javascript"></script>
 <!-- Bootstrap core JavaScript -->
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- MDB core JavaScript -->
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/mdb.min.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/mdb.min.js" type="text/javascript"></script>
 <!-- Initializations -->
 <script type="text/javascript">
   // Animations initialization
@@ -16,12 +16,16 @@
   });
 </script>
 
+<!--Otros imports-->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/select/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/jquery.barrating.min.js" type="text/javascript"></script>
-<script src="http://localhost:8084/ProyectoSVAC/resources/js-views/moment.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/picker.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/picker.date.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/picker.time.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/legacy.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/jquery.barrating.min.js" type="text/javascript"></script>
+<script src="http://localhost:8084/ProyectoSVAC/js/jquery.twbsPagination.min.js" type="text/javascript"></script>

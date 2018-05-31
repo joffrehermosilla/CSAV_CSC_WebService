@@ -7,7 +7,7 @@
           <span class="fa fa-sign-out" aria-hidden="true"></span>&nbsp;&nbsp;LogOut</a>
         </div>
         <!-- Brand -->
-        <a class="navbar-brand" href="http://localhost:8084/ProyectoSVAC/">
+        <a class="navbar-brand" href="">
           <strong class="blue-text">SVAC_CSC</strong>
         </a>
         <!-- Collapse -->
@@ -22,10 +22,10 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Herramientas de Administrador&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="http://localhost:8084/ProyectoSVAC/resources/views/gestionCatalogo.jsp">Gestionar Catálogo</a></li>
-                  <li><a href="#">Gestionar Pedido</a></li>
-                  <li><a href="#">Generar Promociones</a></li>
-                  <li><a href="#">Generar Reportes Stock</a></li>
+                    <li style="background-color: #7bc4f7;" id="liM"><a style="margin-top: 6px; color: #fff!important;" id="aM" href="#" onclick="t_gestionaCatalogo()">Gestionar Catálogo</a></li>
+                    <li id="liN"><a id="aN" href="#" onclick="t_gestionaPedido()">Gestionar Pedido</a></li>
+                    <li id="liP"><a id="aP" href="#" >Generar Promociones</a></li>
+                    <li id="liQ"><a id="aQ" href="#" >Generar Reportes Stock</a></li>
                 </ul>
               </li>
           </ul>

@@ -63,7 +63,7 @@ public class CatalogoResource {
     @Path("getProducto")
     @Produces("application/json")
     public String getProducto() {
-        Gson gson =new Gson();        
+        Gson gson =new Gson();
         List lista = null;
         try{
             lista = catalogoHelper.getProductoList();

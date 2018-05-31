@@ -22,8 +22,9 @@
               <li class="nav-item dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones del Cliente&nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Generar Pedido</a></li>
-                    <li><a href="http://localhost:8084/ProyectoSVAC/resources/views/gestionPreferencia.jsp">Gestionar Preferencia</a></li>
+                      <li style="background-color: #7bc4f7;" id="liA"><a style="margin-top: 6px; color: #fff!important;" id="aA" href="#" onclick="t_verCatalogo()">Ver Catálogo</a></li>  
+                      <li id="liB"><a id="aB" href="#" >Generar Pedido</a></li>
+                      <li id="liC"><a id="aC" href="#" onclick="t_gestionaPrefer()">Gestionar Preferencia</a></li>
                   </ul>
               </li>
           </ul>
@@ -31,7 +32,7 @@
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item" style="padding: 7px 3px 0px 3px;">
               <ul class="nav navbar-nav navbar-right" ng-repeat="nombre in ListaNombres" style="padding-right: 45px;">
-                  <li><a href="#">{{nombre.nombre_usuario}} {{nombre.apellido_usuario}}</a></li>
+                  <li><a href="#" style="color: #8a9e80;">{{nombre.nombre_usuario}} {{nombre.apellido_usuario}}</a></li>
               </ul>
             </li>
           </ul>
