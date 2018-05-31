@@ -29,18 +29,17 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             $scope.ProductoList = response.data;
-            var ratingBar;
+            var sel = document.createElement("select");
+            var opt1 = document.createElement("option");
+            var opt2 = document.createElement("option");
+            var opt3 = document.createElement("option");
+            var opt4 = document.createElement("option");
+            var opt5 = document.createElement("option");
+            
             angular.forEach($scope.ProductoList, function(value, key){
-                ratingBar = angular.element('#setProdPun'+value.codigo_producto);
-//                var tdInner = document.getElementById("a1quiInnerHTML");
-//                var sel = document.createElement("select");
-//                var opt1 = document.createElement("option");
-//                var opt2 = document.createElement("option");
-//                var opt3 = document.createElement("option");
-//                var opt4 = document.createElement("option");
-//                var opt5 = document.createElement("option");
+                $('#aquiInnerHTML').text('Page awdaw');
 //                sel.setAttribute('id','setProdPuntos'+value.codigo_producto+'');
-//                tdInner.appendChild(sel);
+//                $('#aquiInnerHTML').appendChild(sel);
 //                opt1.value = "1";
 //                opt1.text = "1";
 //                opt2.value = "2";
@@ -152,8 +151,9 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             $scope.Catalogo = response.data;
+            var bool = ((response.data.length === 0) ? 1 : response.data.length);
             $('#paginationCool').twbsPagination({
-                totalPages: response.data.length,
+                totalPages: bool,
                 visiblePages: 4,
                 onPageClick: function (event, page) {
 //                    $('#catalogoTOP').text('Page ' + page);
@@ -180,7 +180,7 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
     };
     //Herramientas
     $scope.quitarArticulo = function(event) {
-        var idProducto = event.target.value;
+        var idProducto = event.currentTarget.value;
         $http({
             method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/quitarArticulo',

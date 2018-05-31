@@ -24,8 +24,8 @@
                 <ul class="dropdown-menu">
                     <li style="background-color: #7bc4f7;" id="liM"><a style="margin-top: 6px; color: #fff!important;" id="aM" href="#" onclick="t_gestionaCatalogo()">Gestionar Catálogo</a></li>
                     <li id="liN"><a id="aN" href="#" onclick="t_gestionaPedido()">Gestionar Pedido</a></li>
-                    <li id="liP"><a id="aP" href="#" onclick="t_generaPromocion()">Generar Promociones</a></li>
-                    <li id="liQ"><a id="aQ" href="#" onclick="t_generaReporteStock()">Generar Reportes Stock</a></li>
+                    <li id="liP"><a id="aP" href="#" >Generar Promociones</a></li>
+                    <li id="liQ"><a id="aQ" href="#" >Generar Reportes Stock</a></li>
                 </ul>
               </li>
           </ul>

@@ -8,27 +8,7 @@
             <li><a id="clickP" data-toggle="tab" href="#generaPromocion">Menu 2</a></li>
             <li><a id="clickQ" data-toggle="tab" href="#generaReporteStock">Menu 3</a></li>
         </ul>
-        <div class="container-fluid" style="padding-bottom: 30px; padding-top: 60px;">
-            <div class="row">
-                <div class="col-lg-3">&nbsp;</div>
-                <div class="col-lg-6">
-                    <ul class="nav nav-pills nav-justified">
-                        <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
-                            <a class="nav-link active" data-toggle="pill" href="#productosN">Productos</a>
-                        </li>
-                        <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
-                            <a class="nav-link" data-toggle="pill" href="#reporteVentaN">Reportes Venta</a>
-                        </li>
-                        <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
-                            <a class="nav-link" data-toggle="pill" href="#catalogoN">Catálogo</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">&nbsp;</div>
-            </div>
-        </div>
-        
-        <div style="padding-bottom: 20px;">
+        <div style="padding-bottom: 20px; padding-top: 60px;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-1">&nbsp;</div>
@@ -36,6 +16,25 @@
                         <div class="tab-content">
                             
                             <div id="gestionaCatalogo" class="tab-pane fade in show active" role="tabpanel">
+                                <div class="container-fluid" style="padding-bottom: 30px;">
+                                    <div class="row">
+                                        <div class="col-lg-3">&nbsp;</div>
+                                        <div class="col-lg-6">
+                                            <ul class="nav nav-pills nav-justified">
+                                                <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
+                                                    <a class="nav-link active" data-toggle="pill" href="#productosN">Productos</a>
+                                                </li>
+                                                <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
+                                                    <a class="nav-link" data-toggle="pill" href="#reporteVentaN">Reportes Venta</a>
+                                                </li>
+                                                <li class="nav-item" style="padding-left: 5px; padding-right: 5px;">
+                                                    <a class="nav-link" data-toggle="pill" href="#catalogoN">Catálogo</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3">&nbsp;</div>
+                                    </div>
+                                </div>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="productosN">
                                         <table class="table table-striped" style="font-size: 15px;">
@@ -60,13 +59,14 @@
                                                         <option value="4">4</option>
                                                         <option value="5">5</option>
                                                     </select>-->
-                                                    <input type="text" value="{{producto.promedioPuntaje}}" name="cRatingBar" id="idPuntaje" readonly="true" style="width: 35px;">
+                                                    <input type="text" value="{{producto.promedioPuntaje}}" name="cRatingBar" id="idPuntaje" 
+                                                           readonly="true" style="width: 48px; -webkit-appearance: none;">
                                                 </td>
                                                 <td>{{producto.ingreso_almacen_producto}}</td>
                                                 <td>{{producto.salida_almacen_producto}}</td>
                                                 <td>{{producto.cantidadUnidad}}</td>
                                                 <td align="center"><button class="btn-floating btn-lg purple-gradient btn-info" value="{{producto.codigo_producto}}">
-                                                    <i class="fa fa-picture-o" aria-hidden="true"></i></button></td>
+                                                    <span class="fa fa-picture-o" aria-hidden="true"></span></button></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -154,7 +154,7 @@
                                     <div class="tab-pane fade" id="catalogoN">
                                         <div class="row">
                                             <div class="col-lg-4" style="text-align: left;">
-                                                <p style="margin-top: 30px; font-weight: lighter; font-size: 18px;">Catálogo TOP 10 artículos de Mayo</p>
+                                                <p style="margin-top: 30px; font-weight: lighter; font-size: 18px;">Catálogo TOP 10 artículos de Junio</p>
                                             </div>
                                             <div class="col-lg-8">
                                                 <ul class="nav nav-pills pull-right" style="padding-top: 12px; padding-bottom: 12px;">
@@ -188,7 +188,7 @@
                                                                 </div>
                                                                 <div class="col-lg-4" style="text-align: right;">
                                                                     <button class="btn-floating btn-lg purple-gradient btn-danger" data-ng-click="quitarArticulo($event)" value="{{cat.cat_codigo_producto}}">
-                                                                    <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                                    <span class="fa fa-trash-o" aria-hidden="true"></span></button>
                                                                 </div>
                                                             </div>
                                                             <hr class="hr-light">
@@ -277,7 +277,7 @@
                                 <script>
                                     var dateObj = new Date();
                                     var month = dateObj.getUTCMonth() + 1; //months from 1-12
-                                    var day = dateObj.getUTCDate() - 1;
+                                    var day = dateObj.getUTCDate();
                                     var year = dateObj.getUTCFullYear();
                                     newdate = day + "/" + month + "/" + year;
                                     document.getElementById("fechaAhora").innerHTML = newdate;
