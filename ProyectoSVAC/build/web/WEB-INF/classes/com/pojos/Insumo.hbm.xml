@@ -1,36 +1,82 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.Insumo" table="insumo" catalog="ceramicasietecoyas" optimistic-lock="version">
+    <class name="com.pojos.Insumo" table="insumo" catalog="ceramicasietecoyas">
         <id name="codigoInsumo" type="java.lang.Integer">
             <column name="codigo_insumo" />
             <generator class="identity" />
         </id>
+        <timestamp name="version" column="version" />
+        <many-to-one name="estadoInsumo" class="com.pojos.EstadoInsumo" fetch="select">
+            <column name="fk_codigo_estado_insumo" />
+        </many-to-one>
+        <many-to-one name="loteInsumo" class="com.pojos.LoteInsumo" fetch="select">
+            <column name="fk_codigo_lote_insumo" />
+        </many-to-one>
+        <many-to-one name="presentacionInsumo" class="com.pojos.PresentacionInsumo" fetch="select">
+            <column name="fk_codigo_presentacion_insumo" />
+        </many-to-one>
+        <many-to-one name="tipoInsumo" class="com.pojos.TipoInsumo" fetch="select">
+            <column name="fk_codigo_tipo_insumo" />
+        </many-to-one>
         <property name="nombreInsumo" type="string">
-            <column name="nombre_insumo" length="30" />
+            <column name="nombre_insumo" length="90" />
+        </property>
+        <property name="fechaIngreso" type="timestamp">
+            <column name="fecha_ingreso" length="19" />
+        </property>
+        <property name="fechaSalida" type="timestamp">
+            <column name="fecha_salida" length="19" />
+        </property>
+        <property name="stockActual" type="java.lang.Integer">
+            <column name="stock_actual" />
+        </property>
+        <property name="codigoMarca" type="string">
+            <column name="codigo_marca" length="90" />
         </property>
         <property name="marcaInsumo" type="string">
-            <column name="marca_insumo" length="45" />
+            <column name="marca_insumo" length="90" />
         </property>
-        <property name="fechaIngresoInsumo" type="timestamp">
-            <column name="fecha_ingreso_insumo" length="19" />
+        <property name="loteMarcaInsumo" type="string">
+            <column name="lote_marca_insumo" length="90" />
         </property>
-        <property name="pesoInsumo" type="java.lang.Float">
-            <column name="peso_insumo" precision="12" scale="0" />
+        <property name="descripcionInsumo" type="string">
+            <column name="descripcion_insumo" length="100" />
         </property>
-        <property name="presentacionInsumo" type="string">
-            <column name="presentacion_insumo" length="45" />
+        <property name="unidadMedida" type="string">
+            <column name="unidad_medida" length="45" />
         </property>
-        <property name="precioUnitarioInsumo" type="java.lang.Float">
-            <column name="precio_unitario_insumo" precision="12" scale="0" />
+        <property name="cantidadUniInsumoAlmacen" type="java.lang.Float">
+            <column name="cantidad_uni_insumo_almacen" precision="12" scale="0" />
         </property>
-        <set name="recetaProductoTieneInsumos" table="receta_producto_tiene_insumo" inverse="true" lazy="true" fetch="select">
+        <property name="temperaturaAmbiente" type="java.lang.Float">
+            <column name="temperatura_ambiente" precision="12" scale="0" />
+        </property>
+        <property name="fechaVencimiento" type="timestamp">
+            <column name="fecha_vencimiento" length="19" />
+        </property>
+        <property name="precioUnitario" type="java.lang.Float">
+            <column name="precio_unitario" precision="12" scale="0" />
+        </property>
+        <property name="precioUniPromocion" type="java.lang.Float">
+            <column name="precio_uni_promocion" precision="12" scale="0" />
+        </property>
+        <property name="codigoBarras" type="string">
+            <column name="codigo_barras" length="100" />
+        </property>
+        <property name="codigoQr" type="string">
+            <column name="codigo_qr" length="100" />
+        </property>
+        <property name="fotoInsumo" type="binary">
+            <column name="foto_insumo" />
+        </property>
+        <set name="receProduTiInsumos" table="rece_produ_ti_insumo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="fkcodigo_insumo" />
+                <column name="fk_codigo_insumo" />
             </key>
-            <one-to-many class="com.pojos.RecetaProductoTieneInsumo" />
+            <one-to-many class="com.pojos.ReceProduTiInsumo" />
         </set>
     </class>
 </hibernate-mapping>

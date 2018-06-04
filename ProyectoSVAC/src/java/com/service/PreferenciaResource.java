@@ -67,6 +67,7 @@ public class PreferenciaResource {
         List lista = null;
         try {
             lista = preferenciaHelper.getCatalogo();
+            System.out.println(""+gson.toJson(lista));
         } catch(Exception e) {
             System.out.println("getCatalogo: "+e.getMessage());
         }

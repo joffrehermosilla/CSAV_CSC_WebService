@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,17 +13,18 @@ public class RecetaProducto  implements java.io.Serializable {
 
 
      private Integer codigoRecetaProducto;
+     private Date version;
      private String modeloRecetaProducto;
      private Date fechaCreacionRecetaProducto;
-     private Set<RecetaProductoTieneInsumo> recetaProductoTieneInsumos = new HashSet<RecetaProductoTieneInsumo>(0);
+     private Set<ReceProduTiInsumo> receProduTiInsumos = new HashSet<ReceProduTiInsumo>(0);
 
     public RecetaProducto() {
     }
 
-    public RecetaProducto(String modeloRecetaProducto, Date fechaCreacionRecetaProducto, Set<RecetaProductoTieneInsumo> recetaProductoTieneInsumos) {
+    public RecetaProducto(String modeloRecetaProducto, Date fechaCreacionRecetaProducto, Set<ReceProduTiInsumo> receProduTiInsumos) {
        this.modeloRecetaProducto = modeloRecetaProducto;
        this.fechaCreacionRecetaProducto = fechaCreacionRecetaProducto;
-       this.recetaProductoTieneInsumos = recetaProductoTieneInsumos;
+       this.receProduTiInsumos = receProduTiInsumos;
     }
    
     public Integer getCodigoRecetaProducto() {
@@ -32,6 +33,13 @@ public class RecetaProducto  implements java.io.Serializable {
     
     public void setCodigoRecetaProducto(Integer codigoRecetaProducto) {
         this.codigoRecetaProducto = codigoRecetaProducto;
+    }
+    public Date getVersion() {
+        return this.version;
+    }
+    
+    public void setVersion(Date version) {
+        this.version = version;
     }
     public String getModeloRecetaProducto() {
         return this.modeloRecetaProducto;
@@ -47,12 +55,12 @@ public class RecetaProducto  implements java.io.Serializable {
     public void setFechaCreacionRecetaProducto(Date fechaCreacionRecetaProducto) {
         this.fechaCreacionRecetaProducto = fechaCreacionRecetaProducto;
     }
-    public Set<RecetaProductoTieneInsumo> getRecetaProductoTieneInsumos() {
-        return this.recetaProductoTieneInsumos;
+    public Set<ReceProduTiInsumo> getReceProduTiInsumos() {
+        return this.receProduTiInsumos;
     }
     
-    public void setRecetaProductoTieneInsumos(Set<RecetaProductoTieneInsumo> recetaProductoTieneInsumos) {
-        this.recetaProductoTieneInsumos = recetaProductoTieneInsumos;
+    public void setReceProduTiInsumos(Set<ReceProduTiInsumo> receProduTiInsumos) {
+        this.receProduTiInsumos = receProduTiInsumos;
     }
 
 

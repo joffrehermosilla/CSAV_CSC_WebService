@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -16,9 +16,11 @@ public class AudiVendedor  implements java.io.Serializable {
      private Integer fkcodigoUsuarioOld;
      private Integer fkcodigoAreaOld;
      private String codigoVentaVendedorOld;
+     private Date versionOld;
      private Integer fkcodigoUsuarioNew;
      private Integer fkcodigoAreaNew;
      private String codigoVentaVendedorNew;
+     private Date versionNew;
 
     public AudiVendedor() {
     }
@@ -28,15 +30,17 @@ public class AudiVendedor  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiVendedor(String usuario, Date fechaCambio, Integer fkcodigoUsuarioOld, Integer fkcodigoAreaOld, String codigoVentaVendedorOld, Integer fkcodigoUsuarioNew, Integer fkcodigoAreaNew, String codigoVentaVendedorNew) {
+    public AudiVendedor(String usuario, Date fechaCambio, Integer fkcodigoUsuarioOld, Integer fkcodigoAreaOld, String codigoVentaVendedorOld, Date versionOld, Integer fkcodigoUsuarioNew, Integer fkcodigoAreaNew, String codigoVentaVendedorNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoUsuarioOld = fkcodigoUsuarioOld;
        this.fkcodigoAreaOld = fkcodigoAreaOld;
        this.codigoVentaVendedorOld = codigoVentaVendedorOld;
+       this.versionOld = versionOld;
        this.fkcodigoUsuarioNew = fkcodigoUsuarioNew;
        this.fkcodigoAreaNew = fkcodigoAreaNew;
        this.codigoVentaVendedorNew = codigoVentaVendedorNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiVendedor() {
@@ -81,6 +85,13 @@ public class AudiVendedor  implements java.io.Serializable {
     public void setCodigoVentaVendedorOld(String codigoVentaVendedorOld) {
         this.codigoVentaVendedorOld = codigoVentaVendedorOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getFkcodigoUsuarioNew() {
         return this.fkcodigoUsuarioNew;
     }
@@ -101,6 +112,13 @@ public class AudiVendedor  implements java.io.Serializable {
     
     public void setCodigoVentaVendedorNew(String codigoVentaVendedorNew) {
         this.codigoVentaVendedorNew = codigoVentaVendedorNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

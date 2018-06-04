@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudPresentacionInsumo" table="aud_presentacion_insumo" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiPresentacionInsumo" type="java.lang.Integer">
+            <column name="codigo_audi_presentacion_insumo" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="nombrePresentacionInsumoOld" type="string">
+            <column name="nombre_presentacion_insumo_old" length="90" />
+        </property>
+        <property name="versionOld" type="timestamp">
+            <column name="version_old" length="19" />
+        </property>
+        <property name="nombrePresentacionInsumoNew" type="string">
+            <column name="nombre_presentacion_insumo_new" length="90" />
+        </property>
+        <property name="versionNew" type="timestamp">
+            <column name="version_new" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

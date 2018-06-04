@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,17 +14,49 @@ public class AuditoriaInsumo  implements java.io.Serializable {
      private String usuario;
      private Date fechaCambio;
      private String nombreInsumoOld;
+     private Date fechaIngresoOld;
+     private Date fechaSalidaOld;
+     private Integer stockActualOld;
+     private String codigoMarcaOld;
      private String marcaInsumoOld;
-     private Date fechaIngresoInsumoOld;
-     private Float pesoInsumoOld;
-     private String presentacionInsumoOld;
-     private Float precioUnitarioInsumoOld;
+     private String loteMarcaInsumoOld;
+     private String descripcionInsumoOld;
+     private String unidadMedidaOld;
+     private Float cantidadUniInsumoAlmacenOld;
+     private Float temperaturaAmbienteOld;
+     private Date fechaVencimientoOld;
+     private Float precioUnitarioOld;
+     private Float precioUniPromocionOld;
+     private String codigoBarrasOld;
+     private String codigoQrOld;
+     private byte[] fotoInsumoOld;
+     private Integer fkCodigoEstadoInsumoOld;
+     private Integer fkCodigoTipoInsumoOld;
+     private Integer fkCodigoPresentacionInsumoOld;
+     private Integer fkCodigoLoteInsumoOld;
+     private Date versionOld;
      private String nombreInsumoNew;
+     private Date fechaIngresoNew;
+     private Date fechaSalidaNew;
+     private Integer stockActualNew;
+     private String codigoMarcaNew;
      private String marcaInsumoNew;
-     private Date fechaIngresoInsumoNew;
-     private Float pesoInsumoNew;
-     private String presentacionInsumoNew;
-     private Float precioUnitarioInsumoNew;
+     private String loteMarcaInsumoNew;
+     private String descripcionInsumoNew;
+     private String unidadMedidaNew;
+     private Float cantidadUniInsumoAlmacenNew;
+     private Float temperaturaAmbienteNew;
+     private Date fechaVencimientoNew;
+     private Float precioUnitarioNew;
+     private Float precioUniPromocionNew;
+     private String codigoBarrasNew;
+     private String codigoQrNew;
+     private byte[] fotoInsumoNew;
+     private Integer fkCodigoEstadoInsumoNew;
+     private Integer fkCodigoTipoInsumoNew;
+     private Integer fkCodigoPresentacionInsumoNew;
+     private Integer fkCodigoLoteInsumoNew;
+     private Date versionNew;
 
     public AuditoriaInsumo() {
     }
@@ -34,21 +66,53 @@ public class AuditoriaInsumo  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaInsumo(String usuario, Date fechaCambio, String nombreInsumoOld, String marcaInsumoOld, Date fechaIngresoInsumoOld, Float pesoInsumoOld, String presentacionInsumoOld, Float precioUnitarioInsumoOld, String nombreInsumoNew, String marcaInsumoNew, Date fechaIngresoInsumoNew, Float pesoInsumoNew, String presentacionInsumoNew, Float precioUnitarioInsumoNew) {
+    public AuditoriaInsumo(String usuario, Date fechaCambio, String nombreInsumoOld, Date fechaIngresoOld, Date fechaSalidaOld, Integer stockActualOld, String codigoMarcaOld, String marcaInsumoOld, String loteMarcaInsumoOld, String descripcionInsumoOld, String unidadMedidaOld, Float cantidadUniInsumoAlmacenOld, Float temperaturaAmbienteOld, Date fechaVencimientoOld, Float precioUnitarioOld, Float precioUniPromocionOld, String codigoBarrasOld, String codigoQrOld, byte[] fotoInsumoOld, Integer fkCodigoEstadoInsumoOld, Integer fkCodigoTipoInsumoOld, Integer fkCodigoPresentacionInsumoOld, Integer fkCodigoLoteInsumoOld, Date versionOld, String nombreInsumoNew, Date fechaIngresoNew, Date fechaSalidaNew, Integer stockActualNew, String codigoMarcaNew, String marcaInsumoNew, String loteMarcaInsumoNew, String descripcionInsumoNew, String unidadMedidaNew, Float cantidadUniInsumoAlmacenNew, Float temperaturaAmbienteNew, Date fechaVencimientoNew, Float precioUnitarioNew, Float precioUniPromocionNew, String codigoBarrasNew, String codigoQrNew, byte[] fotoInsumoNew, Integer fkCodigoEstadoInsumoNew, Integer fkCodigoTipoInsumoNew, Integer fkCodigoPresentacionInsumoNew, Integer fkCodigoLoteInsumoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreInsumoOld = nombreInsumoOld;
+       this.fechaIngresoOld = fechaIngresoOld;
+       this.fechaSalidaOld = fechaSalidaOld;
+       this.stockActualOld = stockActualOld;
+       this.codigoMarcaOld = codigoMarcaOld;
        this.marcaInsumoOld = marcaInsumoOld;
-       this.fechaIngresoInsumoOld = fechaIngresoInsumoOld;
-       this.pesoInsumoOld = pesoInsumoOld;
-       this.presentacionInsumoOld = presentacionInsumoOld;
-       this.precioUnitarioInsumoOld = precioUnitarioInsumoOld;
+       this.loteMarcaInsumoOld = loteMarcaInsumoOld;
+       this.descripcionInsumoOld = descripcionInsumoOld;
+       this.unidadMedidaOld = unidadMedidaOld;
+       this.cantidadUniInsumoAlmacenOld = cantidadUniInsumoAlmacenOld;
+       this.temperaturaAmbienteOld = temperaturaAmbienteOld;
+       this.fechaVencimientoOld = fechaVencimientoOld;
+       this.precioUnitarioOld = precioUnitarioOld;
+       this.precioUniPromocionOld = precioUniPromocionOld;
+       this.codigoBarrasOld = codigoBarrasOld;
+       this.codigoQrOld = codigoQrOld;
+       this.fotoInsumoOld = fotoInsumoOld;
+       this.fkCodigoEstadoInsumoOld = fkCodigoEstadoInsumoOld;
+       this.fkCodigoTipoInsumoOld = fkCodigoTipoInsumoOld;
+       this.fkCodigoPresentacionInsumoOld = fkCodigoPresentacionInsumoOld;
+       this.fkCodigoLoteInsumoOld = fkCodigoLoteInsumoOld;
+       this.versionOld = versionOld;
        this.nombreInsumoNew = nombreInsumoNew;
+       this.fechaIngresoNew = fechaIngresoNew;
+       this.fechaSalidaNew = fechaSalidaNew;
+       this.stockActualNew = stockActualNew;
+       this.codigoMarcaNew = codigoMarcaNew;
        this.marcaInsumoNew = marcaInsumoNew;
-       this.fechaIngresoInsumoNew = fechaIngresoInsumoNew;
-       this.pesoInsumoNew = pesoInsumoNew;
-       this.presentacionInsumoNew = presentacionInsumoNew;
-       this.precioUnitarioInsumoNew = precioUnitarioInsumoNew;
+       this.loteMarcaInsumoNew = loteMarcaInsumoNew;
+       this.descripcionInsumoNew = descripcionInsumoNew;
+       this.unidadMedidaNew = unidadMedidaNew;
+       this.cantidadUniInsumoAlmacenNew = cantidadUniInsumoAlmacenNew;
+       this.temperaturaAmbienteNew = temperaturaAmbienteNew;
+       this.fechaVencimientoNew = fechaVencimientoNew;
+       this.precioUnitarioNew = precioUnitarioNew;
+       this.precioUniPromocionNew = precioUniPromocionNew;
+       this.codigoBarrasNew = codigoBarrasNew;
+       this.codigoQrNew = codigoQrNew;
+       this.fotoInsumoNew = fotoInsumoNew;
+       this.fkCodigoEstadoInsumoNew = fkCodigoEstadoInsumoNew;
+       this.fkCodigoTipoInsumoNew = fkCodigoTipoInsumoNew;
+       this.fkCodigoPresentacionInsumoNew = fkCodigoPresentacionInsumoNew;
+       this.fkCodigoLoteInsumoNew = fkCodigoLoteInsumoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiInsumo() {
@@ -79,6 +143,34 @@ public class AuditoriaInsumo  implements java.io.Serializable {
     public void setNombreInsumoOld(String nombreInsumoOld) {
         this.nombreInsumoOld = nombreInsumoOld;
     }
+    public Date getFechaIngresoOld() {
+        return this.fechaIngresoOld;
+    }
+    
+    public void setFechaIngresoOld(Date fechaIngresoOld) {
+        this.fechaIngresoOld = fechaIngresoOld;
+    }
+    public Date getFechaSalidaOld() {
+        return this.fechaSalidaOld;
+    }
+    
+    public void setFechaSalidaOld(Date fechaSalidaOld) {
+        this.fechaSalidaOld = fechaSalidaOld;
+    }
+    public Integer getStockActualOld() {
+        return this.stockActualOld;
+    }
+    
+    public void setStockActualOld(Integer stockActualOld) {
+        this.stockActualOld = stockActualOld;
+    }
+    public String getCodigoMarcaOld() {
+        return this.codigoMarcaOld;
+    }
+    
+    public void setCodigoMarcaOld(String codigoMarcaOld) {
+        this.codigoMarcaOld = codigoMarcaOld;
+    }
     public String getMarcaInsumoOld() {
         return this.marcaInsumoOld;
     }
@@ -86,33 +178,117 @@ public class AuditoriaInsumo  implements java.io.Serializable {
     public void setMarcaInsumoOld(String marcaInsumoOld) {
         this.marcaInsumoOld = marcaInsumoOld;
     }
-    public Date getFechaIngresoInsumoOld() {
-        return this.fechaIngresoInsumoOld;
+    public String getLoteMarcaInsumoOld() {
+        return this.loteMarcaInsumoOld;
     }
     
-    public void setFechaIngresoInsumoOld(Date fechaIngresoInsumoOld) {
-        this.fechaIngresoInsumoOld = fechaIngresoInsumoOld;
+    public void setLoteMarcaInsumoOld(String loteMarcaInsumoOld) {
+        this.loteMarcaInsumoOld = loteMarcaInsumoOld;
     }
-    public Float getPesoInsumoOld() {
-        return this.pesoInsumoOld;
-    }
-    
-    public void setPesoInsumoOld(Float pesoInsumoOld) {
-        this.pesoInsumoOld = pesoInsumoOld;
-    }
-    public String getPresentacionInsumoOld() {
-        return this.presentacionInsumoOld;
+    public String getDescripcionInsumoOld() {
+        return this.descripcionInsumoOld;
     }
     
-    public void setPresentacionInsumoOld(String presentacionInsumoOld) {
-        this.presentacionInsumoOld = presentacionInsumoOld;
+    public void setDescripcionInsumoOld(String descripcionInsumoOld) {
+        this.descripcionInsumoOld = descripcionInsumoOld;
     }
-    public Float getPrecioUnitarioInsumoOld() {
-        return this.precioUnitarioInsumoOld;
+    public String getUnidadMedidaOld() {
+        return this.unidadMedidaOld;
     }
     
-    public void setPrecioUnitarioInsumoOld(Float precioUnitarioInsumoOld) {
-        this.precioUnitarioInsumoOld = precioUnitarioInsumoOld;
+    public void setUnidadMedidaOld(String unidadMedidaOld) {
+        this.unidadMedidaOld = unidadMedidaOld;
+    }
+    public Float getCantidadUniInsumoAlmacenOld() {
+        return this.cantidadUniInsumoAlmacenOld;
+    }
+    
+    public void setCantidadUniInsumoAlmacenOld(Float cantidadUniInsumoAlmacenOld) {
+        this.cantidadUniInsumoAlmacenOld = cantidadUniInsumoAlmacenOld;
+    }
+    public Float getTemperaturaAmbienteOld() {
+        return this.temperaturaAmbienteOld;
+    }
+    
+    public void setTemperaturaAmbienteOld(Float temperaturaAmbienteOld) {
+        this.temperaturaAmbienteOld = temperaturaAmbienteOld;
+    }
+    public Date getFechaVencimientoOld() {
+        return this.fechaVencimientoOld;
+    }
+    
+    public void setFechaVencimientoOld(Date fechaVencimientoOld) {
+        this.fechaVencimientoOld = fechaVencimientoOld;
+    }
+    public Float getPrecioUnitarioOld() {
+        return this.precioUnitarioOld;
+    }
+    
+    public void setPrecioUnitarioOld(Float precioUnitarioOld) {
+        this.precioUnitarioOld = precioUnitarioOld;
+    }
+    public Float getPrecioUniPromocionOld() {
+        return this.precioUniPromocionOld;
+    }
+    
+    public void setPrecioUniPromocionOld(Float precioUniPromocionOld) {
+        this.precioUniPromocionOld = precioUniPromocionOld;
+    }
+    public String getCodigoBarrasOld() {
+        return this.codigoBarrasOld;
+    }
+    
+    public void setCodigoBarrasOld(String codigoBarrasOld) {
+        this.codigoBarrasOld = codigoBarrasOld;
+    }
+    public String getCodigoQrOld() {
+        return this.codigoQrOld;
+    }
+    
+    public void setCodigoQrOld(String codigoQrOld) {
+        this.codigoQrOld = codigoQrOld;
+    }
+    public byte[] getFotoInsumoOld() {
+        return this.fotoInsumoOld;
+    }
+    
+    public void setFotoInsumoOld(byte[] fotoInsumoOld) {
+        this.fotoInsumoOld = fotoInsumoOld;
+    }
+    public Integer getFkCodigoEstadoInsumoOld() {
+        return this.fkCodigoEstadoInsumoOld;
+    }
+    
+    public void setFkCodigoEstadoInsumoOld(Integer fkCodigoEstadoInsumoOld) {
+        this.fkCodigoEstadoInsumoOld = fkCodigoEstadoInsumoOld;
+    }
+    public Integer getFkCodigoTipoInsumoOld() {
+        return this.fkCodigoTipoInsumoOld;
+    }
+    
+    public void setFkCodigoTipoInsumoOld(Integer fkCodigoTipoInsumoOld) {
+        this.fkCodigoTipoInsumoOld = fkCodigoTipoInsumoOld;
+    }
+    public Integer getFkCodigoPresentacionInsumoOld() {
+        return this.fkCodigoPresentacionInsumoOld;
+    }
+    
+    public void setFkCodigoPresentacionInsumoOld(Integer fkCodigoPresentacionInsumoOld) {
+        this.fkCodigoPresentacionInsumoOld = fkCodigoPresentacionInsumoOld;
+    }
+    public Integer getFkCodigoLoteInsumoOld() {
+        return this.fkCodigoLoteInsumoOld;
+    }
+    
+    public void setFkCodigoLoteInsumoOld(Integer fkCodigoLoteInsumoOld) {
+        this.fkCodigoLoteInsumoOld = fkCodigoLoteInsumoOld;
+    }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
     }
     public String getNombreInsumoNew() {
         return this.nombreInsumoNew;
@@ -121,6 +297,34 @@ public class AuditoriaInsumo  implements java.io.Serializable {
     public void setNombreInsumoNew(String nombreInsumoNew) {
         this.nombreInsumoNew = nombreInsumoNew;
     }
+    public Date getFechaIngresoNew() {
+        return this.fechaIngresoNew;
+    }
+    
+    public void setFechaIngresoNew(Date fechaIngresoNew) {
+        this.fechaIngresoNew = fechaIngresoNew;
+    }
+    public Date getFechaSalidaNew() {
+        return this.fechaSalidaNew;
+    }
+    
+    public void setFechaSalidaNew(Date fechaSalidaNew) {
+        this.fechaSalidaNew = fechaSalidaNew;
+    }
+    public Integer getStockActualNew() {
+        return this.stockActualNew;
+    }
+    
+    public void setStockActualNew(Integer stockActualNew) {
+        this.stockActualNew = stockActualNew;
+    }
+    public String getCodigoMarcaNew() {
+        return this.codigoMarcaNew;
+    }
+    
+    public void setCodigoMarcaNew(String codigoMarcaNew) {
+        this.codigoMarcaNew = codigoMarcaNew;
+    }
     public String getMarcaInsumoNew() {
         return this.marcaInsumoNew;
     }
@@ -128,33 +332,117 @@ public class AuditoriaInsumo  implements java.io.Serializable {
     public void setMarcaInsumoNew(String marcaInsumoNew) {
         this.marcaInsumoNew = marcaInsumoNew;
     }
-    public Date getFechaIngresoInsumoNew() {
-        return this.fechaIngresoInsumoNew;
+    public String getLoteMarcaInsumoNew() {
+        return this.loteMarcaInsumoNew;
     }
     
-    public void setFechaIngresoInsumoNew(Date fechaIngresoInsumoNew) {
-        this.fechaIngresoInsumoNew = fechaIngresoInsumoNew;
+    public void setLoteMarcaInsumoNew(String loteMarcaInsumoNew) {
+        this.loteMarcaInsumoNew = loteMarcaInsumoNew;
     }
-    public Float getPesoInsumoNew() {
-        return this.pesoInsumoNew;
-    }
-    
-    public void setPesoInsumoNew(Float pesoInsumoNew) {
-        this.pesoInsumoNew = pesoInsumoNew;
-    }
-    public String getPresentacionInsumoNew() {
-        return this.presentacionInsumoNew;
+    public String getDescripcionInsumoNew() {
+        return this.descripcionInsumoNew;
     }
     
-    public void setPresentacionInsumoNew(String presentacionInsumoNew) {
-        this.presentacionInsumoNew = presentacionInsumoNew;
+    public void setDescripcionInsumoNew(String descripcionInsumoNew) {
+        this.descripcionInsumoNew = descripcionInsumoNew;
     }
-    public Float getPrecioUnitarioInsumoNew() {
-        return this.precioUnitarioInsumoNew;
+    public String getUnidadMedidaNew() {
+        return this.unidadMedidaNew;
     }
     
-    public void setPrecioUnitarioInsumoNew(Float precioUnitarioInsumoNew) {
-        this.precioUnitarioInsumoNew = precioUnitarioInsumoNew;
+    public void setUnidadMedidaNew(String unidadMedidaNew) {
+        this.unidadMedidaNew = unidadMedidaNew;
+    }
+    public Float getCantidadUniInsumoAlmacenNew() {
+        return this.cantidadUniInsumoAlmacenNew;
+    }
+    
+    public void setCantidadUniInsumoAlmacenNew(Float cantidadUniInsumoAlmacenNew) {
+        this.cantidadUniInsumoAlmacenNew = cantidadUniInsumoAlmacenNew;
+    }
+    public Float getTemperaturaAmbienteNew() {
+        return this.temperaturaAmbienteNew;
+    }
+    
+    public void setTemperaturaAmbienteNew(Float temperaturaAmbienteNew) {
+        this.temperaturaAmbienteNew = temperaturaAmbienteNew;
+    }
+    public Date getFechaVencimientoNew() {
+        return this.fechaVencimientoNew;
+    }
+    
+    public void setFechaVencimientoNew(Date fechaVencimientoNew) {
+        this.fechaVencimientoNew = fechaVencimientoNew;
+    }
+    public Float getPrecioUnitarioNew() {
+        return this.precioUnitarioNew;
+    }
+    
+    public void setPrecioUnitarioNew(Float precioUnitarioNew) {
+        this.precioUnitarioNew = precioUnitarioNew;
+    }
+    public Float getPrecioUniPromocionNew() {
+        return this.precioUniPromocionNew;
+    }
+    
+    public void setPrecioUniPromocionNew(Float precioUniPromocionNew) {
+        this.precioUniPromocionNew = precioUniPromocionNew;
+    }
+    public String getCodigoBarrasNew() {
+        return this.codigoBarrasNew;
+    }
+    
+    public void setCodigoBarrasNew(String codigoBarrasNew) {
+        this.codigoBarrasNew = codigoBarrasNew;
+    }
+    public String getCodigoQrNew() {
+        return this.codigoQrNew;
+    }
+    
+    public void setCodigoQrNew(String codigoQrNew) {
+        this.codigoQrNew = codigoQrNew;
+    }
+    public byte[] getFotoInsumoNew() {
+        return this.fotoInsumoNew;
+    }
+    
+    public void setFotoInsumoNew(byte[] fotoInsumoNew) {
+        this.fotoInsumoNew = fotoInsumoNew;
+    }
+    public Integer getFkCodigoEstadoInsumoNew() {
+        return this.fkCodigoEstadoInsumoNew;
+    }
+    
+    public void setFkCodigoEstadoInsumoNew(Integer fkCodigoEstadoInsumoNew) {
+        this.fkCodigoEstadoInsumoNew = fkCodigoEstadoInsumoNew;
+    }
+    public Integer getFkCodigoTipoInsumoNew() {
+        return this.fkCodigoTipoInsumoNew;
+    }
+    
+    public void setFkCodigoTipoInsumoNew(Integer fkCodigoTipoInsumoNew) {
+        this.fkCodigoTipoInsumoNew = fkCodigoTipoInsumoNew;
+    }
+    public Integer getFkCodigoPresentacionInsumoNew() {
+        return this.fkCodigoPresentacionInsumoNew;
+    }
+    
+    public void setFkCodigoPresentacionInsumoNew(Integer fkCodigoPresentacionInsumoNew) {
+        this.fkCodigoPresentacionInsumoNew = fkCodigoPresentacionInsumoNew;
+    }
+    public Integer getFkCodigoLoteInsumoNew() {
+        return this.fkCodigoLoteInsumoNew;
+    }
+    
+    public void setFkCodigoLoteInsumoNew(Integer fkCodigoLoteInsumoNew) {
+        this.fkCodigoLoteInsumoNew = fkCodigoLoteInsumoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

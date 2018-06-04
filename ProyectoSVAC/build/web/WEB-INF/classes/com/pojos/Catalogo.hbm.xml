@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Catalogo" table="catalogo" catalog="ceramicasietecoyas">
+        <id name="codigoCatalogo" type="java.lang.Integer">
+            <column name="codigo_catalogo" />
+            <generator class="identity" />
+        </id>
+        <timestamp name="version" column="version" />
+        <many-to-one name="estadoCatalogo" class="com.pojos.EstadoCatalogo" fetch="select">
+            <column name="fkcodigo_estadoCatalogo" />
+        </many-to-one>
+        <property name="catCodigoProducto" type="java.lang.Integer">
+            <column name="cat_codigo_producto" />
+        </property>
+        <property name="catNombreProducto" type="string">
+            <column name="cat_nombre_producto" length="50" />
+        </property>
+        <property name="catNombreTipoProducto" type="string">
+            <column name="cat_nombre_tipo_producto" length="50" />
+        </property>
+        <property name="catTiempoenhornoTipoProducto" type="java.lang.Float">
+            <column name="cat_tiempoenhorno_tipo_producto" precision="12" scale="0" />
+        </property>
+        <property name="catTemperaturaenhornoTipoProducto" type="java.lang.Float">
+            <column name="cat_temperaturaenhorno_tipo_producto" precision="12" scale="0" />
+        </property>
+        <property name="catValorNeto" type="java.lang.Float">
+            <column name="cat_valor_neto" precision="12" scale="0" />
+        </property>
+        <property name="catValorConIgv" type="java.lang.Float">
+            <column name="cat_valor_con_igv" precision="12" scale="0" />
+        </property>
+        <property name="catFotoProducto" type="binary">
+            <column name="cat_foto_producto" />
+        </property>
+        <property name="catPreparacionProducto" type="string">
+            <column name="cat_preparacion_producto" length="150" />
+        </property>
+        <property name="catColoresProducto" type="string">
+            <column name="cat_colores_producto" length="50" />
+        </property>
+        <property name="catNombreInsumo" type="string">
+            <column name="cat_nombre_insumo" length="50" />
+        </property>
+        <property name="catModeloRecetaProducto" type="string">
+            <column name="cat_modelo_receta_producto" length="50" />
+        </property>
+        <property name="cantidadMasPedido" type="java.lang.Integer">
+            <column name="cantidadMasPedido" />
+        </property>
+        <property name="promedioTotalProd" type="java.lang.Float">
+            <column name="promedioTotalProd" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

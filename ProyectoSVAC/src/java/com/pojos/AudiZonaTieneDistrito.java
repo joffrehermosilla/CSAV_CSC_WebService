@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,8 +15,10 @@ public class AudiZonaTieneDistrito  implements java.io.Serializable {
      private Date fechaCambio;
      private Integer fkcodigoZonaOld;
      private Integer fkcodigoDistritoOld;
+     private Date versionOld;
      private Integer fkcodigoZonaNew;
      private Integer fkcodigoDistritoNew;
+     private Date versionNew;
 
     public AudiZonaTieneDistrito() {
     }
@@ -26,13 +28,15 @@ public class AudiZonaTieneDistrito  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiZonaTieneDistrito(String usuario, Date fechaCambio, Integer fkcodigoZonaOld, Integer fkcodigoDistritoOld, Integer fkcodigoZonaNew, Integer fkcodigoDistritoNew) {
+    public AudiZonaTieneDistrito(String usuario, Date fechaCambio, Integer fkcodigoZonaOld, Integer fkcodigoDistritoOld, Date versionOld, Integer fkcodigoZonaNew, Integer fkcodigoDistritoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoZonaOld = fkcodigoZonaOld;
        this.fkcodigoDistritoOld = fkcodigoDistritoOld;
+       this.versionOld = versionOld;
        this.fkcodigoZonaNew = fkcodigoZonaNew;
        this.fkcodigoDistritoNew = fkcodigoDistritoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiZonaTieneDistrito() {
@@ -70,6 +74,13 @@ public class AudiZonaTieneDistrito  implements java.io.Serializable {
     public void setFkcodigoDistritoOld(Integer fkcodigoDistritoOld) {
         this.fkcodigoDistritoOld = fkcodigoDistritoOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getFkcodigoZonaNew() {
         return this.fkcodigoZonaNew;
     }
@@ -83,6 +94,13 @@ public class AudiZonaTieneDistrito  implements java.io.Serializable {
     
     public void setFkcodigoDistritoNew(Integer fkcodigoDistritoNew) {
         this.fkcodigoDistritoNew = fkcodigoDistritoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

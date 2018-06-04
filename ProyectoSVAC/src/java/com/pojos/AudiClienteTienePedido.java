@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -26,6 +26,7 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
      private Date fechaEntregaOld;
      private Integer cantidadProductoOld;
      private Float montoPorDescuentosOld;
+     private Date versionOld;
      private Integer fkcodigoClienteNew;
      private Integer fkcodigoVendedorNew;
      private Integer fkcodigoIgvVentaNew;
@@ -39,6 +40,7 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
      private Date fechaEntregaNew;
      private Integer cantidadProductoNew;
      private Float montoPorDescuentosNew;
+     private Date versionNew;
 
     public AudiClienteTienePedido() {
     }
@@ -48,7 +50,7 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiClienteTienePedido(String usuario, Date fechaCambio, Integer fkcodigoClienteOld, Integer fkcodigoVendedorOld, Integer fkcodigoIgvVentaOld, Integer fkcodigoPromocionVentaOld, Integer fkcodigoEstadoClienteTienePedidoOld, Integer fkcodigoFacturaClienteTienePedidoOld, Float descuentoWebPedidoOld, Float precioUniDescIgvOld, Float precioUniDescSinIgvOld, Date fechaPedidoOld, Date fechaEntregaOld, Integer cantidadProductoOld, Float montoPorDescuentosOld, Integer fkcodigoClienteNew, Integer fkcodigoVendedorNew, Integer fkcodigoIgvVentaNew, Integer fkcodigoPromocionVentaNew, Integer fkcodigoEstadoClienteTienePedidoNew, Integer fkcodigoFacturaClienteTienePedidoNew, Float descuentoWebPedidoNew, Float precioUniDescIgvNew, Float precioUniDescSinIgvNew, Date fechaPedidoNew, Date fechaEntregaNew, Integer cantidadProductoNew, Float montoPorDescuentosNew) {
+    public AudiClienteTienePedido(String usuario, Date fechaCambio, Integer fkcodigoClienteOld, Integer fkcodigoVendedorOld, Integer fkcodigoIgvVentaOld, Integer fkcodigoPromocionVentaOld, Integer fkcodigoEstadoClienteTienePedidoOld, Integer fkcodigoFacturaClienteTienePedidoOld, Float descuentoWebPedidoOld, Float precioUniDescIgvOld, Float precioUniDescSinIgvOld, Date fechaPedidoOld, Date fechaEntregaOld, Integer cantidadProductoOld, Float montoPorDescuentosOld, Date versionOld, Integer fkcodigoClienteNew, Integer fkcodigoVendedorNew, Integer fkcodigoIgvVentaNew, Integer fkcodigoPromocionVentaNew, Integer fkcodigoEstadoClienteTienePedidoNew, Integer fkcodigoFacturaClienteTienePedidoNew, Float descuentoWebPedidoNew, Float precioUniDescIgvNew, Float precioUniDescSinIgvNew, Date fechaPedidoNew, Date fechaEntregaNew, Integer cantidadProductoNew, Float montoPorDescuentosNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoClienteOld = fkcodigoClienteOld;
@@ -64,6 +66,7 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
        this.fechaEntregaOld = fechaEntregaOld;
        this.cantidadProductoOld = cantidadProductoOld;
        this.montoPorDescuentosOld = montoPorDescuentosOld;
+       this.versionOld = versionOld;
        this.fkcodigoClienteNew = fkcodigoClienteNew;
        this.fkcodigoVendedorNew = fkcodigoVendedorNew;
        this.fkcodigoIgvVentaNew = fkcodigoIgvVentaNew;
@@ -77,6 +80,7 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
        this.fechaEntregaNew = fechaEntregaNew;
        this.cantidadProductoNew = cantidadProductoNew;
        this.montoPorDescuentosNew = montoPorDescuentosNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiClienteTienePedido() {
@@ -191,6 +195,13 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
     public void setMontoPorDescuentosOld(Float montoPorDescuentosOld) {
         this.montoPorDescuentosOld = montoPorDescuentosOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getFkcodigoClienteNew() {
         return this.fkcodigoClienteNew;
     }
@@ -281,6 +292,13 @@ public class AudiClienteTienePedido  implements java.io.Serializable {
     
     public void setMontoPorDescuentosNew(Float montoPorDescuentosNew) {
         this.montoPorDescuentosNew = montoPorDescuentosNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

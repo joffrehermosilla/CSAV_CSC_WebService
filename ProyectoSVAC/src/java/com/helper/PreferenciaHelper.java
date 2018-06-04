@@ -1,24 +1,14 @@
 package com.helper;
 
 import DTO.CatalogoDTO;
-import DTO.DetallePedidoDTO;
-import DTO.PedidoReporteDTO;
 import DTO.ProductoCalificarDTO;
 import DTO.UsuarioDTO;
-import DTO.ProductoListaDTO;
-import DTO.ProductoxClienteDTO;
-import DTO.ReporteVendedorDTO;
-import DTO.TipoProductoDTO;
-import com.google.gson.Gson;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.transform.Transformers;
 import com.utility.HibernateUtil;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class PreferenciaHelper {
 
@@ -53,9 +43,9 @@ public class PreferenciaHelper {
                                         "	 pro.foto_producto, pro.preparacion_producto, pro.colores_producto,	ins.nombre_insumo, \n" +
                                         "        recPro.modelo_receta_producto\n" +
                                         "FROM producto as pro INNER JOIN tipo_producto as tiPro ON (pro.fkcodigo_tipo_producto = tiPro.codigo_tipo_producto) INNER JOIN\n" +
-                                        "     receta_producto_tiene_insumo as interMedio ON (interMedio.fkcodigo_producto = pro.codigo_producto) INNER JOIN\n" +
-                                        "     receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fkcodigo_receta_producto) INNER JOIN\n" +
-                                        "     insumo as ins ON (ins.codigo_insumo = interMedio.fkcodigo_insumo)\n" +
+                                        "     rece_produ_ti_insumo as interMedio ON (interMedio.fk_codigo_producto = pro.codigo_producto) INNER JOIN\n" +
+                                        "     receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fk_codigo_receta_producto) INNER JOIN\n" +
+                                        "     insumo as ins ON (ins.codigo_insumo = interMedio.fk_codigo_insumo)\n" +
                                         "GROUP BY pro.nombre_producto\n" +
                                         "ORDER BY pro.nombre_producto ASC").setResultTransformer(Transformers.aliasToBean(ProductoCalificarDTO.class));
         List<ProductoCalificarDTO> resultList=q.list();

@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -24,6 +24,7 @@ public class AuditoriaCliente  implements java.io.Serializable {
      private String rucClienteOld;
      private String dniClienteOld;
      private Date fechaEmpadronamientoClienteOld;
+     private Date versionOld;
      private String razonsocialClienteNew;
      private Integer fkcodigoUsuarioNew;
      private Integer fkcodigoRegimenClienteNew;
@@ -35,6 +36,7 @@ public class AuditoriaCliente  implements java.io.Serializable {
      private String rucClienteNew;
      private String dniClienteNew;
      private Date fechaEmpadronamientoClienteNew;
+     private Date versionNew;
 
     public AuditoriaCliente() {
     }
@@ -44,7 +46,7 @@ public class AuditoriaCliente  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaCliente(String usuario, Date fechaCambio, String razonsocialClienteOld, Integer fkcodigoUsuarioOld, Integer fkcodigoRegimenClienteOld, Integer fkcodigoEstadoClienteOld, Float latitudClienteOld, Float longitudClienteOld, String typeClienteOld, byte[] fotoUbicacionClienteOld, String rucClienteOld, String dniClienteOld, Date fechaEmpadronamientoClienteOld, String razonsocialClienteNew, Integer fkcodigoUsuarioNew, Integer fkcodigoRegimenClienteNew, Integer fkcodigoEstadoClienteNew, Float latitudClienteNew, Float longitudClienteNew, String typeClienteNew, byte[] fotoUbicacionClienteNew, String rucClienteNew, String dniClienteNew, Date fechaEmpadronamientoClienteNew) {
+    public AuditoriaCliente(String usuario, Date fechaCambio, String razonsocialClienteOld, Integer fkcodigoUsuarioOld, Integer fkcodigoRegimenClienteOld, Integer fkcodigoEstadoClienteOld, Float latitudClienteOld, Float longitudClienteOld, String typeClienteOld, byte[] fotoUbicacionClienteOld, String rucClienteOld, String dniClienteOld, Date fechaEmpadronamientoClienteOld, Date versionOld, String razonsocialClienteNew, Integer fkcodigoUsuarioNew, Integer fkcodigoRegimenClienteNew, Integer fkcodigoEstadoClienteNew, Float latitudClienteNew, Float longitudClienteNew, String typeClienteNew, byte[] fotoUbicacionClienteNew, String rucClienteNew, String dniClienteNew, Date fechaEmpadronamientoClienteNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.razonsocialClienteOld = razonsocialClienteOld;
@@ -58,6 +60,7 @@ public class AuditoriaCliente  implements java.io.Serializable {
        this.rucClienteOld = rucClienteOld;
        this.dniClienteOld = dniClienteOld;
        this.fechaEmpadronamientoClienteOld = fechaEmpadronamientoClienteOld;
+       this.versionOld = versionOld;
        this.razonsocialClienteNew = razonsocialClienteNew;
        this.fkcodigoUsuarioNew = fkcodigoUsuarioNew;
        this.fkcodigoRegimenClienteNew = fkcodigoRegimenClienteNew;
@@ -69,6 +72,7 @@ public class AuditoriaCliente  implements java.io.Serializable {
        this.rucClienteNew = rucClienteNew;
        this.dniClienteNew = dniClienteNew;
        this.fechaEmpadronamientoClienteNew = fechaEmpadronamientoClienteNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiCliente() {
@@ -169,6 +173,13 @@ public class AuditoriaCliente  implements java.io.Serializable {
     public void setFechaEmpadronamientoClienteOld(Date fechaEmpadronamientoClienteOld) {
         this.fechaEmpadronamientoClienteOld = fechaEmpadronamientoClienteOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getRazonsocialClienteNew() {
         return this.razonsocialClienteNew;
     }
@@ -245,6 +256,13 @@ public class AuditoriaCliente  implements java.io.Serializable {
     
     public void setFechaEmpadronamientoClienteNew(Date fechaEmpadronamientoClienteNew) {
         this.fechaEmpadronamientoClienteNew = fechaEmpadronamientoClienteNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

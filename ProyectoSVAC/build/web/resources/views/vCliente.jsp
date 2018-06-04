@@ -17,34 +17,32 @@
                                 <div class="form-group" style="padding-bottom: 3px;">
                                     <h2 style="font-weight: bold; color: #85bba3;">Catálogo de los mejores productos</h2>
                                 </div>
-                                <table class="table table-striped">
+                                <table class="table table-responsive-sm table-fixed">
                                     <tr>
-                                        <th>Nombre Producto</th>
-                                        <th>Tipo Producto</th>
-                                        <th>Tiempo en horno</th>
-                                        <th>Temperatura en horno</th>
-                                        <th>Valor Neto</th>
-                                        <th>Valor con IGV</th>
-                                        <th>Preparación</th>
-                                        <th>Colores</th>
-                                        <th>Insumo</th>
-                                        <th>Modelo Receta</th>
-                                        <th>Imagen</th>
-                                        <th>Cantidad Mas Pedido</th>
-                                        <th>Puntaje Total</th>
+                                        <th class="table-active">Nombre Producto</th>
+                                        <th class="table-active">Tipo Producto</th>
+                                        <th class="table-active">Tiempo en horno</th>
+                                        <th class="table-active">Temperatura en horno</th>
+                                        <th class="table-active">Valor Neto</th>
+                                        <th class="table-active">Valor con IGV</th>
+                                        <th class="table-active">Preparación</th>
+                                        <th class="table-active">Colores</th>
+                                        <th class="table-active">Insumo</th>
+                                        <th class="table-active">Modelo Receta</th>
+                                        <th class="table-active">Cantidad Mas Pedido</th>
+                                        <th class="table-active">Puntaje Total</th>
                                     </tr>
                                     <tr ng-repeat="cat in CatalogoCalificado">
                                         <td>{{cat.cat_nombre_producto}}</td>
                                         <td>{{cat.cat_nombre_tipo_producto}}</td>
-                                        <td>{{cat.cat_tiempoenhorno_tipo_producto}}</td>
-                                        <td>{{cat.cat_temperaturaenhorno_tipo_producto}}</td>
+                                        <td>{{cat.cat_tiempoenhorno_tipo_producto}} horas</td>
+                                        <td>{{cat.cat_temperaturaenhorno_tipo_producto}} C°</td>
                                         <td>{{cat.cat_valor_neto}}</td>
                                         <td>{{cat.cat_valor_con_igv}}</td>
                                         <td>{{cat.cat_preparacion_producto}}</td>
                                         <td>{{cat.cat_colores_producto}}</td>
                                         <td>{{cat.cat_nombre_insumo}}</td>
                                         <td>{{cat.cat_modelo_receta_producto}}</td>
-                                        <td>{{cat.cat_foto_producto}}</td>
                                         <td>{{cat.cantidadMasPedido}}</td>
                                         <td>{{cat.promedioTotalProd}}</td>
                                     </tr>
@@ -59,29 +57,27 @@
                                 <div class="form-group">
                                     <p><strong>Productos por calificar: </strong>Seleccione el producto a calificar:</p>
                                 </div>
-                                <table class="table table-striped">
+                                <table class="table table-responsive-sm table-fixed">
                                     <tr>
-                                        <th>Nombre Producto</th>
-                                        <th>Tipo Producto</th>
-                                        <th>Tiempo en horno</th>
-                                        <th>Temperatura en horno</th>
-                                        <th>Preparación</th>
-                                        <th>Colores</th>
-                                        <th>Insumo</th>
-                                        <th>Modelo Receta</th>
-                                        <th>Imagen</th>
-                                        <th>Calificar</th>
+                                        <th class="table-active">Nombre Producto</th>
+                                        <th class="table-active">Tipo Producto</th>
+                                        <th class="table-active">Tiempo en horno</th>
+                                        <th class="table-active">Temperatura en horno</th>
+                                        <th class="table-active">Preparación</th>
+                                        <th class="table-active">Colores</th>
+                                        <th class="table-active">Insumo</th>
+                                        <th class="table-active">Modelo Receta</th>
+                                        <th class="table-active">Calificar</th>
                                     </tr>
                                     <tr ng-repeat="catCalif in CatalNOCalificado">
                                         <td>{{catCalif.nombre_producto}}</td>
                                         <td>{{catCalif.nombre_tipo_producto}}</td>
-                                        <td>{{catCalif.tiempoenhorno_tipo_producto}}</td>
-                                        <td>{{catCalif.temperaturaenhorno_tipo_producto}}</td>
+                                        <td>{{catCalif.tiempoenhorno_tipo_producto}} horas</td>
+                                        <td>{{catCalif.temperaturaenhorno_tipo_producto}} C°</td>
                                         <td>{{catCalif.preparacion_producto}}</td>
                                         <td>{{catCalif.colores_producto}}</td>
                                         <td>{{catCalif.nombre_insumo}}</td>
                                         <td>{{catCalif.modelo_receta_producto}}</td>
-                                        <td>{{catCalif.foto_producto}}</td>
                                         <td><button class="btn-floating btn-lg purple-gradient btn-success" data-ng-click="setCodigoProducto($event)" value="{{catCalif.codigo_producto}}"
                                                     data-toggle="modal" data-target="#modalCalifica">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -103,7 +99,7 @@
                             <div style="padding: 30px 30px 20px 30px;">
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <p>Califique usted de 1 al 5 el producto que seleccionó:</p>
+                                        <p>Califique usted el nro. de estrellas del 1 al 5 al producto que seleccionó:</p>
                                     </div>
                                     <div class="col-lg-4">
                                         <select id="setProductoPuntos">
@@ -167,7 +163,7 @@
                 });
             });
         </script>
-        <script src="http://localhost:8084/ProyectoSVAC/resources/js/preferenciaController.js" type="text/javascript"></script>
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/clienteController.js" type="text/javascript"></script>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script>
         
     </body>

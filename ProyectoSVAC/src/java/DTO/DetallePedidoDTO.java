@@ -42,6 +42,20 @@ public class DetallePedidoDTO {
     float valor_con_igv;
     int cantidadProductoPed;
 
+    int codigo_factura_cliente_tiene_pedido;
+    String nombre_factura_cliente_tiene_pedido;
+    
+    int codigo_promocion_venta;
+    int cantidad_sku_pedido;
+    float descuento_sku_pedido;
+    Date fecha_inicio_promocion;
+    Date fecha_expiracion_promocion;
+    String descripcion_promocion;
+    
+    int codigo_igv_venta;
+    int fkcodigo_tipo_impuesto;
+    float porcentaje_igv_venta;
+
     public int getCodigo_producto() {
         return codigo_producto;
     }
@@ -322,6 +336,93 @@ public class DetallePedidoDTO {
         this.cantidadProductoPed = cantidadProductoPed;
     }
 
-    
+    public int getCodigo_factura_cliente_tiene_pedido() {
+        return codigo_factura_cliente_tiene_pedido;
+    }
+
+    public void setCodigo_factura_cliente_tiene_pedido(int codigo_factura_cliente_tiene_pedido) {
+        this.codigo_factura_cliente_tiene_pedido = codigo_factura_cliente_tiene_pedido;
+    }
+
+    public String getNombre_factura_cliente_tiene_pedido() {
+        return nombre_factura_cliente_tiene_pedido;
+    }
+
+    public void setNombre_factura_cliente_tiene_pedido(String nombre_factura_cliente_tiene_pedido) {
+        this.nombre_factura_cliente_tiene_pedido = nombre_factura_cliente_tiene_pedido;
+    }
+
+    public int getCodigo_promocion_venta() {
+        return codigo_promocion_venta;
+    }
+
+    public void setCodigo_promocion_venta(int codigo_promocion_venta) {
+        this.codigo_promocion_venta = codigo_promocion_venta;
+    }
+
+    public int getCantidad_sku_pedido() {
+        return cantidad_sku_pedido;
+    }
+
+    public void setCantidad_sku_pedido(int cantidad_sku_pedido) {
+        this.cantidad_sku_pedido = cantidad_sku_pedido;
+    }
+
+    public float getDescuento_sku_pedido() {
+        return descuento_sku_pedido;
+    }
+
+    public void setDescuento_sku_pedido(float descuento_sku_pedido) {
+        this.descuento_sku_pedido = descuento_sku_pedido;
+    }
+
+    public Date getFecha_inicio_promocion() {
+        return fecha_inicio_promocion;
+    }
+
+    public void setFecha_inicio_promocion(Date fecha_inicio_promocion) {
+        this.fecha_inicio_promocion = fecha_inicio_promocion;
+    }
+
+    public Date getFecha_expiracion_promocion() {
+        return fecha_expiracion_promocion;
+    }
+
+    public void setFecha_expiracion_promocion(Date fecha_expiracion_promocion) {
+        this.fecha_expiracion_promocion = fecha_expiracion_promocion;
+    }
+
+    public String getDescripcion_promocion() {
+        return descripcion_promocion;
+    }
+
+    public void setDescripcion_promocion(String descripcion_promocion) {
+        this.descripcion_promocion = descripcion_promocion;
+    }
+
+    public int getCodigo_igv_venta() {
+        return codigo_igv_venta;
+    }
+
+    public void setCodigo_igv_venta(int codigo_igv_venta) {
+        this.codigo_igv_venta = codigo_igv_venta;
+    }
+
+    public int getFkcodigo_tipo_impuesto() {
+        return fkcodigo_tipo_impuesto;
+    }
+
+    public void setFkcodigo_tipo_impuesto(int fkcodigo_tipo_impuesto) {
+        this.fkcodigo_tipo_impuesto = fkcodigo_tipo_impuesto;
+    }
+
+    public float getPorcentaje_igv_venta() {
+        return porcentaje_igv_venta;
+    }
+
+    public void setPorcentaje_igv_venta(float porcentaje_igv_venta) {
+        this.porcentaje_igv_venta = porcentaje_igv_venta;
+    }
+
     
 }

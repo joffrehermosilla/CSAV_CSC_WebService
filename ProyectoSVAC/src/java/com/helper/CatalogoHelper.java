@@ -6,7 +6,6 @@ import DTO.PedidoReporteDTO;
 import DTO.UsuarioDTO;
 import DTO.ProductoListaDTO;
 import DTO.ReporteVendedorDTO;
-import DTO.TipoProductoDTO;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -109,26 +108,25 @@ public class CatalogoHelper {
     }
  
     //Catalogo
-    
-    public List<TipoProductoDTO> getFilTipoProducto(){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT `nombre_tipo_producto` FROM `tipo_producto`").setResultTransformer(Transformers.aliasToBean(TipoProductoDTO.class));
-        List<TipoProductoDTO> resultList=q.list();
-        transaction.commit();
-        session.close();
-        return resultList;
-    }
-    
-    public List<ProductoListaDTO> getFilNombreProducto(){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT `nombre_producto` FROM `producto`").setResultTransformer(Transformers.aliasToBean(ProductoListaDTO.class));
-        List<ProductoListaDTO> resultList=q.list();
-        transaction.commit();
-        session.close();
-        return resultList;
-    }
+//    public List<TipoProductoDTO> getFilTipoProducto(){
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Transaction transaction = session.beginTransaction();
+//        Query q = session.createSQLQuery("SELECT `nombre_tipo_producto` FROM `tipo_producto`").setResultTransformer(Transformers.aliasToBean(TipoProductoDTO.class));
+//        List<TipoProductoDTO> resultList=q.list();
+//        transaction.commit();
+//        session.close();
+//        return resultList;
+//    }
+//    
+//    public List<ProductoListaDTO> getFilNombreProducto(){
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Transaction transaction = session.beginTransaction();
+//        Query q = session.createSQLQuery("SELECT `nombre_producto` FROM `producto`").setResultTransformer(Transformers.aliasToBean(ProductoListaDTO.class));
+//        List<ProductoListaDTO> resultList=q.list();
+//        transaction.commit();
+//        session.close();
+//        return resultList;
+//    }
     
     public List<CatalogoDTO> getCatalogo(){
         Session session = HibernateUtil.getSessionFactory().openSession();

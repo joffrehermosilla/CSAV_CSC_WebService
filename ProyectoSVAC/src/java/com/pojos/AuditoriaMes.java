@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,9 +14,11 @@ public class AuditoriaMes  implements java.io.Serializable {
      private String usuario;
      private Date fechaCambio;
      private String nombreMesOld;
-     private Integer fkcodigoYearOld;
+     private Integer fkCodigoYearOld;
+     private Date versionOld;
      private String nombreMesNew;
-     private Integer fkcodigoYearNew;
+     private Integer fkCodigoYearNew;
+     private Date versionNew;
 
     public AuditoriaMes() {
     }
@@ -26,13 +28,15 @@ public class AuditoriaMes  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaMes(String usuario, Date fechaCambio, String nombreMesOld, Integer fkcodigoYearOld, String nombreMesNew, Integer fkcodigoYearNew) {
+    public AuditoriaMes(String usuario, Date fechaCambio, String nombreMesOld, Integer fkCodigoYearOld, Date versionOld, String nombreMesNew, Integer fkCodigoYearNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreMesOld = nombreMesOld;
-       this.fkcodigoYearOld = fkcodigoYearOld;
+       this.fkCodigoYearOld = fkCodigoYearOld;
+       this.versionOld = versionOld;
        this.nombreMesNew = nombreMesNew;
-       this.fkcodigoYearNew = fkcodigoYearNew;
+       this.fkCodigoYearNew = fkCodigoYearNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAuditoriaMes() {
@@ -63,12 +67,19 @@ public class AuditoriaMes  implements java.io.Serializable {
     public void setNombreMesOld(String nombreMesOld) {
         this.nombreMesOld = nombreMesOld;
     }
-    public Integer getFkcodigoYearOld() {
-        return this.fkcodigoYearOld;
+    public Integer getFkCodigoYearOld() {
+        return this.fkCodigoYearOld;
     }
     
-    public void setFkcodigoYearOld(Integer fkcodigoYearOld) {
-        this.fkcodigoYearOld = fkcodigoYearOld;
+    public void setFkCodigoYearOld(Integer fkCodigoYearOld) {
+        this.fkCodigoYearOld = fkCodigoYearOld;
+    }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
     }
     public String getNombreMesNew() {
         return this.nombreMesNew;
@@ -77,12 +88,19 @@ public class AuditoriaMes  implements java.io.Serializable {
     public void setNombreMesNew(String nombreMesNew) {
         this.nombreMesNew = nombreMesNew;
     }
-    public Integer getFkcodigoYearNew() {
-        return this.fkcodigoYearNew;
+    public Integer getFkCodigoYearNew() {
+        return this.fkCodigoYearNew;
     }
     
-    public void setFkcodigoYearNew(Integer fkcodigoYearNew) {
-        this.fkcodigoYearNew = fkcodigoYearNew;
+    public void setFkCodigoYearNew(Integer fkCodigoYearNew) {
+        this.fkCodigoYearNew = fkCodigoYearNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

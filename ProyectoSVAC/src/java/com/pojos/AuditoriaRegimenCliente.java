@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,7 +14,9 @@ public class AuditoriaRegimenCliente  implements java.io.Serializable {
      private String usuario;
      private Date fechaCambio;
      private String nombreRegimenClienteOld;
+     private Date versionOld;
      private String nombreRegimenClienteNew;
+     private Date versionNew;
 
     public AuditoriaRegimenCliente() {
     }
@@ -24,11 +26,13 @@ public class AuditoriaRegimenCliente  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaRegimenCliente(String usuario, Date fechaCambio, String nombreRegimenClienteOld, String nombreRegimenClienteNew) {
+    public AuditoriaRegimenCliente(String usuario, Date fechaCambio, String nombreRegimenClienteOld, Date versionOld, String nombreRegimenClienteNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreRegimenClienteOld = nombreRegimenClienteOld;
+       this.versionOld = versionOld;
        this.nombreRegimenClienteNew = nombreRegimenClienteNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiRegimenCliente() {
@@ -59,12 +63,26 @@ public class AuditoriaRegimenCliente  implements java.io.Serializable {
     public void setNombreRegimenClienteOld(String nombreRegimenClienteOld) {
         this.nombreRegimenClienteOld = nombreRegimenClienteOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreRegimenClienteNew() {
         return this.nombreRegimenClienteNew;
     }
     
     public void setNombreRegimenClienteNew(String nombreRegimenClienteNew) {
         this.nombreRegimenClienteNew = nombreRegimenClienteNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

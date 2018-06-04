@@ -44,7 +44,7 @@ app.controller("preferenciaCtrl", function($scope, $http, $window) {
     };
     
     $scope.setCodigoProducto = function(event) {
-        var idProductoCalif = event.target.value;
+        var idProductoCalif = event.currentTarget.value;
 
         $scope.calificar = function() {
             var codigoUsuario = sessionStorage.getItem("idUsuarioLogged");

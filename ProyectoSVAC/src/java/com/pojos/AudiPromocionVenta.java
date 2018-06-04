@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,11 +18,13 @@ public class AudiPromocionVenta  implements java.io.Serializable {
      private Date fechaInicioPromocionOld;
      private Date fechaExpiracionPromocionOld;
      private String descripcionPromocionOld;
+     private Date versionOld;
      private Integer cantidadSkuPedidoNew;
      private Float descuentoSkuPedidoNew;
      private Date fechaInicioPromocionNew;
      private Date fechaExpiracionPromocionNew;
      private String descripcionPromocionNew;
+     private Date versionNew;
 
     public AudiPromocionVenta() {
     }
@@ -32,7 +34,7 @@ public class AudiPromocionVenta  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiPromocionVenta(String usuario, Date fechaCambio, Integer cantidadSkuPedidoOld, Float descuentoSkuPedidoOld, Date fechaInicioPromocionOld, Date fechaExpiracionPromocionOld, String descripcionPromocionOld, Integer cantidadSkuPedidoNew, Float descuentoSkuPedidoNew, Date fechaInicioPromocionNew, Date fechaExpiracionPromocionNew, String descripcionPromocionNew) {
+    public AudiPromocionVenta(String usuario, Date fechaCambio, Integer cantidadSkuPedidoOld, Float descuentoSkuPedidoOld, Date fechaInicioPromocionOld, Date fechaExpiracionPromocionOld, String descripcionPromocionOld, Date versionOld, Integer cantidadSkuPedidoNew, Float descuentoSkuPedidoNew, Date fechaInicioPromocionNew, Date fechaExpiracionPromocionNew, String descripcionPromocionNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.cantidadSkuPedidoOld = cantidadSkuPedidoOld;
@@ -40,11 +42,13 @@ public class AudiPromocionVenta  implements java.io.Serializable {
        this.fechaInicioPromocionOld = fechaInicioPromocionOld;
        this.fechaExpiracionPromocionOld = fechaExpiracionPromocionOld;
        this.descripcionPromocionOld = descripcionPromocionOld;
+       this.versionOld = versionOld;
        this.cantidadSkuPedidoNew = cantidadSkuPedidoNew;
        this.descuentoSkuPedidoNew = descuentoSkuPedidoNew;
        this.fechaInicioPromocionNew = fechaInicioPromocionNew;
        this.fechaExpiracionPromocionNew = fechaExpiracionPromocionNew;
        this.descripcionPromocionNew = descripcionPromocionNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiPromocionVenta() {
@@ -103,6 +107,13 @@ public class AudiPromocionVenta  implements java.io.Serializable {
     public void setDescripcionPromocionOld(String descripcionPromocionOld) {
         this.descripcionPromocionOld = descripcionPromocionOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getCantidadSkuPedidoNew() {
         return this.cantidadSkuPedidoNew;
     }
@@ -137,6 +148,13 @@ public class AudiPromocionVenta  implements java.io.Serializable {
     
     public void setDescripcionPromocionNew(String descripcionPromocionNew) {
         this.descripcionPromocionNew = descripcionPromocionNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

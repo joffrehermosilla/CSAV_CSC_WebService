@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,12 +13,14 @@ public class AuditoriaCuota  implements java.io.Serializable {
      private Integer codigoAuditoriaCuota;
      private String usuario;
      private Date fechaCambio;
-     private Float montoCuoataOld;
-     private Integer fkcodigoMesOld;
-     private Integer fkcodigoProductoOld;
-     private Float montoCuoataNew;
-     private Integer fkcodigoMesNew;
-     private Integer fkcodigoProductoNew;
+     private Float montoCuotaOld;
+     private Integer fkCodigoMesOld;
+     private Integer fkCodigoProductoOld;
+     private Date versionOld;
+     private Float montoCuotaNew;
+     private Integer fkCodigoMesNew;
+     private Integer fkCodigoProductoNew;
+     private Date versionNew;
 
     public AuditoriaCuota() {
     }
@@ -28,15 +30,17 @@ public class AuditoriaCuota  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaCuota(String usuario, Date fechaCambio, Float montoCuoataOld, Integer fkcodigoMesOld, Integer fkcodigoProductoOld, Float montoCuoataNew, Integer fkcodigoMesNew, Integer fkcodigoProductoNew) {
+    public AuditoriaCuota(String usuario, Date fechaCambio, Float montoCuotaOld, Integer fkCodigoMesOld, Integer fkCodigoProductoOld, Date versionOld, Float montoCuotaNew, Integer fkCodigoMesNew, Integer fkCodigoProductoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
-       this.montoCuoataOld = montoCuoataOld;
-       this.fkcodigoMesOld = fkcodigoMesOld;
-       this.fkcodigoProductoOld = fkcodigoProductoOld;
-       this.montoCuoataNew = montoCuoataNew;
-       this.fkcodigoMesNew = fkcodigoMesNew;
-       this.fkcodigoProductoNew = fkcodigoProductoNew;
+       this.montoCuotaOld = montoCuotaOld;
+       this.fkCodigoMesOld = fkCodigoMesOld;
+       this.fkCodigoProductoOld = fkCodigoProductoOld;
+       this.versionOld = versionOld;
+       this.montoCuotaNew = montoCuotaNew;
+       this.fkCodigoMesNew = fkCodigoMesNew;
+       this.fkCodigoProductoNew = fkCodigoProductoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAuditoriaCuota() {
@@ -60,47 +64,61 @@ public class AuditoriaCuota  implements java.io.Serializable {
     public void setFechaCambio(Date fechaCambio) {
         this.fechaCambio = fechaCambio;
     }
-    public Float getMontoCuoataOld() {
-        return this.montoCuoataOld;
+    public Float getMontoCuotaOld() {
+        return this.montoCuotaOld;
     }
     
-    public void setMontoCuoataOld(Float montoCuoataOld) {
-        this.montoCuoataOld = montoCuoataOld;
+    public void setMontoCuotaOld(Float montoCuotaOld) {
+        this.montoCuotaOld = montoCuotaOld;
     }
-    public Integer getFkcodigoMesOld() {
-        return this.fkcodigoMesOld;
-    }
-    
-    public void setFkcodigoMesOld(Integer fkcodigoMesOld) {
-        this.fkcodigoMesOld = fkcodigoMesOld;
-    }
-    public Integer getFkcodigoProductoOld() {
-        return this.fkcodigoProductoOld;
+    public Integer getFkCodigoMesOld() {
+        return this.fkCodigoMesOld;
     }
     
-    public void setFkcodigoProductoOld(Integer fkcodigoProductoOld) {
-        this.fkcodigoProductoOld = fkcodigoProductoOld;
+    public void setFkCodigoMesOld(Integer fkCodigoMesOld) {
+        this.fkCodigoMesOld = fkCodigoMesOld;
     }
-    public Float getMontoCuoataNew() {
-        return this.montoCuoataNew;
-    }
-    
-    public void setMontoCuoataNew(Float montoCuoataNew) {
-        this.montoCuoataNew = montoCuoataNew;
-    }
-    public Integer getFkcodigoMesNew() {
-        return this.fkcodigoMesNew;
+    public Integer getFkCodigoProductoOld() {
+        return this.fkCodigoProductoOld;
     }
     
-    public void setFkcodigoMesNew(Integer fkcodigoMesNew) {
-        this.fkcodigoMesNew = fkcodigoMesNew;
+    public void setFkCodigoProductoOld(Integer fkCodigoProductoOld) {
+        this.fkCodigoProductoOld = fkCodigoProductoOld;
     }
-    public Integer getFkcodigoProductoNew() {
-        return this.fkcodigoProductoNew;
+    public Date getVersionOld() {
+        return this.versionOld;
     }
     
-    public void setFkcodigoProductoNew(Integer fkcodigoProductoNew) {
-        this.fkcodigoProductoNew = fkcodigoProductoNew;
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
+    public Float getMontoCuotaNew() {
+        return this.montoCuotaNew;
+    }
+    
+    public void setMontoCuotaNew(Float montoCuotaNew) {
+        this.montoCuotaNew = montoCuotaNew;
+    }
+    public Integer getFkCodigoMesNew() {
+        return this.fkCodigoMesNew;
+    }
+    
+    public void setFkCodigoMesNew(Integer fkCodigoMesNew) {
+        this.fkCodigoMesNew = fkCodigoMesNew;
+    }
+    public Integer getFkCodigoProductoNew() {
+        return this.fkCodigoProductoNew;
+    }
+    
+    public void setFkCodigoProductoNew(Integer fkCodigoProductoNew) {
+        this.fkCodigoProductoNew = fkCodigoProductoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

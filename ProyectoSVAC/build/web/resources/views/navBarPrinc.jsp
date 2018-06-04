@@ -20,9 +20,7 @@
                 </a>
             </li>
             <li class="nav-item" style="padding-left: 3px; padding-right: 3px;">
-                <a class="nav-link waves-effect" href="#" data-toggle="popover" data-placement="bottom" data-trigger="focus"
-                   title="¡No se apresure!" data-content="Sed posuere consectetur est at lobortis. 
-                   Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.">Nuestro Catálogo</a>
+                <a class="nav-link waves-effect" href="#">Nuestro Catálogo</a>
             </li>
             <li class="nav-item" style="padding-left: 3px; padding-right: 5px;">
                 <a class="nav-link waves-effect" href="#">Colaboradores</a>

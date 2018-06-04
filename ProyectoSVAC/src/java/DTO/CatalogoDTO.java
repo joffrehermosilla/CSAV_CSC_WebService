@@ -1,5 +1,7 @@
 package DTO;
 
+import java.util.Date;
+
 public class CatalogoDTO {
     
     int codigo_catalogo;
@@ -10,7 +12,7 @@ public class CatalogoDTO {
     float cat_temperaturaenhorno_tipo_producto;
     float cat_valor_neto;
     float cat_valor_con_igv;
-    Byte[] cat_foto_producto;
+    byte[] cat_foto_producto;
     String cat_preparacion_producto;
     String cat_colores_producto;
     String cat_nombre_insumo;
@@ -18,7 +20,8 @@ public class CatalogoDTO {
     int cantidadMasPedido;
     float promedioTotalProd;
     int fkcodigo_estadoCatalogo;
-
+    Date version;
+    
     int codigo_estadoCatalogo;
     String descripcion;
 
@@ -86,11 +89,11 @@ public class CatalogoDTO {
         this.cat_valor_con_igv = cat_valor_con_igv;
     }
 
-    public Byte[] getCat_foto_producto() {
+    public byte[] getCat_foto_producto() {
         return cat_foto_producto;
     }
 
-    public void setCat_foto_producto(Byte[] cat_foto_producto) {
+    public void setCat_foto_producto(byte[] cat_foto_producto) {
         this.cat_foto_producto = cat_foto_producto;
     }
 
@@ -150,6 +153,14 @@ public class CatalogoDTO {
         this.fkcodigo_estadoCatalogo = fkcodigo_estadoCatalogo;
     }
 
+    public Date getVersion() {
+        return version;
+    }
+
+    public void setVersion(Date version) {
+        this.version = version;
+    }
+
     public int getCodigo_estadoCatalogo() {
         return codigo_estadoCatalogo;
     }
@@ -165,8 +176,6 @@ public class CatalogoDTO {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
     
     
 }

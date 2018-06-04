@@ -1,156 +1,45 @@
-TODO LO DE CERAMICASIETECOYAS
-- tabla cliente necesita mas registros
-- tabla cpl_tiene_ztd necesita mas registros
-- tabla factura_c_tiene_pedido necesita mas registros
-- tabla promocion_venta necesita mas registros
-- tabla tipo_producto necesita mas registros
-- rellanar todos con 20 registros como minimo
+-----------------------TERCERA ITERACION---------------------------
+Mejorar tabla producto, producto por pedido, usuario, vendedor sobre el flujo de datos. (listo)
+Relacionar 1 a muchos en las tablas de insumos, recetas y productos (listo)
+Arreglar los campos de la tabla CATALOGO (listo)
+Seguir poblando la base de datos. (En proceso)
+Mejorar el index.jsp (front end)
+Hacer las validaciones de registrar usuario y login.
+Poner un datatable en cada tabla excepto el de reporte de ventas.
+Levantar el proyecto con las imagenes de la BD.
+En cuanto al catalogo: El minimo de articulos que se presente son 10. (bota excepcion)
+					   En agregar articulos, insertar un registro en la tabla catalogo de acuerdo al codigo del producto. (insert/select/where codigo -> 1)
+					   Arreglar lo del rating bar en una grilla.
+					   Arreglar lo de la paginacion del catalogo.
+En cuanto a preferencias: Mejorar el front-end. (si alcanza tiempo)
+						  Si es posible, mostrar las imagenes de cada producto. (si alcanza tiempo)
+						  No califique el mismo producto una vez calificado. (por mes se abre de nuevo) -> actualiza el catalogo, y se abre de nuevo.
+						  Mostrar un aviso modal bottom o top en el que avisa el lapso de tiempo que se reinicia la temporada del catalogo.
+-----------------------CUARTA ITERACION---------------------------						  
+Hacer el generar pedido (carrito de compras)
 
-Falta insertar: (listo)
-cliente_tiene_pedido*
-cliente_tiene_preferencia*
-cuota*
-igv_venta*
-producto_por_pedido*
-vendedor*
 
-CATALOGO:
-CADA ARTICULO TIENE: NOMBRE DEL PRODUCTO, TIPO DE PRODUCTO, TIEMPO EN HORNO Y TEMPERATURA DEL HORNO, PUNTUACION, LA CANTIDAD QUE SUPERA, VALOR NETO Y VALOR CON IGV,
-LA FECHA QUE SE POSTEO (OPCIONAL), PREPARACION DEL PRODUCTO, FOTO DEL PRODUCTO, COLORES DEL PRODUCTO, NOMBRE DE INSUMO, MODELO DE RECETA
-DEL PRODUCTO
-HACER UNA VISTA DEL ARTICULO
-TAMBIEM PUEDO HACER POR SP Y TRAERLO 10 REGISTROS COMPLETOS
+INCIDENCIAS:
+CONEXION A LA BASE DE DATOS EN EL NET BEANS
+POSIBLEMENTE PORQUE NO CROE UNA CUENTA EN LA BD
 
 
 -------------------------------------------------------------------------------------
 CODIGO SQL QUE SE DEBE EJECUTAR
 -------------------------------------------------------------------------------------
-
-CREATE TABLE `estado_catalogo` (
-  `codigo_estadoCatalogo` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(50),
-  PRIMARY KEY (`codigo_estadoCatalogo`)
-)
-
-CREATE TABLE `catalogo` (
-  `codigo_catalogo` int(11) NOT NULL AUTO_INCREMENT,
-  `cat_codigo_producto` int(11),
-  `cat_nombre_producto` varchar(50),
-  `cat_nombre_tipo_producto` varchar(50),
-  `cat_tiempoenhorno_tipo_producto` float,
-  `cat_temperaturaenhorno_tipo_producto` float,
-  `cat_valor_neto` float,
-  `cat_valor_con_igv` float,
-  `cat_foto_producto` blob,  
-  `cat_preparacion_producto` varchar(150),
-  `cat_colores_producto` varchar(50),
-  `cat_nombre_insumo` varchar(50),
-  `cat_modelo_receta_producto` varchar(50),
-  `cantidadMasPedido` int(11),
-  `promedioTotalProd` float,
-  `fkcodigo_estadoCatalogo` int(11),
-  PRIMARY KEY (`codigo_catalogo`),
-  FOREIGN KEY (`fkcodigo_estadoCatalogo`) REFERENCES `estado_catalogo`(`codigo_estadoCatalogo`)
-)
-
-INSERT INTO `ceramicasietecoyas`.`estado_catalogo` (`codigo_estadoCatalogo`,
-`descripcion`) 
-VALUES ('1','Habilitado'),('2','Deshabilitado');
-
-INSERT INTO `ceramicasietecoyas`.`cuota` (`monto_cuota`,
-`fkcodigo_mes`,
-`fkcodigo_producto`) 
-VALUES ('1100','1','1'),('900','2','2'),('1050','3','3'),('980','4','4'),('985','5','5'),
-('1000','6','6'),('680','7','7'),('720','8','8');
-
-
-INSERT INTO `ceramicasietecoyas`.`cliente_tiene_preferencia` (`fkcodigo_cliente`,
-`fkcodigo_producto`,
-`fecha_voto_preferencia`,
-`cantidad_puntos`) 
-VALUES ('1','1','2018-03-13','5'),('1','2','2018-06-10','3'),('1','3','2018-03-14','4'),
-('1','4','2018-05-15','4'),('1','5','2018-03-18','3'),('2','2','2018-03-13','2'),
-('2','4','2018-03-15','2'),('2','6','2018-03-16','2'),('2','8','2018-04-15','4'),('2','10','2018-08-15','3');
-
-
-INSERT INTO `ceramicasietecoyas`.`igv_venta` (`fkcodigo_tipo_impuesto`,
-`porcentaje_igv_venta`) 
-VALUES ('1','0.18');
-
-
-INSERT INTO `ceramicasietecoyas`.`vendedor` (`fkcodigo_usuario`,
-`fkcodigo_area`,
-`codigo_venta_vendedor`) 
-VALUES ('11','3','SVAC-01'),('12','3','SVAC-02'),('13','3','SVAC-03'),('14','3','SVAC-04');
-
-
-INSERT INTO `ceramicasietecoyas`.`cliente_tiene_pedido` (`fkcodigo_cliente`,
-`fkcodigo_vendedor`,
-`fkcodigo_igv_venta`,
-`fkcodigo_promocion_venta`,
-`fkcodigo_estado_cliente_tiene_pedido`,
-`fkcodigo_factura_cliente_tiene_pedido`,
-`descuento_web_pedido`,
-`precio_uni_desc_igv`,
-`precio_uni_desc_sin_igv`,
-`fecha_pedido`,
-`fecha_entrega`,
-`cantidad_producto`,
-`monto_por_descuentos`) 
-VALUES ('1','1','1','1','3',null,'480','47','32','2018-03-13','2018-04-13','34','22'),
-('1','1','1','1','3',null,'470','34','92','2018-04-29','2018-06-17','74','12'),
-('1','1','1','1','3',null,'147','96','44','2018-02-15','2018-02-25','77','30'),
-('1','2','1','1','3',null,'40','12','30','2018-03-17','2018-04-18','11','10'),
-('2','2','1','1','3',null,'852','14','44','2018-04-15','2018-05-15','60','10'),
-('2','2','1','1','3',null,'201','63','47','2018-07-13','2018-08-23','78','10'),
-('2','3','1','1','3',null,'147','10','45','2018-07-11','2018-08-10','45','21'),
-('2','4','1','1','3',null,'985','32','47','2018-05-25','2018-06-16','40','15');
-
-
-INSERT INTO `ceramicasietecoyas`.`producto_por_pedido` (`fkcodigo_pedido_web`,
-`fkcodigo_producto`,
-`descuento_promocion`,
-`valor_neto`,
-`valor_con_igv`,
-`cantidad_producto`) 
-VALUES ('1','1','10','12','100','30'),('2','2','70','14','140','30'),('3','3','47','65','708','14'),
-('4','1','78','66','417','30'),('5','2','14','142','800','14'),('6','6','100','112','1700','20'),
-('7','7','98','47','780','20'),('8','8','14','17','104','20');
-
-
-SELECT nombre_usuario, apellido_usuario FROM usuario where codigo_usuario = :codigoUsuario
- 
-SELECT cliPed.codigo_pedido_web, CONCAT('REP','_0',cliPed.codigo_pedido_web,':',cli.fkcodigo_usuario) as codigo_reporte
-FROM   vendedor as ven INNER JOIN 
-       cliente_tiene_pedido as cliPed ON (ven.codigo_vendedor = cliPed.fkcodigo_vendedor) INNER JOIN
-       cliente as cli ON (cli.codigo_cliente = cliPed.fkcodigo_cliente)
-WHERE (ven.codigo_vendedor = '1')
-
-
-SELECT	usu.nombre_usuario, usu.apellido_usuario
-FROM	vendedor as ven INNER JOIN
-		usuario as usu ON (ven.fkcodigo_usuario = usu.codigo_usuario)
-WHERE	(ven.codigo_vendedor = '2')
-
-
-SELECT CONCAT(usu.nombre_usuario,' ',usu.apellido_usuario) as nombreCompleto, cliPed.fecha_pedido, usu.direccion_usuario,cliPed.precio_uni_desc_igv, igv.porcentaje_igv_venta, cliPed.precio_uni_desc_sin_igv
-FROM usuario as usu INNER JOIN cliente as cli ON (usu.codigo_usuario = cli.fkcodigo_usuario) INNER JOIN
-	 cliente_tiene_pedido as cliPed ON (cli.codigo_cliente = cliPed.fkcodigo_cliente) INNER JOIN
-     igv_venta as igv ON (cliPed.fkcodigo_igv_venta = igv.codigo_igv_venta)
-WHERE	(cliPed.codigo_pedido_web = '1')
-	 
-------------------------------------------------------------------------------------------------------------	 
 	 
 CREATE VIEW lista_producto
 AS
-SELECT pro.codigo_producto, pro.nombre_producto, AVG(cliPref.cantidad_puntos) as promedioPuntaje, pro.ingreso_almacen_producto, pro.salida_almacen_producto, SUM(proPed.cantidad_producto) as cantidadUnidad
-FROM producto as pro INNER JOIN producto_por_pedido as proPed 
+SELECT pro.codigo_producto, pro.nombre_producto, tiPro.nombre_tipo_producto, AVG(cliPref.cantidad_puntos) as promedioPuntaje, pro.ingreso_almacen_producto, pro.salida_almacen_producto, SUM(proPed.cantidad_producto) as cantidadUnidad
+FROM producto as pro INNER JOIN tipo_producto as tiPro 
+ON (tiPro.codigo_tipo_producto = pro.fkcodigo_tipo_producto) INNER JOIN producto_por_pedido as proPed 
 ON (pro.codigo_producto = proPed.fkcodigo_producto) INNER JOIN cliente_tiene_preferencia as cliPref 
 ON (cliPref.fkcodigo_producto = pro.codigo_producto)
 GROUP BY pro.nombre_producto
+ORDER BY promedioPuntaje DESC
 	 
 ----------------------------------------------------------------------------------------------------------	 
-	 
+
 CREATE VIEW lista_catalogo
 AS
 SELECT pro.codigo_producto, pro.nombre_producto, tiPro.nombre_tipo_producto, tiPro.tiempoenhorno_tipo_producto, tiPro.temperaturaenhorno_tipo_producto,
@@ -159,23 +48,12 @@ SELECT pro.codigo_producto, pro.nombre_producto, tiPro.nombre_tipo_producto, tiP
 FROM producto as pro INNER JOIN tipo_producto as tiPro ON (pro.fkcodigo_tipo_producto = tiPro.codigo_tipo_producto) INNER JOIN
 	 cliente_tiene_preferencia as cliPref ON (cliPref.fkcodigo_producto = pro.codigo_producto) INNER JOIN
      producto_por_pedido as proPed ON (proPed.fkcodigo_producto = pro.codigo_producto) INNER JOIN
-     receta_producto_tiene_insumo as interMedio ON (interMedio.fkcodigo_producto = pro.codigo_producto) INNER JOIN
-     receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fkcodigo_receta_producto) INNER JOIN
-     insumo as ins ON (ins.codigo_insumo = interMedio.fkcodigo_insumo)
+     rece_produ_ti_insumo as interMedio ON (interMedio.fk_codigo_producto = pro.codigo_producto) INNER JOIN
+     receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fk_codigo_receta_producto) INNER JOIN
+     insumo as ins ON (ins.codigo_insumo = interMedio.fk_codigo_insumo)
 GROUP BY pro.codigo_producto, pro.nombre_producto
 ORDER BY promedioTotalProd DESC
 LIMIT 10
-
---Para los productos sin calificar
-SELECT pro.codigo_producto, pro.nombre_producto, tiPro.nombre_tipo_producto, tiPro.tiempoenhorno_tipo_producto, tiPro.temperaturaenhorno_tipo_producto,
-	   pro.foto_producto, pro.preparacion_producto, pro.colores_producto,	ins.nombre_insumo, 
-       recPro.modelo_receta_producto
-FROM producto as pro INNER JOIN tipo_producto as tiPro ON (pro.fkcodigo_tipo_producto = tiPro.codigo_tipo_producto) INNER JOIN
-     receta_producto_tiene_insumo as interMedio ON (interMedio.fkcodigo_producto = pro.codigo_producto) INNER JOIN
-     receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fkcodigo_receta_producto) INNER JOIN
-     insumo as ins ON (ins.codigo_insumo = interMedio.fkcodigo_insumo)
-GROUP BY pro.nombre_producto
-ORDER BY pro.nombre_producto ASC
 
 ----------------------------------------------------------------------------------
 
@@ -213,9 +91,9 @@ BEGIN
     FROM producto as pro INNER JOIN tipo_producto as tiPro ON (pro.fkcodigo_tipo_producto = tiPro.codigo_tipo_producto) INNER JOIN
          cliente_tiene_preferencia as cliPref ON (cliPref.fkcodigo_producto = pro.codigo_producto) INNER JOIN
          producto_por_pedido as proPed ON (proPed.fkcodigo_producto = pro.codigo_producto) INNER JOIN
-         receta_producto_tiene_insumo as interMedio ON (interMedio.fkcodigo_producto = pro.codigo_producto) INNER JOIN
-         receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fkcodigo_receta_producto) INNER JOIN
-         insumo as ins ON (ins.codigo_insumo = interMedio.fkcodigo_insumo)
+         rece_produ_ti_insumo as interMedio ON (interMedio.fk_codigo_producto = pro.codigo_producto) INNER JOIN
+		 receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fk_codigo_receta_producto) INNER JOIN
+		 insumo as ins ON (ins.codigo_insumo = interMedio.fk_codigo_insumo)
     GROUP BY pro.codigo_producto, pro.nombre_producto
     ORDER BY promedioTotalProd DESC
     LIMIT 10;
@@ -262,38 +140,14 @@ DELIMITER ;
 
 -----------------------------------------------------------------------------------------------------------
 
+DELIMITER //
+CREATE PROCEDURE sp_cambiaEstadoPedido(IN codigoPedido int, IN fkCodEstadoPedido int)
+BEGIN
+	UPDATE cliente_tiene_pedido SET fkcodigo_estado_cliente_tiene_pedido = fkCodEstadoPedido
+	WHERE codigo_pedido_web = codigoPedido;
+END
+//
+DELIMITER ;
 
+---------------------------------------------------------------------------------------------------------------
 
-
-<script>
-	var tdInner = document.getElementById("aquiInnerHTML");
-	var sel = document.createElement("select");
-	var opt1 = document.createElement("option");
-	var opt2 = document.createElement("option");
-	var opt3 = document.createElement("option");
-	var opt4 = document.createElement("option");
-	var opt5 = document.createElement("option");
-	
-	sel.setAttribute('class', 'getRatingBar');
-	tdInner.appendChild(sel);
-	opt1.value = "1";
-	opt1.text = "1";
-	opt2.value = "2";
-	opt2.text = "2";
-	opt3.value = "3";
-	opt3.text = "3";
-	opt4.value = "4";
-	opt4.text = "4";
-	opt5.value = "5";
-	opt5.text = "5";
-	sel.add(opt1, null);
-	sel.add(opt2, null);
-	sel.add(opt3, null);
-	sel.add(opt4, null);
-	sel.add(opt5, null);
-	
-	$('.getRatingBar').barrating({
-		theme: 'fontawesome-stars',
-		readonly: true
-	});
-</script>

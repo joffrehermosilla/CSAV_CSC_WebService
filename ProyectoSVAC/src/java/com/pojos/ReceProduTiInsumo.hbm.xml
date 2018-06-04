@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.ReceProduTiInsumo" table="rece_produ_ti_insumo" catalog="ceramicasietecoyas">
+        <id name="codigoReceProduTiInsumo" type="java.lang.Integer">
+            <column name="codigo_rece_produ_ti_insumo" />
+            <generator class="identity" />
+        </id>
+        <timestamp name="version" column="version" />
+        <many-to-one name="insumo" class="com.pojos.Insumo" fetch="select">
+            <column name="fk_codigo_insumo" />
+        </many-to-one>
+        <many-to-one name="producto" class="com.pojos.Producto" fetch="select">
+            <column name="fk_codigo_producto" />
+        </many-to-one>
+        <many-to-one name="recetaProducto" class="com.pojos.RecetaProducto" fetch="select">
+            <column name="fk_codigo_receta_producto" />
+        </many-to-one>
+        <property name="cantidadUsada" type="java.lang.Float">
+            <column name="cantidad_usada" precision="12" scale="0" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fecha_creacion" length="19" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="500" />
+        </property>
+        <property name="temperaturaHorno" type="java.lang.Float">
+            <column name="temperatura_horno" precision="12" scale="0" />
+        </property>
+        <property name="temperaturaReposo" type="java.lang.Float">
+            <column name="temperatura_reposo" precision="12" scale="0" />
+        </property>
+        <property name="dimensionAltura" type="java.lang.Float">
+            <column name="dimension_altura" precision="12" scale="0" />
+        </property>
+        <property name="dimensionAnchura" type="java.lang.Float">
+            <column name="dimension_anchura" precision="12" scale="0" />
+        </property>
+        <property name="dimensionEspesor" type="java.lang.Float">
+            <column name="dimension_espesor" precision="12" scale="0" />
+        </property>
+        <property name="dimensionProfundidad" type="java.lang.Float">
+            <column name="dimension_profundidad" precision="12" scale="0" />
+        </property>
+        <property name="porcentajeEnProducto" type="java.lang.Float">
+            <column name="porcentaje_en_producto" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

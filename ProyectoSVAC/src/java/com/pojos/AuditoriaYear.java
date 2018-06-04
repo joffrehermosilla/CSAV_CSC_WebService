@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,7 +14,9 @@ public class AuditoriaYear  implements java.io.Serializable {
      private String usuario;
      private Date fechaCambio;
      private String nombreYearOld;
+     private Date versionOld;
      private String nombreYearNew;
+     private Date versionNew;
 
     public AuditoriaYear() {
     }
@@ -24,11 +26,13 @@ public class AuditoriaYear  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaYear(String usuario, Date fechaCambio, String nombreYearOld, String nombreYearNew) {
+    public AuditoriaYear(String usuario, Date fechaCambio, String nombreYearOld, Date versionOld, String nombreYearNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreYearOld = nombreYearOld;
+       this.versionOld = versionOld;
        this.nombreYearNew = nombreYearNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAuditoriaYear() {
@@ -59,12 +63,26 @@ public class AuditoriaYear  implements java.io.Serializable {
     public void setNombreYearOld(String nombreYearOld) {
         this.nombreYearOld = nombreYearOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreYearNew() {
         return this.nombreYearNew;
     }
     
     public void setNombreYearNew(String nombreYearNew) {
         this.nombreYearNew = nombreYearNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 
