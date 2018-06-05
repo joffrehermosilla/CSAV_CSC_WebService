@@ -2,11 +2,13 @@ package com.service;
 
 import DTO.CatalogoDTO;
 import DTO.DetallePedidoDTO;
+import DTO.PedidoClienteDTO;
 import DTO.PedidoReporteDTO;
 import DTO.UsuarioDTO;
 import DTO.ReporteVendedorDTO;
 import com.google.gson.Gson;
 import com.helper.CatalogoHelper;
+import com.helper.PedidoHelper;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -15,7 +17,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.POST;
 import javax.ws.rs.core.Response;
@@ -24,12 +25,14 @@ import javax.ws.rs.core.Response;
 public class CatalogoResource {
 
     CatalogoHelper catalogoHelper;
+    PedidoHelper pedidoHelper;
     
     @Context
     private UriInfo context;
 
     public CatalogoResource() {
         catalogoHelper = new CatalogoHelper();
+        pedidoHelper = new PedidoHelper();
     }
 
     @GET
@@ -59,6 +62,7 @@ public class CatalogoResource {
         return gson.toJson(lista);
     }
     
+    /*-----------------------------------Gestiona Catalogo----------------------------------*/
     @GET
     @Path("getProducto")
     @Produces("application/json")
@@ -151,35 +155,6 @@ public class CatalogoResource {
         return gson.toJson(lista);
     }
     
-    //Catalogo
-    @GET
-    @Path("getTipoProducto")
-    @Produces("application/json")
-    public String getTipoProducto() {
-        Gson gson =new Gson();        
-        List lista = null;
-        try{
-            lista = catalogoHelper.getFilTipoProducto();
-        }
-        catch(Exception ex){
-            System.out.println("getTipoProducto: "+ex);
-        }
-        return gson.toJson(lista);
-    }
-    @GET
-    @Path("getNombreProducto")
-    @Produces("application/json")
-    public String getNombreProducto() {
-        Gson gson =new Gson();        
-        List lista = null;
-        try{
-            lista = catalogoHelper.getFilNombreProducto();
-        }
-        catch(Exception ex){
-            System.out.println("getTipoProducto: "+ex);
-        }
-        return gson.toJson(lista);
-    }
     @GET
     @Path("getCatalogo")
     @Produces("application/json")
@@ -261,6 +236,126 @@ public class CatalogoResource {
             respuesta = Response.status(500).entity(catalogoDTO).build();
         }
         return respuesta;
+    }
+    
+    /*------------------------------------Gestionar Pedido-----------------------------------*/
+    @GET
+    @Path("getPedidoClienteStandBy")
+    @Produces("application/json")
+    public String getPedidoClienteStandBy() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = pedidoHelper.getPedidoStandBy();
+        }
+        catch(Exception ex){
+            System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    @GET
+    @Path("getPedidoClienteAceptado")
+    @Produces("application/json")
+    public String getPedidoClienteAceptado() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = pedidoHelper.getPedidoAceptado();
+        }
+        catch(Exception ex){
+            System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    @GET
+    @Path("getPedidoClienteFacturado")
+    @Produces("application/json")
+    public String getPedidoClienteFacturado() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = pedidoHelper.getPedidoFacturado();
+        }
+        catch(Exception ex){
+            System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    @GET
+    @Path("getPedidoClienteBloqueado")
+    @Produces("application/json")
+    public String getPedidoClienteBloqueado() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = pedidoHelper.getPedidoBloqueadoCredito();
+        }
+        catch(Exception ex){
+            System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    @GET
+    @Path("getPedidoClienteRechazado")
+    @Produces("application/json")
+    public String getPedidoClienteRechazado() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = pedidoHelper.getPedidoRechazadoCredito();
+        }
+        catch(Exception ex){
+            System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    @GET
+    @Path("getPedidoClienteNoAtendido")
+    @Produces("application/json")
+    public String getPedidoClienteNoAtendido() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = pedidoHelper.getPedidoNoAtendido();
+        }
+        catch(Exception ex){
+            System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    
+    @POST
+    @Path("cambiaEstadoPed")
+    @Produces("application/json")
+    public Response cambiaEstadoPed(String data) {
+        Response respuesta;
+        Gson gson = new Gson();
+        PedidoClienteDTO pedidoClienteDTO = gson.fromJson(data, PedidoClienteDTO.class);
+        try{
+            pedidoHelper.cambiaEstadoPedido(pedidoClienteDTO.getCodigo_pedido_web(), 
+                                            pedidoClienteDTO.getFkcodigo_estado_cliente_tiene_pedido());
+            respuesta = Response.status(200).entity(pedidoClienteDTO).build();
+        }
+        catch(Exception ex){
+            System.out.println("cambiaEstadoPed: " + ex);
+            respuesta = Response.status(500).entity(pedidoClienteDTO).build();
+        }
+        return respuesta;
+    }
+    @POST
+    @Path("mostrarDetallePedido")
+    @Produces("application/json")
+    public String mostrarDetallePedido(String data) {
+        Gson gson = new Gson();
+        System.out.println("aqui dataaa->"+data);
+        DetallePedidoDTO detallePedidoDTO = gson.fromJson(data, DetallePedidoDTO.class);
+        DetallePedidoDTO respuesta = null;
+        try {
+            respuesta = pedidoHelper.mostrarDetallePed(detallePedidoDTO);
+        }catch(NullPointerException e){
+            System.out.println("mostrarDetallePedido controlado aqui.."+e.getMessage());
+        }
+        return gson.toJson(respuesta);
     }
     
     

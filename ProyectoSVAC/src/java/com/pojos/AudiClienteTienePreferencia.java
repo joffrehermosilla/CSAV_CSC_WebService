@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -17,10 +17,12 @@ public class AudiClienteTienePreferencia  implements java.io.Serializable {
      private Integer fkcodigoProductoOld;
      private Date fechaVotoPreferenciaOld;
      private Integer cantidadPuntosOld;
+     private Date versionOld;
      private Integer fkcodigoClienteNew;
      private Integer fkcodigoProductoNew;
      private Date fechaVotoPreferenciaNew;
      private Integer cantidadPuntosNew;
+     private Date versionNew;
 
     public AudiClienteTienePreferencia() {
     }
@@ -30,17 +32,19 @@ public class AudiClienteTienePreferencia  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiClienteTienePreferencia(String usuario, Date fechaCambio, Integer fkcodigoClienteOld, Integer fkcodigoProductoOld, Date fechaVotoPreferenciaOld, Integer cantidadPuntosOld, Integer fkcodigoClienteNew, Integer fkcodigoProductoNew, Date fechaVotoPreferenciaNew, Integer cantidadPuntosNew) {
+    public AudiClienteTienePreferencia(String usuario, Date fechaCambio, Integer fkcodigoClienteOld, Integer fkcodigoProductoOld, Date fechaVotoPreferenciaOld, Integer cantidadPuntosOld, Date versionOld, Integer fkcodigoClienteNew, Integer fkcodigoProductoNew, Date fechaVotoPreferenciaNew, Integer cantidadPuntosNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoClienteOld = fkcodigoClienteOld;
        this.fkcodigoProductoOld = fkcodigoProductoOld;
        this.fechaVotoPreferenciaOld = fechaVotoPreferenciaOld;
        this.cantidadPuntosOld = cantidadPuntosOld;
+       this.versionOld = versionOld;
        this.fkcodigoClienteNew = fkcodigoClienteNew;
        this.fkcodigoProductoNew = fkcodigoProductoNew;
        this.fechaVotoPreferenciaNew = fechaVotoPreferenciaNew;
        this.cantidadPuntosNew = cantidadPuntosNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiClienteTienePedido() {
@@ -92,6 +96,13 @@ public class AudiClienteTienePreferencia  implements java.io.Serializable {
     public void setCantidadPuntosOld(Integer cantidadPuntosOld) {
         this.cantidadPuntosOld = cantidadPuntosOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getFkcodigoClienteNew() {
         return this.fkcodigoClienteNew;
     }
@@ -119,6 +130,13 @@ public class AudiClienteTienePreferencia  implements java.io.Serializable {
     
     public void setCantidadPuntosNew(Integer cantidadPuntosNew) {
         this.cantidadPuntosNew = cantidadPuntosNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

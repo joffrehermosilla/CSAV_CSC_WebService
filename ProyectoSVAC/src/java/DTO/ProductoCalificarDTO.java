@@ -10,7 +10,7 @@ public class ProductoCalificarDTO {
     Date salida_almacen_producto;
     String stock_producto;
     String preparacion_producto;
-    Byte[] foto_producto;
+    byte[] foto_producto;
     String colores_producto;
     String qr_producto;
     float pvv_producto;
@@ -23,7 +23,7 @@ public class ProductoCalificarDTO {
     String nombre_tipo_producto;
     float tiempoenhorno_tipo_producto;
     float temperaturaenhorno_tipo_producto;
-    Byte[] foto_tipo_producto;
+    byte[] foto_tipo_producto;
     
     int codigo_insumo;
     String nombre_insumo;
@@ -85,11 +85,11 @@ public class ProductoCalificarDTO {
         this.preparacion_producto = preparacion_producto;
     }
 
-    public Byte[] getFoto_producto() {
+    public byte[] getFoto_producto() {
         return foto_producto;
     }
 
-    public void setFoto_producto(Byte[] foto_producto) {
+    public void setFoto_producto(byte[] foto_producto) {
         this.foto_producto = foto_producto;
     }
 
@@ -181,11 +181,11 @@ public class ProductoCalificarDTO {
         this.temperaturaenhorno_tipo_producto = temperaturaenhorno_tipo_producto;
     }
 
-    public Byte[] getFoto_tipo_producto() {
+    public byte[] getFoto_tipo_producto() {
         return foto_tipo_producto;
     }
 
-    public void setFoto_tipo_producto(Byte[] foto_tipo_producto) {
+    public void setFoto_tipo_producto(byte[] foto_tipo_producto) {
         this.foto_tipo_producto = foto_tipo_producto;
     }
 
@@ -268,8 +268,7 @@ public class ProductoCalificarDTO {
     public void setFecha_creacion_receta_producto(Date fecha_creacion_receta_producto) {
         this.fecha_creacion_receta_producto = fecha_creacion_receta_producto;
     }
-    
-    
+
     
     
 }

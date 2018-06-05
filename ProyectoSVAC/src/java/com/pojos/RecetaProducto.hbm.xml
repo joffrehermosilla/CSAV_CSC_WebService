@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.RecetaProducto" table="receta_producto" catalog="ceramicasietecoyas" optimistic-lock="version">
+    <class name="com.pojos.RecetaProducto" table="receta_producto" catalog="ceramicasietecoyas">
         <id name="codigoRecetaProducto" type="java.lang.Integer">
             <column name="codigo_receta_producto" />
             <generator class="identity" />
         </id>
+        <timestamp name="version" column="version" />
         <property name="modeloRecetaProducto" type="string">
-            <column name="modelo_receta_producto" length="45" />
+            <column name="modelo_receta_producto" length="500" />
         </property>
         <property name="fechaCreacionRecetaProducto" type="timestamp">
             <column name="fecha_creacion_receta_producto" length="19" />
         </property>
-        <set name="recetaProductoTieneInsumos" table="receta_producto_tiene_insumo" inverse="true" lazy="true" fetch="select">
+        <set name="receProduTiInsumos" table="rece_produ_ti_insumo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="fkcodigo_receta_producto" />
+                <column name="fk_codigo_receta_producto" />
             </key>
-            <one-to-many class="com.pojos.RecetaProductoTieneInsumo" />
+            <one-to-many class="com.pojos.ReceProduTiInsumo" />
         </set>
     </class>
 </hibernate-mapping>

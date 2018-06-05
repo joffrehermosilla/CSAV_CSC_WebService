@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.Cuota" table="cuota" catalog="ceramicasietecoyas" optimistic-lock="version">
+    <class name="com.pojos.Cuota" table="cuota" catalog="ceramicasietecoyas">
         <id name="codigoCuota" type="java.lang.Integer">
             <column name="codigo_cuota" />
             <generator class="identity" />
         </id>
+        <timestamp name="version" column="version" />
         <many-to-one name="mes" class="com.pojos.Mes" fetch="select">
-            <column name="fkcodigo_mes" />
+            <column name="fk_codigo_mes" />
         </many-to-one>
         <many-to-one name="producto" class="com.pojos.Producto" fetch="select">
-            <column name="fkcodigo_producto" />
+            <column name="fk_codigo_producto" />
         </many-to-one>
         <property name="montoCuota" type="java.lang.Float">
             <column name="monto_cuota" precision="12" scale="0" />

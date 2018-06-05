@@ -37,20 +37,20 @@
                                 </div>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="productosN">
-                                        <table class="table table-striped" style="font-size: 15px;">
+                                        <table class="table table-responsive-sm table-fixed" style="font-size: 15px;">
                                             <tr>
-                                                <th>Código</th>
-                                                <th>Nombre del producto</th>
-                                                <th>Calificacion</th>
-                                                <th>Ingreso</th>
-                                                <th>Salida</th>
-                                                <th>Cantidad (unidad)</th>
-                                                <th>Vista Previa</th>
+                                                <th class="table-active">Nombre del producto</th>
+                                                <th class="table-active">Tipo de producto</th>
+                                                <th class="table-active">Calificación</th>
+                                                <th class="table-active">Ingreso</th>
+                                                <th class="table-active">Salida</th>
+                                                <th class="table-active">Cantidad (unidad)</th>
+                                                <th class="table-active">Vista Previa</th>
                                             </tr>
                                             <!--{{personaUsuario.nombrePersona}}-->
                                             <tr ng-repeat="producto in ProductoList">
-                                                <td>{{producto.codigo_producto}}</td>
                                                 <td>{{producto.nombre_producto}}</td>
+                                                <td>{{producto.nombre_tipo_producto}}</td>
                                                 <td id="aquiInnerHTML">
                                                     <!--<select id="setProdPuntos{{producto.codigo_producto}}">
                                                         <option value="1">1</option>
@@ -79,9 +79,9 @@
                                                             <span style="color: #FCFFFF; font-weight: 600;">VENDEDORES</span>
                                                        </div>
                                                        <div class="list-group" style="overflow-y: scroll; height: 400px; background-color: #bed2c9;" id="list-tab" role="tablist">
-                                                           <a class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" 
+                                                           <a id="aVend" class="nav-link list-group-item list-group-item-action" data-toggle="pill" href=".listaReporte" 
                                                               ng-repeat="vendedor in VendedorList">
-                                                               <button style="width: 100%; background: none; color: inherit; border: none; padding: 0; font: inherit;
+                                                               <button id="btnVend" style="width: 100%; background: none; color: inherit; border: none; padding: 0; font: inherit;
                                                                               cursor: pointer; outline: inherit;" data-ng-click="getNombreVendedor($event)"
                                                                               value="{{vendedor.codigo_venta_vendedor}}">{{vendedor.codigo_venta_vendedor}}</button></a>
                                                        </div>
@@ -129,12 +129,12 @@
                                                             </section>
                                                             <section id="seccionPedido" class="sectionPadding">
                                                                 <h5 style="font-weight: bold;">LISTADO DEL PEDIDO</h5>
-                                                                <table class="table table-striped" style="font-size: 15px;">
+                                                                <table class="table table-responsive-sm table-fixed" style="font-size: 15px;">
                                                                     <tr>
-                                                                        <th>Código</th>
-                                                                        <th>Nombre del producto</th>
-                                                                        <th>Precio Unitario</th>
-                                                                        <th>Cantidad</th>
+                                                                        <th class="table-active">Código</th>
+                                                                        <th class="table-active">Nombre del producto</th>
+                                                                        <th class="table-active">Precio Unitario</th>
+                                                                        <th class="table-active">Cantidad</th>
                                                                     </tr>
                                                                     <!--{{personaUsuario.nombrePersona}}-->
                                                                     <tr ng-repeat="pedido in pedidoCliente">
@@ -175,7 +175,7 @@
                                         <hr style="padding-bottom: 15px;">
                                         <div id="catalogoTOP" class="row" style="margin-bottom: 20px;">
                                             <div class="col-lg-4" ng-repeat="cat in Catalogo">
-                                                <div class="jumbotron">
+                                                <div class="jumbotron" style="background-color: #f1e9c8!important;">
                                                     <div class="card">
                                                         <div class="overlay">
                                                             <!--{{cat.cat_foto_producto}}-->
@@ -217,7 +217,7 @@
                             </div>
                             
                             <div id="gestionaPedido" class="tab-pane fade">
-                                wadawd
+                                <%@include file="listasPedido.jsp" %>
                             </div>
                             
                             <div id="generaPromocion" class="tab-pane fade">
@@ -295,8 +295,56 @@
             </div>
         </div>
         
+        <div class="modal fade modalPedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="border-color: #4c4f53; border-style: solid;">
+                <div class="modal-content" style="background-color: #eeeeee;">
+                    <div class="modal-header">
+                        <h6 class="modal-title" style="padding: 3px 0px 0px 14px;">Información del Pedido - {{listDetallePed.nombre_factura_cliente_tiene_pedido}}</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="padding: 16px 30px 14px 30px;">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <p><strong>Descuento: </strong> {{listDetallePed.descuento_web_pedido}}</p>
+                                <p><strong>¿Tiene IGV? </strong> {{tieneIGV}}</p>
+                                <p><strong>Cantidad Total: </strong> {{listDetallePed.cantidad_producto}}</p>
+                                <p><strong>Desc. Promoción: </strong> {{listDetallePed.descuento_sku_pedido*100}}%</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <p><strong>Monto por descuentos: </strong> {{listDetallePed.monto_por_descuentos}}</p>
+                                <p><strong>Precio Uni. desc c/igv: </strong> {{listDetallePed.precio_uni_desc_igv}}</p>
+                                <p><strong>Precio Uni. desc s/igv: </strong> {{listDetallePed.precio_uni_desc_sin_igv}}</p>
+                                <p><strong>Descripción: </strong> {{listDetallePed.descripcion_promocion}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                            
+                            
         <%@include file="foot.jspf" %>
         <script type="text/javascript">
+            $(function () {
+                $('[data-toggle="popover"]').popover({
+                    container: 'body',
+                    placement : 'left',
+                    html : true,
+                    title : 'Leyenda - Estado del pedido',
+                    content : '<table style="width:100%; border: none;"><tr><th style="text-align: center;"><button class="btn-floating btn-sm btn-outline-primary waves-effect" style="width: 34px;">\n\
+                               <span class="fa fa-long-arrow-left" aria-hidden="true"></span></button></th><td align="center"><span>En proceso</span></td>\n\
+                               </tr><tr><th style="text-align: center;"><button class="btn-floating btn-sm purple-gradient btn-light-green" style="width: 34px;">\n\
+                               <span class="fa fa-check" aria-hidden="true"></span></button></th><td align="center"><span>Aceptado</span></td></tr><tr><th style="text-align: center;">\n\
+                               <button class="btn-floating btn-sm purple-gradient btn-yellow" style="width: 34px;"><span class="fa fa-sticky-note-o" aria-hidden="true"></span></button>\n\
+                               </th><td align="center"><span>Facturado</span></td></tr><tr><th style="text-align: center;"><button class="btn-floating btn-sm purple-gradient btn-brown" style="width: 34px;">\n\
+                               <span class="fa fa-ban" aria-hidden="true"></span></button></th><td align="center"><span>Bloqueado</span></td></tr><tr><th style="text-align: center;">\n\
+                               <button class="btn-floating btn-sm purple-gradient btn-mdb-color" style="width: 34px;"><span class="fa fa-times" aria-hidden="true"></span></button>\n\
+                               </th><td align="center"><span>Rechazado</span></td></tr><tr><th style="text-align: center;"><button class="btn-floating btn-sm purple-gradient btn-blue-grey" style="width: 34px;">\n\
+                               <span class="fa fa-flag-o" aria-hidden="true"></span></button></th><td align="center"><span>No atendido</span></td></tr></table>'
+                });
+            });
             function t_gestionaCatalogo() {
                 var liM = document.getElementById("liM");
                 var aM = document.getElementById("aM");
@@ -350,7 +398,7 @@
                 $("#clickQ").trigger("click");
             }
         </script>
-        <script src="http://localhost:8084/ProyectoSVAC/resources/js/catalogoController.js" type="text/javascript"></script>
+        <script src="http://localhost:8084/ProyectoSVAC/resources/js/adminController.js" type="text/javascript"></script>
         <script src="http://localhost:8084/ProyectoSVAC/resources/js/dirPagination.js" type="text/javascript"></script> 
         
         

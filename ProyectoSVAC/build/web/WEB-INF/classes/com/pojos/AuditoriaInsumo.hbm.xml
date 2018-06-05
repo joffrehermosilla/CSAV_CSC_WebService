@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.pojos.AuditoriaInsumo" table="auditoria_insumo" catalog="ceramicasietecoyas" optimistic-lock="version">
         <id name="codigoAudiInsumo" type="java.lang.Integer">
@@ -15,40 +15,136 @@
             <column name="fecha_cambio" length="19" not-null="true" />
         </property>
         <property name="nombreInsumoOld" type="string">
-            <column name="nombre_insumo_old" length="45" />
+            <column name="nombre_insumo_old" length="90" />
+        </property>
+        <property name="fechaIngresoOld" type="timestamp">
+            <column name="fecha_ingreso_old" length="19" />
+        </property>
+        <property name="fechaSalidaOld" type="timestamp">
+            <column name="fecha_salida_old" length="19" />
+        </property>
+        <property name="stockActualOld" type="java.lang.Integer">
+            <column name="stock_actual_old" />
+        </property>
+        <property name="codigoMarcaOld" type="string">
+            <column name="codigo_marca_old" length="90" />
         </property>
         <property name="marcaInsumoOld" type="string">
-            <column name="marca_insumo_old" length="45" />
+            <column name="marca_insumo_old" length="90" />
         </property>
-        <property name="fechaIngresoInsumoOld" type="timestamp">
-            <column name="fecha_ingreso_insumo_old" length="19" />
+        <property name="loteMarcaInsumoOld" type="string">
+            <column name="lote_marca_insumo_old" length="90" />
         </property>
-        <property name="pesoInsumoOld" type="java.lang.Float">
-            <column name="peso_insumo_old" precision="12" scale="0" />
+        <property name="descripcionInsumoOld" type="string">
+            <column name="descripcion_insumo_old" length="100" />
         </property>
-        <property name="presentacionInsumoOld" type="string">
-            <column name="presentacion_insumo_old" length="45" />
+        <property name="unidadMedidaOld" type="string">
+            <column name="unidad_medida_old" length="45" />
         </property>
-        <property name="precioUnitarioInsumoOld" type="java.lang.Float">
-            <column name="precio_unitario_insumo_old" precision="12" scale="0" />
+        <property name="cantidadUniInsumoAlmacenOld" type="java.lang.Float">
+            <column name="cantidad_uni_insumo_almacen_old" precision="12" scale="0" />
+        </property>
+        <property name="temperaturaAmbienteOld" type="java.lang.Float">
+            <column name="temperatura_ambiente_old" precision="12" scale="0" />
+        </property>
+        <property name="fechaVencimientoOld" type="timestamp">
+            <column name="fecha_vencimiento_old" length="19" />
+        </property>
+        <property name="precioUnitarioOld" type="java.lang.Float">
+            <column name="precio_unitario_old" precision="12" scale="0" />
+        </property>
+        <property name="precioUniPromocionOld" type="java.lang.Float">
+            <column name="precio_uni_promocion_old" precision="12" scale="0" />
+        </property>
+        <property name="codigoBarrasOld" type="string">
+            <column name="codigo_barras_old" length="100" />
+        </property>
+        <property name="codigoQrOld" type="string">
+            <column name="codigo_qr_old" length="100" />
+        </property>
+        <property name="fotoInsumoOld" type="binary">
+            <column name="foto_insumo_old" />
+        </property>
+        <property name="fkCodigoEstadoInsumoOld" type="java.lang.Integer">
+            <column name="fk_codigo_estado_insumo_old" />
+        </property>
+        <property name="fkCodigoTipoInsumoOld" type="java.lang.Integer">
+            <column name="fk_codigo_tipo_insumo_old" />
+        </property>
+        <property name="fkCodigoPresentacionInsumoOld" type="java.lang.Integer">
+            <column name="fk_codigo_presentacion_insumo_old" />
+        </property>
+        <property name="fkCodigoLoteInsumoOld" type="java.lang.Integer">
+            <column name="fk_codigo_lote_insumo_old" />
+        </property>
+        <property name="versionOld" type="timestamp">
+            <column name="version_old" length="19" />
         </property>
         <property name="nombreInsumoNew" type="string">
-            <column name="nombre_insumo_new" length="45" />
+            <column name="nombre_insumo_new" length="90" />
+        </property>
+        <property name="fechaIngresoNew" type="timestamp">
+            <column name="fecha_ingreso_new" length="19" />
+        </property>
+        <property name="fechaSalidaNew" type="timestamp">
+            <column name="fecha_salida_new" length="19" />
+        </property>
+        <property name="stockActualNew" type="java.lang.Integer">
+            <column name="stock_actual_new" />
+        </property>
+        <property name="codigoMarcaNew" type="string">
+            <column name="codigo_marca_new" length="90" />
         </property>
         <property name="marcaInsumoNew" type="string">
-            <column name="marca_insumo_new" length="45" />
+            <column name="marca_insumo_new" length="90" />
         </property>
-        <property name="fechaIngresoInsumoNew" type="timestamp">
-            <column name="fecha_ingreso_insumo_new" length="19" />
+        <property name="loteMarcaInsumoNew" type="string">
+            <column name="lote_marca_insumo_new" length="90" />
         </property>
-        <property name="pesoInsumoNew" type="java.lang.Float">
-            <column name="peso_insumo_new" precision="12" scale="0" />
+        <property name="descripcionInsumoNew" type="string">
+            <column name="descripcion_insumo_new" length="100" />
         </property>
-        <property name="presentacionInsumoNew" type="string">
-            <column name="presentacion_insumo_new" length="45" />
+        <property name="unidadMedidaNew" type="string">
+            <column name="unidad_medida_new" length="45" />
         </property>
-        <property name="precioUnitarioInsumoNew" type="java.lang.Float">
-            <column name="precio_unitario_insumo_new" precision="12" scale="0" />
+        <property name="cantidadUniInsumoAlmacenNew" type="java.lang.Float">
+            <column name="cantidad_uni_insumo_almacen_new" precision="12" scale="0" />
+        </property>
+        <property name="temperaturaAmbienteNew" type="java.lang.Float">
+            <column name="temperatura_ambiente_new" precision="12" scale="0" />
+        </property>
+        <property name="fechaVencimientoNew" type="timestamp">
+            <column name="fecha_vencimiento_new" length="19" />
+        </property>
+        <property name="precioUnitarioNew" type="java.lang.Float">
+            <column name="precio_unitario_new" precision="12" scale="0" />
+        </property>
+        <property name="precioUniPromocionNew" type="java.lang.Float">
+            <column name="precio_uni_promocion_new" precision="12" scale="0" />
+        </property>
+        <property name="codigoBarrasNew" type="string">
+            <column name="codigo_barras_new" length="100" />
+        </property>
+        <property name="codigoQrNew" type="string">
+            <column name="codigo_qr_new" length="100" />
+        </property>
+        <property name="fotoInsumoNew" type="binary">
+            <column name="foto_insumo_new" />
+        </property>
+        <property name="fkCodigoEstadoInsumoNew" type="java.lang.Integer">
+            <column name="fk_codigo_estado_insumo_new" />
+        </property>
+        <property name="fkCodigoTipoInsumoNew" type="java.lang.Integer">
+            <column name="fk_codigo_tipo_insumo_new" />
+        </property>
+        <property name="fkCodigoPresentacionInsumoNew" type="java.lang.Integer">
+            <column name="fk_codigo_presentacion_insumo_new" />
+        </property>
+        <property name="fkCodigoLoteInsumoNew" type="java.lang.Integer">
+            <column name="fk_codigo_lote_insumo_new" />
+        </property>
+        <property name="versionNew" type="timestamp">
+            <column name="version_new" length="19" />
         </property>
     </class>
 </hibernate-mapping>

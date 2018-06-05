@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.EstadoInsumo" table="estado_insumo" catalog="ceramicasietecoyas">
+        <id name="codigoEstadoInsumo" type="java.lang.Integer">
+            <column name="codigo_estado_insumo" />
+            <generator class="identity" />
+        </id>
+        <timestamp name="version" column="version" />
+        <property name="nombreEstadoInsumo" type="string">
+            <column name="nombre_estado_insumo" length="90" />
+        </property>
+        <set name="insumos" table="insumo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fk_codigo_estado_insumo" />
+            </key>
+            <one-to-many class="com.pojos.Insumo" />
+        </set>
+    </class>
+</hibernate-mapping>

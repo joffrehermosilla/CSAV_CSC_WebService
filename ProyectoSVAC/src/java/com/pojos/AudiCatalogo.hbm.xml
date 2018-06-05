@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.AudiCatalogo" table="audi_catalogo" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiCatalogo" type="java.lang.Integer">
+            <column name="codigo_audi_catalogo" />
+            <generator class="identity" />
+        </id>
+        <property name="usuario" type="string">
+            <column name="usuario" length="45" not-null="true" />
+        </property>
+        <property name="fechaCambio" type="timestamp">
+            <column name="fecha_cambio" length="19" not-null="true" />
+        </property>
+        <property name="catCodigoProductoOld" type="java.lang.Integer">
+            <column name="cat_codigo_producto_old" />
+        </property>
+        <property name="catNombreProductoOld" type="string">
+            <column name="cat_nombre_producto_old" length="50" />
+        </property>
+        <property name="catNombreTipoProductoOld" type="string">
+            <column name="cat_nombre_tipo_producto_old" length="50" />
+        </property>
+        <property name="catTiempoenhornoTipoProductoOld" type="java.lang.Float">
+            <column name="cat_tiempoenhorno_tipo_producto_old" precision="12" scale="0" />
+        </property>
+        <property name="catTemperaturaenhornoTipoProductoOld" type="java.lang.Float">
+            <column name="cat_temperaturaenhorno_tipo_producto_old" precision="12" scale="0" />
+        </property>
+        <property name="catValorNetoOld" type="java.lang.Float">
+            <column name="cat_valor_neto_old" precision="12" scale="0" />
+        </property>
+        <property name="catValorConIgvOld" type="java.lang.Float">
+            <column name="cat_valor_con_igv_old" precision="12" scale="0" />
+        </property>
+        <property name="catFotoProductoOld" type="binary">
+            <column name="cat_foto_producto_old" />
+        </property>
+        <property name="catPreparacionProductoOld" type="string">
+            <column name="cat_preparacion_producto_old" length="150" />
+        </property>
+        <property name="catColoresProductoOld" type="string">
+            <column name="cat_colores_producto_old" length="50" />
+        </property>
+        <property name="catNombreInsumoOld" type="string">
+            <column name="cat_nombre_insumo_old" length="50" />
+        </property>
+        <property name="catModeloRecetaProductoOld" type="string">
+            <column name="cat_modelo_receta_producto_old" length="50" />
+        </property>
+        <property name="cantidadMasPedidoOld" type="java.lang.Integer">
+            <column name="cantidadMasPedido_old" />
+        </property>
+        <property name="promedioTotalProdOld" type="java.lang.Float">
+            <column name="promedioTotalProd_old" precision="12" scale="0" />
+        </property>
+        <property name="fkcodigoEstadoCatalogoOld" type="java.lang.Integer">
+            <column name="fkcodigo_estadoCatalogo_old" />
+        </property>
+        <property name="versionOld" type="timestamp">
+            <column name="version_old" length="19" />
+        </property>
+        <property name="catCodigoProductoNew" type="java.lang.Integer">
+            <column name="cat_codigo_producto_new" />
+        </property>
+        <property name="catNombreProductoNew" type="string">
+            <column name="cat_nombre_producto_new" length="50" />
+        </property>
+        <property name="catNombreTipoProductoNew" type="string">
+            <column name="cat_nombre_tipo_producto_new" length="50" />
+        </property>
+        <property name="catTiempoenhornoTipoProductoNew" type="java.lang.Float">
+            <column name="cat_tiempoenhorno_tipo_producto_new" precision="12" scale="0" />
+        </property>
+        <property name="catTemperaturaenhornoTipoProductoNew" type="java.lang.Float">
+            <column name="cat_temperaturaenhorno_tipo_producto_new" precision="12" scale="0" />
+        </property>
+        <property name="catValorNetoNew" type="java.lang.Float">
+            <column name="cat_valor_neto_new" precision="12" scale="0" />
+        </property>
+        <property name="catValorConIgvNew" type="java.lang.Float">
+            <column name="cat_valor_con_igv_new" precision="12" scale="0" />
+        </property>
+        <property name="catFotoProductoNew" type="binary">
+            <column name="cat_foto_producto_new" />
+        </property>
+        <property name="catPreparacionProductoNew" type="string">
+            <column name="cat_preparacion_producto_new" length="150" />
+        </property>
+        <property name="catColoresProductoNew" type="string">
+            <column name="cat_colores_producto_new" length="50" />
+        </property>
+        <property name="catNombreInsumoNew" type="string">
+            <column name="cat_nombre_insumo_new" length="50" />
+        </property>
+        <property name="catModeloRecetaProductoNew" type="string">
+            <column name="cat_modelo_receta_producto_new" length="50" />
+        </property>
+        <property name="cantidadMasPedidoNew" type="java.lang.Integer">
+            <column name="cantidadMasPedido_new" />
+        </property>
+        <property name="promedioTotalProdNew" type="java.lang.Float">
+            <column name="promedioTotalProd_new" precision="12" scale="0" />
+        </property>
+        <property name="fkcodigoEstadoCatalogoNew" type="java.lang.Integer">
+            <column name="fkcodigo_estadoCatalogo_new" />
+        </property>
+        <property name="versionNew" type="timestamp">
+            <column name="version_new" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,8 +15,10 @@ public class AuditoriaLinea  implements java.io.Serializable {
      private Date fechaCambio;
      private String nombreLineaOld;
      private byte[] iconoLineaOld;
+     private Date versionOld;
      private String nombreLineaNew;
      private byte[] iconoLineaNew;
+     private Date versionNew;
 
     public AuditoriaLinea() {
     }
@@ -26,13 +28,15 @@ public class AuditoriaLinea  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaLinea(String usuario, Date fechaCambio, String nombreLineaOld, byte[] iconoLineaOld, String nombreLineaNew, byte[] iconoLineaNew) {
+    public AuditoriaLinea(String usuario, Date fechaCambio, String nombreLineaOld, byte[] iconoLineaOld, Date versionOld, String nombreLineaNew, byte[] iconoLineaNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreLineaOld = nombreLineaOld;
        this.iconoLineaOld = iconoLineaOld;
+       this.versionOld = versionOld;
        this.nombreLineaNew = nombreLineaNew;
        this.iconoLineaNew = iconoLineaNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiLinea() {
@@ -70,6 +74,13 @@ public class AuditoriaLinea  implements java.io.Serializable {
     public void setIconoLineaOld(byte[] iconoLineaOld) {
         this.iconoLineaOld = iconoLineaOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreLineaNew() {
         return this.nombreLineaNew;
     }
@@ -83,6 +94,13 @@ public class AuditoriaLinea  implements java.io.Serializable {
     
     public void setIconoLineaNew(byte[] iconoLineaNew) {
         this.iconoLineaNew = iconoLineaNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

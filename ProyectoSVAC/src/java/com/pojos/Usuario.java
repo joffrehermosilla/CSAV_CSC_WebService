@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,6 +13,7 @@ public class Usuario  implements java.io.Serializable {
 
 
      private Integer codigoUsuario;
+     private Date version;
      private Distrito distrito;
      private EstadoUsuario estadoUsuario;
      private TipoUsuario tipoUsuario;
@@ -50,6 +51,13 @@ public class Usuario  implements java.io.Serializable {
     
     public void setCodigoUsuario(Integer codigoUsuario) {
         this.codigoUsuario = codigoUsuario;
+    }
+    public Date getVersion() {
+        return this.version;
+    }
+    
+    public void setVersion(Date version) {
+        this.version = version;
     }
     public Distrito getDistrito() {
         return this.distrito;

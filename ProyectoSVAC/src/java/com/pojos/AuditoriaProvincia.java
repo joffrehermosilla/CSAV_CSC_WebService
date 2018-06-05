@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,8 +15,10 @@ public class AuditoriaProvincia  implements java.io.Serializable {
      private Date fechaCambio;
      private Integer fkcodigoPaisOld;
      private String nombreProvinciaOld;
+     private Date versionOld;
      private String fkcodigoPaisNew;
      private String nombreProvinciaNew;
+     private Date versionNew;
 
     public AuditoriaProvincia() {
     }
@@ -26,13 +28,15 @@ public class AuditoriaProvincia  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaProvincia(String usuario, Date fechaCambio, Integer fkcodigoPaisOld, String nombreProvinciaOld, String fkcodigoPaisNew, String nombreProvinciaNew) {
+    public AuditoriaProvincia(String usuario, Date fechaCambio, Integer fkcodigoPaisOld, String nombreProvinciaOld, Date versionOld, String fkcodigoPaisNew, String nombreProvinciaNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoPaisOld = fkcodigoPaisOld;
        this.nombreProvinciaOld = nombreProvinciaOld;
+       this.versionOld = versionOld;
        this.fkcodigoPaisNew = fkcodigoPaisNew;
        this.nombreProvinciaNew = nombreProvinciaNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiProvincia() {
@@ -70,6 +74,13 @@ public class AuditoriaProvincia  implements java.io.Serializable {
     public void setNombreProvinciaOld(String nombreProvinciaOld) {
         this.nombreProvinciaOld = nombreProvinciaOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getFkcodigoPaisNew() {
         return this.fkcodigoPaisNew;
     }
@@ -83,6 +94,13 @@ public class AuditoriaProvincia  implements java.io.Serializable {
     
     public void setNombreProvinciaNew(String nombreProvinciaNew) {
         this.nombreProvinciaNew = nombreProvinciaNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

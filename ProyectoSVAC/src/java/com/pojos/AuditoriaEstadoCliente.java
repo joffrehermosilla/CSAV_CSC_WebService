@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,7 +14,9 @@ public class AuditoriaEstadoCliente  implements java.io.Serializable {
      private String usuario;
      private Date fechaCambio;
      private String nombreEstadoClienteOld;
+     private Date versionOld;
      private String nombreEstadoClienteNew;
+     private Date versionNew;
 
     public AuditoriaEstadoCliente() {
     }
@@ -24,11 +26,13 @@ public class AuditoriaEstadoCliente  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaEstadoCliente(String usuario, Date fechaCambio, String nombreEstadoClienteOld, String nombreEstadoClienteNew) {
+    public AuditoriaEstadoCliente(String usuario, Date fechaCambio, String nombreEstadoClienteOld, Date versionOld, String nombreEstadoClienteNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreEstadoClienteOld = nombreEstadoClienteOld;
+       this.versionOld = versionOld;
        this.nombreEstadoClienteNew = nombreEstadoClienteNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiEstadoCliente() {
@@ -59,12 +63,26 @@ public class AuditoriaEstadoCliente  implements java.io.Serializable {
     public void setNombreEstadoClienteOld(String nombreEstadoClienteOld) {
         this.nombreEstadoClienteOld = nombreEstadoClienteOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreEstadoClienteNew() {
         return this.nombreEstadoClienteNew;
     }
     
     public void setNombreEstadoClienteNew(String nombreEstadoClienteNew) {
         this.nombreEstadoClienteNew = nombreEstadoClienteNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

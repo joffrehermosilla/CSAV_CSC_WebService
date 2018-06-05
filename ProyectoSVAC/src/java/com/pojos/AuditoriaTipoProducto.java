@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -17,10 +17,12 @@ public class AuditoriaTipoProducto  implements java.io.Serializable {
      private Float tiempoenhornoTipoProductoOld;
      private Float temperaturaenhornoTipoProductoOld;
      private byte[] fotoTipoProductoOld;
+     private Date versionOld;
      private String nombreTipoProductoNew;
      private Float tiempoenhornoTipoProductoNew;
      private Float temperaturaenhornoTipoProductoNew;
      private byte[] fotoTipoProductoNew;
+     private Date versionNew;
 
     public AuditoriaTipoProducto() {
     }
@@ -30,17 +32,19 @@ public class AuditoriaTipoProducto  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaTipoProducto(String usuario, Date fechaCambio, String nombreTipoProductoOld, Float tiempoenhornoTipoProductoOld, Float temperaturaenhornoTipoProductoOld, byte[] fotoTipoProductoOld, String nombreTipoProductoNew, Float tiempoenhornoTipoProductoNew, Float temperaturaenhornoTipoProductoNew, byte[] fotoTipoProductoNew) {
+    public AuditoriaTipoProducto(String usuario, Date fechaCambio, String nombreTipoProductoOld, Float tiempoenhornoTipoProductoOld, Float temperaturaenhornoTipoProductoOld, byte[] fotoTipoProductoOld, Date versionOld, String nombreTipoProductoNew, Float tiempoenhornoTipoProductoNew, Float temperaturaenhornoTipoProductoNew, byte[] fotoTipoProductoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreTipoProductoOld = nombreTipoProductoOld;
        this.tiempoenhornoTipoProductoOld = tiempoenhornoTipoProductoOld;
        this.temperaturaenhornoTipoProductoOld = temperaturaenhornoTipoProductoOld;
        this.fotoTipoProductoOld = fotoTipoProductoOld;
+       this.versionOld = versionOld;
        this.nombreTipoProductoNew = nombreTipoProductoNew;
        this.tiempoenhornoTipoProductoNew = tiempoenhornoTipoProductoNew;
        this.temperaturaenhornoTipoProductoNew = temperaturaenhornoTipoProductoNew;
        this.fotoTipoProductoNew = fotoTipoProductoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiTipoProducto() {
@@ -92,6 +96,13 @@ public class AuditoriaTipoProducto  implements java.io.Serializable {
     public void setFotoTipoProductoOld(byte[] fotoTipoProductoOld) {
         this.fotoTipoProductoOld = fotoTipoProductoOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreTipoProductoNew() {
         return this.nombreTipoProductoNew;
     }
@@ -119,6 +130,13 @@ public class AuditoriaTipoProducto  implements java.io.Serializable {
     
     public void setFotoTipoProductoNew(byte[] fotoTipoProductoNew) {
         this.fotoTipoProductoNew = fotoTipoProductoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

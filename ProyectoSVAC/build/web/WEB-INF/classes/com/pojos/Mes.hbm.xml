@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.Mes" table="mes" catalog="ceramicasietecoyas" optimistic-lock="version">
+    <class name="com.pojos.Mes" table="mes" catalog="ceramicasietecoyas">
         <id name="codigoMes" type="java.lang.Integer">
             <column name="codigo_mes" />
             <generator class="identity" />
         </id>
+        <timestamp name="version" column="version" />
         <many-to-one name="year" class="com.pojos.Year" fetch="select">
-            <column name="fkcodigo_year" />
+            <column name="fk_codigo_year" />
         </many-to-one>
         <property name="nombreMes" type="string">
             <column name="nombre_mes" length="45" />
         </property>
         <set name="cuotas" table="cuota" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="fkcodigo_mes" />
+                <column name="fk_codigo_mes" />
             </key>
             <one-to-many class="com.pojos.Cuota" />
         </set>

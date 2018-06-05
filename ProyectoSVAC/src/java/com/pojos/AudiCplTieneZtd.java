@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -17,10 +17,12 @@ public class AudiCplTieneZtd  implements java.io.Serializable {
      private Integer fkcodigoZonaTieneDistritoOld;
      private Float cuotaAsignadaOld;
      private Float cuotaRealizadaOld;
+     private Date versionOld;
      private Integer fkcodigoCuotaPorLineaNew;
      private Integer fkcodigoZonaTieneDistritoNew;
      private Float cuotaAsignadaNew;
      private Float cuotaRealizadaNew;
+     private Date versionNew;
 
     public AudiCplTieneZtd() {
     }
@@ -30,17 +32,19 @@ public class AudiCplTieneZtd  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiCplTieneZtd(String usuario, Date fechaCambio, Integer fkcodigoCuotaPorLineaOld, Integer fkcodigoZonaTieneDistritoOld, Float cuotaAsignadaOld, Float cuotaRealizadaOld, Integer fkcodigoCuotaPorLineaNew, Integer fkcodigoZonaTieneDistritoNew, Float cuotaAsignadaNew, Float cuotaRealizadaNew) {
+    public AudiCplTieneZtd(String usuario, Date fechaCambio, Integer fkcodigoCuotaPorLineaOld, Integer fkcodigoZonaTieneDistritoOld, Float cuotaAsignadaOld, Float cuotaRealizadaOld, Date versionOld, Integer fkcodigoCuotaPorLineaNew, Integer fkcodigoZonaTieneDistritoNew, Float cuotaAsignadaNew, Float cuotaRealizadaNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoCuotaPorLineaOld = fkcodigoCuotaPorLineaOld;
        this.fkcodigoZonaTieneDistritoOld = fkcodigoZonaTieneDistritoOld;
        this.cuotaAsignadaOld = cuotaAsignadaOld;
        this.cuotaRealizadaOld = cuotaRealizadaOld;
+       this.versionOld = versionOld;
        this.fkcodigoCuotaPorLineaNew = fkcodigoCuotaPorLineaNew;
        this.fkcodigoZonaTieneDistritoNew = fkcodigoZonaTieneDistritoNew;
        this.cuotaAsignadaNew = cuotaAsignadaNew;
        this.cuotaRealizadaNew = cuotaRealizadaNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiCplTieneZtd() {
@@ -92,6 +96,13 @@ public class AudiCplTieneZtd  implements java.io.Serializable {
     public void setCuotaRealizadaOld(Float cuotaRealizadaOld) {
         this.cuotaRealizadaOld = cuotaRealizadaOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getFkcodigoCuotaPorLineaNew() {
         return this.fkcodigoCuotaPorLineaNew;
     }
@@ -119,6 +130,13 @@ public class AudiCplTieneZtd  implements java.io.Serializable {
     
     public void setCuotaRealizadaNew(Float cuotaRealizadaNew) {
         this.cuotaRealizadaNew = cuotaRealizadaNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

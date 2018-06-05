@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,7 +14,9 @@ public class AuditoriaArea  implements java.io.Serializable {
      private String usuario;
      private Date fechaCambio;
      private String nombreAreaOld;
+     private Date versionOld;
      private String nombreAreaNew;
+     private Date versionNew;
 
     public AuditoriaArea() {
     }
@@ -24,11 +26,13 @@ public class AuditoriaArea  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaArea(String usuario, Date fechaCambio, String nombreAreaOld, String nombreAreaNew) {
+    public AuditoriaArea(String usuario, Date fechaCambio, String nombreAreaOld, Date versionOld, String nombreAreaNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreAreaOld = nombreAreaOld;
+       this.versionOld = versionOld;
        this.nombreAreaNew = nombreAreaNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiArea() {
@@ -59,12 +63,26 @@ public class AuditoriaArea  implements java.io.Serializable {
     public void setNombreAreaOld(String nombreAreaOld) {
         this.nombreAreaOld = nombreAreaOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreAreaNew() {
         return this.nombreAreaNew;
     }
     
     public void setNombreAreaNew(String nombreAreaNew) {
         this.nombreAreaNew = nombreAreaNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

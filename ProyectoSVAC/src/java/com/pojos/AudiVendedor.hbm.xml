@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.pojos.AudiVendedor" table="audi_vendedor" catalog="ceramicasietecoyas" optimistic-lock="version">
         <id name="codigoAudiVendedor" type="java.lang.Integer">
@@ -23,6 +23,9 @@
         <property name="codigoVentaVendedorOld" type="string">
             <column name="codigo_venta_vendedor_old" length="10" />
         </property>
+        <property name="versionOld" type="timestamp">
+            <column name="version_old" length="19" />
+        </property>
         <property name="fkcodigoUsuarioNew" type="java.lang.Integer">
             <column name="fkcodigo_usuario_new" />
         </property>
@@ -31,6 +34,9 @@
         </property>
         <property name="codigoVentaVendedorNew" type="string">
             <column name="codigo_venta_vendedor_new" length="10" />
+        </property>
+        <property name="versionNew" type="timestamp">
+            <column name="version_new" length="19" />
         </property>
     </class>
 </hibernate-mapping>

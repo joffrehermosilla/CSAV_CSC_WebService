@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.Producto" table="producto" catalog="ceramicasietecoyas" optimistic-lock="version">
+    <class name="com.pojos.Producto" table="producto" catalog="ceramicasietecoyas">
         <id name="codigoProducto" type="java.lang.Integer">
             <column name="codigo_producto" />
             <generator class="identity" />
         </id>
+        <timestamp name="version" column="version" />
         <many-to-one name="estadoProducto" class="com.pojos.EstadoProducto" fetch="select">
             <column name="fkcodigo_estado_producto" />
         </many-to-one>
@@ -49,7 +50,7 @@
         </property>
         <set name="cuotas" table="cuota" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="fkcodigo_producto" />
+                <column name="fk_codigo_producto" />
             </key>
             <one-to-many class="com.pojos.Cuota" />
         </set>
@@ -65,11 +66,11 @@
             </key>
             <one-to-many class="com.pojos.ProductoPorPedido" />
         </set>
-        <set name="recetaProductoTieneInsumos" table="receta_producto_tiene_insumo" inverse="true" lazy="true" fetch="select">
+        <set name="receProduTiInsumos" table="rece_produ_ti_insumo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="fkcodigo_producto" />
+                <column name="fk_codigo_producto" />
             </key>
-            <one-to-many class="com.pojos.RecetaProductoTieneInsumo" />
+            <one-to-many class="com.pojos.ReceProduTiInsumo" />
         </set>
     </class>
 </hibernate-mapping>

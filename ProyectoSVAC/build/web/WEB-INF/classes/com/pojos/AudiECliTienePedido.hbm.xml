@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.AudiEClienteTienePedido" table="audi_e_cliente_tiene_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
-        <id name="codigoAudiEstadoClienteTienePedido" type="java.lang.Integer">
-            <column name="codigo_audi_estado_cliente_tiene_pedido" />
+    <class name="com.pojos.AudiECliTienePedido" table="audi_e_cli_tiene_pedido" catalog="ceramicasietecoyas" optimistic-lock="version">
+        <id name="codigoAudiECliTienePedido" type="java.lang.Integer">
+            <column name="codigo_audi_e_cli_tiene_pedido" />
             <generator class="identity" />
         </id>
         <property name="usuario" type="string">
@@ -20,11 +20,17 @@
         <property name="fotoEstadoClienteTienePedidoOld" type="binary">
             <column name="foto_estado_cliente_tiene_pedido_old" />
         </property>
+        <property name="versionOld" type="timestamp">
+            <column name="version_old" length="19" />
+        </property>
         <property name="nombreEstadoClienteTienePedidoNew" type="string">
             <column name="nombre_estado_cliente_tiene_pedido_new" length="45" />
         </property>
         <property name="fotoEstadoClienteTienePedidoNew" type="binary">
             <column name="foto_estado_cliente_tiene_pedido_new" />
+        </property>
+        <property name="versionNew" type="timestamp">
+            <column name="version_new" length="19" />
         </property>
     </class>
 </hibernate-mapping>

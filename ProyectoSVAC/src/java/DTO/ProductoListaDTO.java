@@ -11,7 +11,7 @@ public class ProductoListaDTO {
     Date salida_almacen_producto;
     String stock_producto;
     String preparacion_producto;
-    Byte[] foto_producto;
+    byte[] foto_producto;
     String colores_producto;
     String qr_producto;
     float pvv_producto;
@@ -19,6 +19,13 @@ public class ProductoListaDTO {
     int fkcodigo_linea;
     int fkcodigo_tipo_producto;
     int fkcodigo_estado_producto;
+    
+    int codigo_tipo_producto;
+    String nombre_tipo_producto;
+    float tiempoenhorno_tipo_producto;
+    float temperaturaenhorno_tipo_producto;
+    byte[] foto_tipo_producto;
+    Date version;
     
     int codigo_cliente;
     String razonsocial_cliente;
@@ -28,7 +35,7 @@ public class ProductoListaDTO {
     float latitud_cliente;
     float longitud_cliente;
     String type_cliente;
-    Byte[] foto_ubicacion_cliente;
+    byte[] foto_ubicacion_cliente;
     String ruc_cliente;
     String dni_cliente;
     Date fecha_empadronamiento_cliente;
@@ -90,11 +97,11 @@ public class ProductoListaDTO {
         this.preparacion_producto = preparacion_producto;
     }
 
-    public Byte[] getFoto_producto() {
+    public byte[] getFoto_producto() {
         return foto_producto;
     }
 
-    public void setFoto_producto(Byte[] foto_producto) {
+    public void setFoto_producto(byte[] foto_producto) {
         this.foto_producto = foto_producto;
     }
 
@@ -152,6 +159,54 @@ public class ProductoListaDTO {
 
     public void setFkcodigo_estado_producto(int fkcodigo_estado_producto) {
         this.fkcodigo_estado_producto = fkcodigo_estado_producto;
+    }
+
+    public int getCodigo_tipo_producto() {
+        return codigo_tipo_producto;
+    }
+
+    public void setCodigo_tipo_producto(int codigo_tipo_producto) {
+        this.codigo_tipo_producto = codigo_tipo_producto;
+    }
+
+    public String getNombre_tipo_producto() {
+        return nombre_tipo_producto;
+    }
+
+    public void setNombre_tipo_producto(String nombre_tipo_producto) {
+        this.nombre_tipo_producto = nombre_tipo_producto;
+    }
+
+    public float getTiempoenhorno_tipo_producto() {
+        return tiempoenhorno_tipo_producto;
+    }
+
+    public void setTiempoenhorno_tipo_producto(float tiempoenhorno_tipo_producto) {
+        this.tiempoenhorno_tipo_producto = tiempoenhorno_tipo_producto;
+    }
+
+    public float getTemperaturaenhorno_tipo_producto() {
+        return temperaturaenhorno_tipo_producto;
+    }
+
+    public void setTemperaturaenhorno_tipo_producto(float temperaturaenhorno_tipo_producto) {
+        this.temperaturaenhorno_tipo_producto = temperaturaenhorno_tipo_producto;
+    }
+
+    public byte[] getFoto_tipo_producto() {
+        return foto_tipo_producto;
+    }
+
+    public void setFoto_tipo_producto(byte[] foto_tipo_producto) {
+        this.foto_tipo_producto = foto_tipo_producto;
+    }
+
+    public Date getVersion() {
+        return version;
+    }
+
+    public void setVersion(Date version) {
+        this.version = version;
     }
 
     public int getCodigo_cliente() {
@@ -218,11 +273,11 @@ public class ProductoListaDTO {
         this.type_cliente = type_cliente;
     }
 
-    public Byte[] getFoto_ubicacion_cliente() {
+    public byte[] getFoto_ubicacion_cliente() {
         return foto_ubicacion_cliente;
     }
 
-    public void setFoto_ubicacion_cliente(Byte[] foto_ubicacion_cliente) {
+    public void setFoto_ubicacion_cliente(byte[] foto_ubicacion_cliente) {
         this.foto_ubicacion_cliente = foto_ubicacion_cliente;
     }
 
@@ -307,5 +362,4 @@ public class ProductoListaDTO {
     }
 
     
-
 }

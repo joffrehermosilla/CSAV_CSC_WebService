@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -23,6 +23,7 @@ public class AuditoriaUsuario  implements java.io.Serializable {
      private Integer fkcodigoDistritoOld;
      private Integer fkcodigoTipoUsuarioOld;
      private Integer fkcodigoEstadoUsuarioOld;
+     private Date versionOld;
      private String nombreUsuarioNew;
      private String apellidoUsuarioNew;
      private Date fechaNacimientoUsuarioNew;
@@ -33,6 +34,7 @@ public class AuditoriaUsuario  implements java.io.Serializable {
      private Integer fkcodigoDistritoNew;
      private Integer fkcodigoTipoUsuarioNew;
      private Integer fkcodigoEstadoUsuarioNew;
+     private Date versionNew;
 
     public AuditoriaUsuario() {
     }
@@ -42,7 +44,7 @@ public class AuditoriaUsuario  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaUsuario(String usuario, Date fechaCambio, String nombreUsuarioOld, String apellidoUsuarioOld, Date fechaNacimientoUsuarioOld, String direccionUsuarioOld, String nombreLogeoUsuarioOld, String passwordUsuarioOld, byte[] fotoUsuarioOld, Integer fkcodigoDistritoOld, Integer fkcodigoTipoUsuarioOld, Integer fkcodigoEstadoUsuarioOld, String nombreUsuarioNew, String apellidoUsuarioNew, Date fechaNacimientoUsuarioNew, String direccionUsuarioNew, String nombreLogeoUsuarioNew, String passwordUsuarioNew, byte[] fotoUsuarioNew, Integer fkcodigoDistritoNew, Integer fkcodigoTipoUsuarioNew, Integer fkcodigoEstadoUsuarioNew) {
+    public AuditoriaUsuario(String usuario, Date fechaCambio, String nombreUsuarioOld, String apellidoUsuarioOld, Date fechaNacimientoUsuarioOld, String direccionUsuarioOld, String nombreLogeoUsuarioOld, String passwordUsuarioOld, byte[] fotoUsuarioOld, Integer fkcodigoDistritoOld, Integer fkcodigoTipoUsuarioOld, Integer fkcodigoEstadoUsuarioOld, Date versionOld, String nombreUsuarioNew, String apellidoUsuarioNew, Date fechaNacimientoUsuarioNew, String direccionUsuarioNew, String nombreLogeoUsuarioNew, String passwordUsuarioNew, byte[] fotoUsuarioNew, Integer fkcodigoDistritoNew, Integer fkcodigoTipoUsuarioNew, Integer fkcodigoEstadoUsuarioNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreUsuarioOld = nombreUsuarioOld;
@@ -55,6 +57,7 @@ public class AuditoriaUsuario  implements java.io.Serializable {
        this.fkcodigoDistritoOld = fkcodigoDistritoOld;
        this.fkcodigoTipoUsuarioOld = fkcodigoTipoUsuarioOld;
        this.fkcodigoEstadoUsuarioOld = fkcodigoEstadoUsuarioOld;
+       this.versionOld = versionOld;
        this.nombreUsuarioNew = nombreUsuarioNew;
        this.apellidoUsuarioNew = apellidoUsuarioNew;
        this.fechaNacimientoUsuarioNew = fechaNacimientoUsuarioNew;
@@ -65,6 +68,7 @@ public class AuditoriaUsuario  implements java.io.Serializable {
        this.fkcodigoDistritoNew = fkcodigoDistritoNew;
        this.fkcodigoTipoUsuarioNew = fkcodigoTipoUsuarioNew;
        this.fkcodigoEstadoUsuarioNew = fkcodigoEstadoUsuarioNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiUsuario() {
@@ -158,6 +162,13 @@ public class AuditoriaUsuario  implements java.io.Serializable {
     public void setFkcodigoEstadoUsuarioOld(Integer fkcodigoEstadoUsuarioOld) {
         this.fkcodigoEstadoUsuarioOld = fkcodigoEstadoUsuarioOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreUsuarioNew() {
         return this.nombreUsuarioNew;
     }
@@ -227,6 +238,13 @@ public class AuditoriaUsuario  implements java.io.Serializable {
     
     public void setFkcodigoEstadoUsuarioNew(Integer fkcodigoEstadoUsuarioNew) {
         this.fkcodigoEstadoUsuarioNew = fkcodigoEstadoUsuarioNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

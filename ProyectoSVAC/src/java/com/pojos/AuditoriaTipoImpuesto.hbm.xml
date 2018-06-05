@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 27, 2018 1:46:46 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated May 31, 2018 6:38:43 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.pojos.AuditoriaTipoImpuesto" table="auditoria_tipo_impuesto" catalog="ceramicasietecoyas" optimistic-lock="version">
         <id name="codigoAudiTipoImpuesto" type="java.lang.Integer">
@@ -20,11 +20,17 @@
         <property name="porcentajeTipoImpuestoOld" type="java.lang.Float">
             <column name="porcentaje_tipo_impuesto_old" precision="12" scale="0" />
         </property>
+        <property name="versionOld" type="timestamp">
+            <column name="version_old" length="19" />
+        </property>
         <property name="nombreTipoImpuestoNew" type="string">
             <column name="nombre_tipo_impuesto_new" length="45" />
         </property>
         <property name="porcentajeTipoImpuestoNew" type="java.lang.Float">
             <column name="porcentaje_tipo_impuesto_new" precision="12" scale="0" />
+        </property>
+        <property name="versionNew" type="timestamp">
+            <column name="version_new" length="19" />
         </property>
     </class>
 </hibernate-mapping>

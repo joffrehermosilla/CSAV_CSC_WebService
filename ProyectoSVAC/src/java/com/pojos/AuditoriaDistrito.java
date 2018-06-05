@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,8 +15,10 @@ public class AuditoriaDistrito  implements java.io.Serializable {
      private Date fechaCambio;
      private Integer fkcodigoCiudadOld;
      private String nombreDistritoOld;
+     private Date versionOld;
      private String fkcodigoCiudadNew;
      private String nombreDistritoNew;
+     private Date versionNew;
 
     public AuditoriaDistrito() {
     }
@@ -26,13 +28,15 @@ public class AuditoriaDistrito  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaDistrito(String usuario, Date fechaCambio, Integer fkcodigoCiudadOld, String nombreDistritoOld, String fkcodigoCiudadNew, String nombreDistritoNew) {
+    public AuditoriaDistrito(String usuario, Date fechaCambio, Integer fkcodigoCiudadOld, String nombreDistritoOld, Date versionOld, String fkcodigoCiudadNew, String nombreDistritoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoCiudadOld = fkcodigoCiudadOld;
        this.nombreDistritoOld = nombreDistritoOld;
+       this.versionOld = versionOld;
        this.fkcodigoCiudadNew = fkcodigoCiudadNew;
        this.nombreDistritoNew = nombreDistritoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiDistrito() {
@@ -70,6 +74,13 @@ public class AuditoriaDistrito  implements java.io.Serializable {
     public void setNombreDistritoOld(String nombreDistritoOld) {
         this.nombreDistritoOld = nombreDistritoOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getFkcodigoCiudadNew() {
         return this.fkcodigoCiudadNew;
     }
@@ -83,6 +94,13 @@ public class AuditoriaDistrito  implements java.io.Serializable {
     
     public void setNombreDistritoNew(String nombreDistritoNew) {
         this.nombreDistritoNew = nombreDistritoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

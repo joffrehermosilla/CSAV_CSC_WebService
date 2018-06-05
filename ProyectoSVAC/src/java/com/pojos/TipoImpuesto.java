@@ -1,7 +1,8 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class TipoImpuesto  implements java.io.Serializable {
 
 
      private Integer codigoTipoImpuesto;
+     private Date version;
      private String nombreTipoImpuesto;
      private Float porcentajeTipoImpuesto;
      private Set<IgvVenta> igvVentas = new HashSet<IgvVenta>(0);
@@ -31,6 +33,13 @@ public class TipoImpuesto  implements java.io.Serializable {
     
     public void setCodigoTipoImpuesto(Integer codigoTipoImpuesto) {
         this.codigoTipoImpuesto = codigoTipoImpuesto;
+    }
+    public Date getVersion() {
+        return this.version;
+    }
+    
+    public void setVersion(Date version) {
+        this.version = version;
     }
     public String getNombreTipoImpuesto() {
         return this.nombreTipoImpuesto;

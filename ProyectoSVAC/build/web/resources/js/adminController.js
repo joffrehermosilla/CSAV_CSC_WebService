@@ -1,7 +1,6 @@
 var app = angular.module("myCatalogo",['ngStorage','angularUtils.directives.dirPagination']);
-
 app.controller("catalogoCtrl", function($scope, $http, $window) {
-    
+    /*------------------------------------Gestionar catalogo-----------------------------------------*/
     //Titula el nombre del usuario logueado en el navbar
     $scope.getNombreUsuario = function() {
         var sesionCodigoUsuario = sessionStorage.getItem('idUsuarioLogged');
@@ -15,6 +14,13 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             $scope.getVendedores();
             $scope.getCatalogo();
             $scope.getArticulosSacados();
+            //----------------------------------
+            $scope.getPedidoClienteStandBy();
+            $scope.getPedidoClienteAceptado();
+            $scope.getPedidoClienteFacturado();
+            $scope.getPedidoClienteBloqueado();
+            $scope.getPedidoClienteRechazado();
+            $scope.getPedidoClienteNoAtendido();
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
@@ -63,7 +69,6 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
 //                        initialRating: value.promedioPuntaje
 //                    });
 //                };
-                
             });
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
@@ -72,7 +77,6 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
     
     //Consulta todos los vendedores en una lista
     $scope.getVendedores = function(){
-        $scope.idVendedor = $scope.username;
         $http({
             method: 'GET',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getVendedores',
@@ -101,17 +105,16 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
         });
         
         $scope.getReporteID = function(){
-        $http({
-            method: 'POST',
-            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getCodigoReporte',
-            data: { codigo_venta_vendedor   : codigoVentaVendedor }
-        }).then(function successCallback(response) {
-            $scope.CodigoReporte = response.data;
-        }, function errorCallback(response) {
-            alert("Error en reporte");
-        });
-    };
-        
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getCodigoReporte',
+                data: { codigo_venta_vendedor   : codigoVentaVendedor }
+            }).then(function successCallback(response) {
+                $scope.CodigoReporte = response.data;
+            }, function errorCallback(response) {
+                alert("Error en reporte");
+            });
+        };
     };
     
     //Consulta en detalle los datos generales y el pedido
@@ -151,7 +154,7 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             $scope.Catalogo = response.data;
-            var bool = ((response.data.length === 0) ? 1 : response.data.length);
+            var bool = ((response.data.length === 0) ? 1 : parseInt(response.data.length/2));
             $('#paginationCool').twbsPagination({
                 totalPages: bool,
                 visiblePages: 4,
@@ -205,7 +208,7 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             alert("no funciona ERROOR");
         });
     };
-    $scope.agregaArticulo = function(event) {
+    $scope.agregaArticulo = function() {
         var idProducto = $scope.articuloSacado;
         if(idProducto === undefined || idProducto === null) {
             alert("Controlado: "+idProducto);
@@ -223,6 +226,119 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             });
         }
     };
+    
+    //------------------------------------Gestionar Pedido--------------------------------------------
+    //Consulta del pedido - stand by
+    $scope.getPedidoClienteStandBy = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getPedidoClienteStandBy',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.pedidoClienteStandBy = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
+    $scope.getPedidoClienteAceptado = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getPedidoClienteAceptado',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.pedidoClienteAceptado = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
+    $scope.getPedidoClienteFacturado = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getPedidoClienteFacturado',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.pedidoClienteFacturado = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
+    $scope.getPedidoClienteBloqueado = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getPedidoClienteBloqueado',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.pedidoClienteBloqueado = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
+    $scope.getPedidoClienteRechazado = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getPedidoClienteRechazado',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.pedidoClienteRechazado = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
+    $scope.getPedidoClienteNoAtendido = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getPedidoClienteNoAtendido',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.pedidoClienteNoAtendido = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
+    
+    $scope.cambiaEstadoPedido = function(event) {
+        var dataparaEstado = event.currentTarget.value.split('-');
+        var codigoPedido = parseInt(dataparaEstado[0]);
+        var codigoEstado = parseInt(dataparaEstado[1]);
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/cambiaEstadoPed',
+            data: { codigo_pedido_web : codigoPedido,
+                    fkcodigo_estado_cliente_tiene_pedido : codigoEstado
+            }
+        }).then(function successCallback(response) {
+            alert("Se ejecuto dicho cambio.");
+            $scope.getPedidoClienteStandBy();
+            $scope.getPedidoClienteAceptado();
+            $scope.getPedidoClienteFacturado();
+            $scope.getPedidoClienteBloqueado();
+            $scope.getPedidoClienteRechazado();
+            $scope.getPedidoClienteNoAtendido();
+        }, function errorCallback(response) {
+            alert("cambiaEstadoPedido no funciona ERROOR");
+        });
+    };
+    $scope.mostrarDetallePed = function(event) {
+        var codigoPedido = event.currentTarget.value;
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/mostrarDetallePedido',
+            data: { codigo_pedido_web : codigoPedido
+            }
+        }).then(function successCallback(response) {
+            $scope.listDetallePed = response.data;
+            (response.data.fkcodigo_igv_venta === 1) ? $scope.tieneIGV = 'SI' : $scope.tieneIGV = 'NO';
+        }, function errorCallback(response) {
+            alert("cambiaEstadoPedido no funciona ERROOR");
+        });
+    };
+    
     
     //LogOut
     $scope.cerrarSesion = function() {

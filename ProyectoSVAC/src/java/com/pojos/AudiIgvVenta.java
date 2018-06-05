@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,8 +15,10 @@ public class AudiIgvVenta  implements java.io.Serializable {
      private Date fechaCambio;
      private Integer fkcodigoTipoImpuestoOld;
      private Float porcentajeIgvVentaOld;
+     private Date versionOld;
      private Integer fkcodigoTipoImpuestoNew;
      private Float porcentajeIgvVentaNew;
+     private Date versionNew;
 
     public AudiIgvVenta() {
     }
@@ -26,13 +28,15 @@ public class AudiIgvVenta  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AudiIgvVenta(String usuario, Date fechaCambio, Integer fkcodigoTipoImpuestoOld, Float porcentajeIgvVentaOld, Integer fkcodigoTipoImpuestoNew, Float porcentajeIgvVentaNew) {
+    public AudiIgvVenta(String usuario, Date fechaCambio, Integer fkcodigoTipoImpuestoOld, Float porcentajeIgvVentaOld, Date versionOld, Integer fkcodigoTipoImpuestoNew, Float porcentajeIgvVentaNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.fkcodigoTipoImpuestoOld = fkcodigoTipoImpuestoOld;
        this.porcentajeIgvVentaOld = porcentajeIgvVentaOld;
+       this.versionOld = versionOld;
        this.fkcodigoTipoImpuestoNew = fkcodigoTipoImpuestoNew;
        this.porcentajeIgvVentaNew = porcentajeIgvVentaNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiIgvVenta() {
@@ -70,6 +74,13 @@ public class AudiIgvVenta  implements java.io.Serializable {
     public void setPorcentajeIgvVentaOld(Float porcentajeIgvVentaOld) {
         this.porcentajeIgvVentaOld = porcentajeIgvVentaOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public Integer getFkcodigoTipoImpuestoNew() {
         return this.fkcodigoTipoImpuestoNew;
     }
@@ -83,6 +94,13 @@ public class AudiIgvVenta  implements java.io.Serializable {
     
     public void setPorcentajeIgvVentaNew(Float porcentajeIgvVentaNew) {
         this.porcentajeIgvVentaNew = porcentajeIgvVentaNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

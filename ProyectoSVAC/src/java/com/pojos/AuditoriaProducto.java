@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -26,6 +26,7 @@ public class AuditoriaProducto  implements java.io.Serializable {
      private Integer fkcodigoLineaOld;
      private Integer fkcodigoTipoProductoOld;
      private Integer fkcodigoEstadoProductoOld;
+     private Date versionOld;
      private String nombreProductoNew;
      private Date ingresoAlmacenProductoNew;
      private Date salidaAlmacenProductoNew;
@@ -39,6 +40,7 @@ public class AuditoriaProducto  implements java.io.Serializable {
      private Integer fkcodigoLineaNew;
      private Integer fkcodigoTipoProductoNew;
      private Integer fkcodigoEstadoProductoNew;
+     private Date versionNew;
 
     public AuditoriaProducto() {
     }
@@ -48,7 +50,7 @@ public class AuditoriaProducto  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaProducto(String usuario, Date fechaCambio, String nombreProductoOld, Date ingresoAlmacenProductoOld, Date salidaAlmacenProductoOld, String stockProductoOld, String preparacionProductoOld, byte[] fotoProductoOld, String coloresProductoOld, String qrProductoOld, Float pvvProductoOld, Float pvfProductoOld, Integer fkcodigoLineaOld, Integer fkcodigoTipoProductoOld, Integer fkcodigoEstadoProductoOld, String nombreProductoNew, Date ingresoAlmacenProductoNew, Date salidaAlmacenProductoNew, String stockProductoNew, String preparacionProductoNew, byte[] fotoProductoNew, String coloresProductoNew, String qrProductoNew, Float pvvProductoNew, Float pvfProductoNew, Integer fkcodigoLineaNew, Integer fkcodigoTipoProductoNew, Integer fkcodigoEstadoProductoNew) {
+    public AuditoriaProducto(String usuario, Date fechaCambio, String nombreProductoOld, Date ingresoAlmacenProductoOld, Date salidaAlmacenProductoOld, String stockProductoOld, String preparacionProductoOld, byte[] fotoProductoOld, String coloresProductoOld, String qrProductoOld, Float pvvProductoOld, Float pvfProductoOld, Integer fkcodigoLineaOld, Integer fkcodigoTipoProductoOld, Integer fkcodigoEstadoProductoOld, Date versionOld, String nombreProductoNew, Date ingresoAlmacenProductoNew, Date salidaAlmacenProductoNew, String stockProductoNew, String preparacionProductoNew, byte[] fotoProductoNew, String coloresProductoNew, String qrProductoNew, Float pvvProductoNew, Float pvfProductoNew, Integer fkcodigoLineaNew, Integer fkcodigoTipoProductoNew, Integer fkcodigoEstadoProductoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreProductoOld = nombreProductoOld;
@@ -64,6 +66,7 @@ public class AuditoriaProducto  implements java.io.Serializable {
        this.fkcodigoLineaOld = fkcodigoLineaOld;
        this.fkcodigoTipoProductoOld = fkcodigoTipoProductoOld;
        this.fkcodigoEstadoProductoOld = fkcodigoEstadoProductoOld;
+       this.versionOld = versionOld;
        this.nombreProductoNew = nombreProductoNew;
        this.ingresoAlmacenProductoNew = ingresoAlmacenProductoNew;
        this.salidaAlmacenProductoNew = salidaAlmacenProductoNew;
@@ -77,6 +80,7 @@ public class AuditoriaProducto  implements java.io.Serializable {
        this.fkcodigoLineaNew = fkcodigoLineaNew;
        this.fkcodigoTipoProductoNew = fkcodigoTipoProductoNew;
        this.fkcodigoEstadoProductoNew = fkcodigoEstadoProductoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAuditoriaProducto() {
@@ -191,6 +195,13 @@ public class AuditoriaProducto  implements java.io.Serializable {
     public void setFkcodigoEstadoProductoOld(Integer fkcodigoEstadoProductoOld) {
         this.fkcodigoEstadoProductoOld = fkcodigoEstadoProductoOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreProductoNew() {
         return this.nombreProductoNew;
     }
@@ -281,6 +292,13 @@ public class AuditoriaProducto  implements java.io.Serializable {
     
     public void setFkcodigoEstadoProductoNew(Integer fkcodigoEstadoProductoNew) {
         this.fkcodigoEstadoProductoNew = fkcodigoEstadoProductoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

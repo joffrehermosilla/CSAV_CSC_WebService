@@ -1,7 +1,8 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class EstadoCliente  implements java.io.Serializable {
 
 
      private Integer codigoEstadoCliente;
+     private Date version;
      private String nombreEstadoCliente;
      private Set<Cliente> clientes = new HashSet<Cliente>(0);
 
@@ -33,6 +35,13 @@ public class EstadoCliente  implements java.io.Serializable {
     
     public void setCodigoEstadoCliente(Integer codigoEstadoCliente) {
         this.codigoEstadoCliente = codigoEstadoCliente;
+    }
+    public Date getVersion() {
+        return this.version;
+    }
+    
+    public void setVersion(Date version) {
+        this.version = version;
     }
     public String getNombreEstadoCliente() {
         return this.nombreEstadoCliente;

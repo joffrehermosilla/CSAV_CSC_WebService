@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,8 +15,10 @@ public class AuditoriaTipoImpuesto  implements java.io.Serializable {
      private Date fechaCambio;
      private String nombreTipoImpuestoOld;
      private Float porcentajeTipoImpuestoOld;
+     private Date versionOld;
      private String nombreTipoImpuestoNew;
      private Float porcentajeTipoImpuestoNew;
+     private Date versionNew;
 
     public AuditoriaTipoImpuesto() {
     }
@@ -26,13 +28,15 @@ public class AuditoriaTipoImpuesto  implements java.io.Serializable {
         this.usuario = usuario;
         this.fechaCambio = fechaCambio;
     }
-    public AuditoriaTipoImpuesto(String usuario, Date fechaCambio, String nombreTipoImpuestoOld, Float porcentajeTipoImpuestoOld, String nombreTipoImpuestoNew, Float porcentajeTipoImpuestoNew) {
+    public AuditoriaTipoImpuesto(String usuario, Date fechaCambio, String nombreTipoImpuestoOld, Float porcentajeTipoImpuestoOld, Date versionOld, String nombreTipoImpuestoNew, Float porcentajeTipoImpuestoNew, Date versionNew) {
        this.usuario = usuario;
        this.fechaCambio = fechaCambio;
        this.nombreTipoImpuestoOld = nombreTipoImpuestoOld;
        this.porcentajeTipoImpuestoOld = porcentajeTipoImpuestoOld;
+       this.versionOld = versionOld;
        this.nombreTipoImpuestoNew = nombreTipoImpuestoNew;
        this.porcentajeTipoImpuestoNew = porcentajeTipoImpuestoNew;
+       this.versionNew = versionNew;
     }
    
     public Integer getCodigoAudiTipoImpuesto() {
@@ -70,6 +74,13 @@ public class AuditoriaTipoImpuesto  implements java.io.Serializable {
     public void setPorcentajeTipoImpuestoOld(Float porcentajeTipoImpuestoOld) {
         this.porcentajeTipoImpuestoOld = porcentajeTipoImpuestoOld;
     }
+    public Date getVersionOld() {
+        return this.versionOld;
+    }
+    
+    public void setVersionOld(Date versionOld) {
+        this.versionOld = versionOld;
+    }
     public String getNombreTipoImpuestoNew() {
         return this.nombreTipoImpuestoNew;
     }
@@ -83,6 +94,13 @@ public class AuditoriaTipoImpuesto  implements java.io.Serializable {
     
     public void setPorcentajeTipoImpuestoNew(Float porcentajeTipoImpuestoNew) {
         this.porcentajeTipoImpuestoNew = porcentajeTipoImpuestoNew;
+    }
+    public Date getVersionNew() {
+        return this.versionNew;
+    }
+    
+    public void setVersionNew(Date versionNew) {
+        this.versionNew = versionNew;
     }
 
 

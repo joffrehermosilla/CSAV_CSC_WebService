@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated Apr 27, 2018 1:46:45 PM by Hibernate Tools 4.3.1
+// Generated May 31, 2018 6:38:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,6 +13,7 @@ public class Producto  implements java.io.Serializable {
 
 
      private Integer codigoProducto;
+     private Date version;
      private EstadoProducto estadoProducto;
      private Linea linea;
      private TipoProducto tipoProducto;
@@ -29,12 +30,12 @@ public class Producto  implements java.io.Serializable {
      private Set<Cuota> cuotas = new HashSet<Cuota>(0);
      private Set<ClienteTienePreferencia> clienteTienePreferencias = new HashSet<ClienteTienePreferencia>(0);
      private Set<ProductoPorPedido> productoPorPedidos = new HashSet<ProductoPorPedido>(0);
-     private Set<RecetaProductoTieneInsumo> recetaProductoTieneInsumos = new HashSet<RecetaProductoTieneInsumo>(0);
+     private Set<ReceProduTiInsumo> receProduTiInsumos = new HashSet<ReceProduTiInsumo>(0);
 
     public Producto() {
     }
 
-    public Producto(EstadoProducto estadoProducto, Linea linea, TipoProducto tipoProducto, String nombreProducto, Date ingresoAlmacenProducto, Date salidaAlmacenProducto, String stockProducto, String preparacionProducto, byte[] fotoProducto, String coloresProducto, String qrProducto, Float pvvProducto, Float pvfProducto, Set<Cuota> cuotas, Set<ClienteTienePreferencia> clienteTienePreferencias, Set<ProductoPorPedido> productoPorPedidos, Set<RecetaProductoTieneInsumo> recetaProductoTieneInsumos) {
+    public Producto(EstadoProducto estadoProducto, Linea linea, TipoProducto tipoProducto, String nombreProducto, Date ingresoAlmacenProducto, Date salidaAlmacenProducto, String stockProducto, String preparacionProducto, byte[] fotoProducto, String coloresProducto, String qrProducto, Float pvvProducto, Float pvfProducto, Set<Cuota> cuotas, Set<ClienteTienePreferencia> clienteTienePreferencias, Set<ProductoPorPedido> productoPorPedidos, Set<ReceProduTiInsumo> receProduTiInsumos) {
        this.estadoProducto = estadoProducto;
        this.linea = linea;
        this.tipoProducto = tipoProducto;
@@ -51,7 +52,7 @@ public class Producto  implements java.io.Serializable {
        this.cuotas = cuotas;
        this.clienteTienePreferencias = clienteTienePreferencias;
        this.productoPorPedidos = productoPorPedidos;
-       this.recetaProductoTieneInsumos = recetaProductoTieneInsumos;
+       this.receProduTiInsumos = receProduTiInsumos;
     }
    
     public Integer getCodigoProducto() {
@@ -60,6 +61,13 @@ public class Producto  implements java.io.Serializable {
     
     public void setCodigoProducto(Integer codigoProducto) {
         this.codigoProducto = codigoProducto;
+    }
+    public Date getVersion() {
+        return this.version;
+    }
+    
+    public void setVersion(Date version) {
+        this.version = version;
     }
     public EstadoProducto getEstadoProducto() {
         return this.estadoProducto;
@@ -173,12 +181,12 @@ public class Producto  implements java.io.Serializable {
     public void setProductoPorPedidos(Set<ProductoPorPedido> productoPorPedidos) {
         this.productoPorPedidos = productoPorPedidos;
     }
-    public Set<RecetaProductoTieneInsumo> getRecetaProductoTieneInsumos() {
-        return this.recetaProductoTieneInsumos;
+    public Set<ReceProduTiInsumo> getReceProduTiInsumos() {
+        return this.receProduTiInsumos;
     }
     
-    public void setRecetaProductoTieneInsumos(Set<RecetaProductoTieneInsumo> recetaProductoTieneInsumos) {
-        this.recetaProductoTieneInsumos = recetaProductoTieneInsumos;
+    public void setReceProduTiInsumos(Set<ReceProduTiInsumo> receProduTiInsumos) {
+        this.receProduTiInsumos = receProduTiInsumos;
     }
 
 
