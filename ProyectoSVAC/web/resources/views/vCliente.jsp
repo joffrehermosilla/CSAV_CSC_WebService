@@ -55,9 +55,20 @@
                         <div id="gestionaPreferencia" class="tab-pane fade">
                             <section id="ProductoParaCalificar" style="padding-top: 15px;">
                                 <div class="form-group">
-                                    <p><strong>Productos por calificar: </strong>Seleccione el producto a calificar:</p>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8">
+                                            <p><strong>Productos por calificar: </strong> Solo puede calificar una vez por producto.</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="form-inline pull-right">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                                <input id="idProdCalificar" class="form-control form-control-sm ml-3 w-75" type="text" 
+                                                       placeholder="Search.." aria-label="Search" style="height: 38px;">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <table class="table table-responsive-sm table-fixed">
+                                <table class="table table-responsive-sm table-fixed" id="tablaProdCalif">
                                     <tr>
                                         <th class="table-active">Nombre Producto</th>
                                         <th class="table-active">Tipo Producto</th>
@@ -69,7 +80,7 @@
                                         <th class="table-active">Modelo Receta</th>
                                         <th class="table-active">Calificar</th>
                                     </tr>
-                                    <tr ng-repeat="catCalif in CatalNOCalificado">
+                                    <tr ng-repeat="catCalif in CatalNOCalificado" id="rowProd">
                                         <td>{{catCalif.nombre_producto}}</td>
                                         <td>{{catCalif.nombre_tipo_producto}}</td>
                                         <td>{{catCalif.tiempoenhorno_tipo_producto}} horas</td>
@@ -115,7 +126,7 @@
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success" ng-click="calificar()">Aceptar</button>
+                            <button id="btnCalificar" type="button" class="btn btn-success" ng-click="calificar()">Aceptar</button>
                         </div>
                     </div>
                     
@@ -124,6 +135,13 @@
         </div>
         <%@include file="foot.jspf" %>
         <script type="text/javascript">
+            $("#idProdCalificar").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#tablaProdCalif #rowProd").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+            
             function t_verCatalogo() {
                 var liA = document.getElementById("liA");
                 var aA = document.getElementById("aA");

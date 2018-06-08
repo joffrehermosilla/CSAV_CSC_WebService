@@ -16,7 +16,7 @@
                         <div class="tab-content">
                             
                             <div id="gestionaCatalogo" class="tab-pane fade in show active" role="tabpanel">
-                                <div class="container-fluid" style="padding-bottom: 30px;">
+                                <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-lg-3">&nbsp;</div>
                                         <div class="col-lg-6">
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="productosN">
+                                    <div class="tab-pane fade show active" id="productosN" style="padding-top: 30px;">
                                         <table class="table table-responsive-sm table-fixed" style="font-size: 15px;">
                                             <tr>
                                                 <th class="table-active">Nombre del producto</th>
@@ -70,7 +70,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="reporteVentaN">
+                                    <div class="tab-pane fade" id="reporteVentaN" style="padding-top: 30px;">
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-lg-4">
@@ -153,45 +153,54 @@
                                     </div>
                                     <div class="tab-pane fade" id="catalogoN">
                                         <div class="row">
-                                            <div class="col-lg-4" style="text-align: left;">
-                                                <p style="margin-top: 30px; font-weight: lighter; font-size: 18px;">Catálogo TOP 10 artículos de Junio</p>
+                                            <div class="col-lg-3" style="text-align: left;">
+                                                <p style="margin-top: 56px; font-weight: lighter; font-size: 18px;"> 
+                                                    Catálogo TOP {{TOP}} artículos de Junio
+                                                </p>
                                             </div>
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-9">
                                                 <ul class="nav nav-pills pull-right" style="padding-top: 12px; padding-bottom: 12px;">
                                                     <li role="presentation" class="active" style="padding-right: 10px;">
-                                                        <button type="submit" class="btn btn-group btn-warning" data-toggle="modal" data-target="#modalActualiza">
+                                                        <button type="submit" class="btn btn-group btn-warning" data-toggle="modal" data-target="#modalActualiza" style="margin-top: 33px;">
                                                         <span class="fa fa-book" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Actualiza Catalogo</button>
                                                     </li>
                                                     <li role="presentation" style="padding-right: 10px;">
-                                                        <button type="submit" class="btn btn-group btn-success" data-toggle="modal" data-target="#modalAgregaArticulo">
+                                                        <button type="submit" class="btn btn-group btn-success" data-toggle="modal" data-target="#modalAgregaArticulo" style="margin-top: 33px;">
                                                             <span class="fa fa-check-square-o" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Agregar Artículo</button>
                                                     </li>
+                                                    <li role="presentation" style="padding-right: 10px;">
+                                                        <button class="btn btn-group btn-default" style="margin-top: 33px;"><span class="fa fa-plus-square" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Generar Cuota</button>
+                                                    </li>
                                                     <li role="presentation">
-                                                        <button class="btn btn-group btn-default"><span class="fa fa-plus-square" aria-hidden="true" style="margin-top: 3px;"></span>&nbsp;&nbsp;Generar Cuota</button>
+                                                        <label>Ordenar el catálogo por:</label>
+                                                        <select class="form-control" style="width: 200px; height: 50px;" id="idListaCatalogo">
+                                                            <option value="lista_A">Por calificacion</option>
+                                                            <option value="lista_B">Por cant. pedida</option>
+                                                        </select>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <hr style="padding-bottom: 15px;">
                                         <div id="catalogoTOP" class="row" style="margin-bottom: 20px;">
-                                            <div class="col-lg-4" ng-repeat="cat in Catalogo">
+                                            <div class="col-lg-4 col-md-6" ng-repeat="cat in Catalogo">
                                                 <div class="jumbotron" style="background-color: #f1e9c8!important;">
-                                                    <div class="card">
+                                                    <div class="card" style="height: 825px;">
                                                         <div class="overlay">
                                                             <!--{{cat.cat_foto_producto}}-->
                                                             <img src="../images/imageRandom.jpg" alt="imageRandom" style="width: 100%; height: 230px;"/>
                                                         </div>
                                                         <div class="card-body elegant-color white-text rounded-bottom">
                                                             <div class="row">
-                                                                <div class="col-lg-8">
-                                                                    <h4 class="card-title" style="margin-top: 5px;">{{cat.cat_nombre_producto}}</h4>
+                                                                <div class="col-lg-9">
+                                                                    <h4 class="card-title" style="margin-top: 5px; font-size: 22px;">{{cat.cat_nombre_producto}}</h4>
                                                                 </div>
-                                                                <div class="col-lg-4" style="text-align: right;">
+                                                                <div class="col-lg-3" style="text-align: center;">
                                                                     <button class="btn-floating btn-lg purple-gradient btn-danger" data-ng-click="quitarArticulo($event)" value="{{cat.cat_codigo_producto}}">
                                                                     <span class="fa fa-trash-o" aria-hidden="true"></span></button>
                                                                 </div>
                                                             </div>
-                                                            <hr class="hr-light">
+                                                            <hr class="hr-light" style="padding-bottom: 3px;">
                                                             <p class="card-text white-text">Precio: S/.{{cat.cat_valor_neto}}</p>
                                                             <p class="card-text white-text">Con IGV: S/.{{cat.cat_valor_con_igv}}</p>
                                                             <hr class="hr-light">
@@ -243,9 +252,14 @@
                             <div style="padding: 30px 30px 20px 30px;">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <p>Artículos quitados del catálogo:</p>
+                                        <p>Agregar articulo al catalogo:</p>
                                         <select class="form-control" ng-model="articuloSacado">
-                                            <option ng-repeat="arti in ArticulosSacados" value="{{arti.cat_codigo_producto}}">{{arti.cat_nombre_producto}}</option>
+                                            <optgroup label="Items sacados">
+                                                <option ng-repeat="arti in ArticulosSacados" value="{{arti.cat_codigo_producto}}">{{arti.cat_nombre_producto}}</option>
+                                            </optgroup>
+                                            <optgroup label="Otros productos">
+                                                <option ng-repeat="listArt in ListaProdArti" value="{{listArt.codigo_producto}}">{{listArt.nombre_producto}}</option>
+                                            </optgroup>
                                         </select>
                                     </div>
                                     <div class="col-lg-1" style="text-align: center;">

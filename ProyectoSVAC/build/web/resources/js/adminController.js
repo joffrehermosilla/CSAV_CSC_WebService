@@ -12,8 +12,9 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             $scope.ListaNombres = response.data;
             $scope.getProducto();
             $scope.getVendedores();
-            $scope.getCatalogo();
+            $scope.getCatalogo('lista_A');
             $scope.getArticulosSacados();
+            $scope.getProductosResto();
             //----------------------------------
             $scope.getPedidoClienteStandBy();
             $scope.getPedidoClienteAceptado();
@@ -145,15 +146,28 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
         });
     };
     
+    //Cambiar tipo de Catalogo
+    $('#idListaCatalogo').on('change', function() {
+        var idSelected = $(this).find(":selected").val();
+        if(idSelected === 'lista_A') {
+            $scope.getCatalogo('lista_A');
+        } else if(idSelected === 'lista_B'){
+            $scope.getCatalogo('lista_B');
+        }
+    });
+    
     //getCatalogo
-    $scope.getCatalogo = function() {
+    $scope.getCatalogo = function(listaCatalogo) {
         $http({
-            method: 'GET',
+            method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getCatalogo',
-            data: {
+            data: { listaCatalogo : listaCatalogo
             }
         }).then(function successCallback(response) {
             $scope.Catalogo = response.data;
+            $scope.TOP = response.data.length;
+            getNroTOP($scope.TOP);
+
             var bool = ((response.data.length === 0) ? 1 : parseInt(response.data.length/2));
             $('#paginationCool').twbsPagination({
                 totalPages: bool,
@@ -166,8 +180,11 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             alert("no funciona ERROOR");
         });
     };
+    
+    var seleccionado;
     //Actualiza Catalogo
     $scope.actualizaCatalogo = function() {
+        seleccionado = $('#idListaCatalogo :selected').text();
         $http({
             method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/updateCatalogo',
@@ -175,26 +192,44 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             alert("Actualiza Catalogo: Se ejecuto correctamente");
-            $scope.getCatalogo();
+            if(seleccionado === 'Por calificacion') {
+                $scope.getCatalogo('lista_A');
+            } else if(seleccionado === 'Por cant. pedida') {
+                $scope.getCatalogo('lista_B');
+            }
             $scope.getArticulosSacados();
+            $scope.getProductosResto();
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
     };
+    
     //Herramientas
-    $scope.quitarArticulo = function(event) {
-        var idProducto = event.currentTarget.value;
-        $http({
-            method: 'POST',
-            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/quitarArticulo',
-            data: { cat_codigo_producto : idProducto }
-        }).then(function successCallback(response) {
-            alert("Quitar Articulo: Se ejecuto correctamente");
-            $scope.getCatalogo();
-            $scope.getArticulosSacados();
-        }, function errorCallback(response) {
-            alert("no funciona ERROOR");
-        });
+    var getNroTOP = function(lenghtTOP) {
+        $scope.quitarArticulo = function(event) {
+            var idProducto = event.currentTarget.value;
+            seleccionado = $('#idListaCatalogo :selected').text();
+            if(lenghtTOP <= 5) {
+                alert("Capacidad minima: 5 articulos.");
+            } else{
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/quitarArticulo',
+                    data: { cat_codigo_producto : idProducto }
+                }).then(function successCallback(response) {
+                    alert("Quitar Articulo: Se ejecuto correctamente");
+                    if(seleccionado === 'Por calificacion') {
+                        $scope.getCatalogo('lista_A');
+                    } else if(seleccionado === 'Por cant. pedida') {
+                        $scope.getCatalogo('lista_B');
+                    }
+                    $scope.getArticulosSacados();
+                    $scope.getProductosResto();
+                }, function errorCallback(response) {
+                    alert("no funciona ERROOR");
+                });
+            }
+        };
     };
     $scope.getArticulosSacados = function() {
         $http({
@@ -208,10 +243,23 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             alert("no funciona ERROOR");
         });
     };
+    $scope.getProductosResto = function() {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/getProductoMINUS',
+            data: {
+            }
+        }).then(function successCallback(response) {
+            $scope.ListaProdArti = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
+    };
     $scope.agregaArticulo = function() {
         var idProducto = $scope.articuloSacado;
+        seleccionado = $('#idListaCatalogo :selected').text();
         if(idProducto === undefined || idProducto === null) {
-            alert("Controlado: "+idProducto);
+            alert("Seleccione el producto que desee agregar al catalogo.");
         }else {
             $http({
                 method: 'POST',
@@ -219,8 +267,13 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
                 data: { cat_codigo_producto : idProducto }
             }).then(function successCallback(response) {
                 alert("Agrega Articulo: Se ejecuto correctamente");
-                $scope.getCatalogo();
+                if(seleccionado === 'Por calificacion') {
+                    $scope.getCatalogo('lista_A');
+                } else if(seleccionado === 'Por cant. pedida') {
+                    $scope.getCatalogo('lista_B');
+                }
                 $scope.getArticulosSacados();
+                $scope.getProductosResto();
             }, function errorCallback(response) {
                 alert("no funciona ERROOR");
             });

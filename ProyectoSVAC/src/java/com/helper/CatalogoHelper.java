@@ -107,38 +107,23 @@ public class CatalogoHelper {
         return lista;
     }
  
-    //Catalogo
-//    public List<TipoProductoDTO> getFilTipoProducto(){
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        Transaction transaction = session.beginTransaction();
-//        Query q = session.createSQLQuery("SELECT `nombre_tipo_producto` FROM `tipo_producto`").setResultTransformer(Transformers.aliasToBean(TipoProductoDTO.class));
-//        List<TipoProductoDTO> resultList=q.list();
-//        transaction.commit();
-//        session.close();
-//        return resultList;
-//    }
-//    
-//    public List<ProductoListaDTO> getFilNombreProducto(){
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        Transaction transaction = session.beginTransaction();
-//        Query q = session.createSQLQuery("SELECT `nombre_producto` FROM `producto`").setResultTransformer(Transformers.aliasToBean(ProductoListaDTO.class));
-//        List<ProductoListaDTO> resultList=q.list();
-//        transaction.commit();
-//        session.close();
-//        return resultList;
-//    }
-    
-    public List<CatalogoDTO> getCatalogo(){
+    public List<CatalogoDTO> getCatalogo(String listaCatalogo){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT * FROM catalogo WHERE fkcodigo_estadoCatalogo = 1").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
-        List<CatalogoDTO> resultList=q.list();
+        Query queryCalif = session.createSQLQuery("SELECT * FROM catalogo as cat WHERE fkcodigo_estadoCatalogo = 1 ORDER BY cat.promedioTotalProd DESC").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
+        Query queryCantidad = session.createSQLQuery("SELECT * FROM catalogo as cat WHERE fkcodigo_estadoCatalogo = 1 ORDER BY cat.cantidadMasPedido DESC").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
+        List<CatalogoDTO> resultList = null;
+        if("lista_A".equals(listaCatalogo)) {
+            resultList = queryCalif.list();
+        } else if("lista_B".equals(listaCatalogo)) {
+            resultList = queryCantidad.list();
+        }
         transaction.commit();
         session.close();
         return resultList;
     }
     
-    public void acualizaCatalogo(){
+    public void actualizaCatalogo(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Query query = session.createSQLQuery("CALL sp_catalogo");
@@ -147,7 +132,7 @@ public class CatalogoHelper {
         session.close();
     }
     
-    public void cambiarEstadoArt(int codigoProducto){
+    public void quitaArticuloCat(int codigoProducto){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Query query = session.createSQLQuery("CALL sp_cambiaEstadoArticulo(:codigoProducto)");
@@ -156,10 +141,10 @@ public class CatalogoHelper {
         transaction.commit();
         session.close();
     }
-    public List<CatalogoDTO> getArticulos(){
+    public List<CatalogoDTO> getArticulosSacados(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT cat.cat_codigo_producto, cat.cat_nombre_producto, estCat.descripcion\n" +
+        Query q = session.createSQLQuery("SELECT cat.cat_codigo_producto, cat.cat_nombre_producto \n" +
                                          "FROM catalogo as cat INNER JOIN estado_catalogo as estCat \n" +
                                          "ON (cat.fkcodigo_estadoCatalogo = estCat.codigo_estadoCatalogo)\n" +
                                          "WHERE fkcodigo_estadoCatalogo = 2").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
@@ -168,12 +153,35 @@ public class CatalogoHelper {
         session.close();
         return resultList;
     }
+    public List<ProductoListaDTO> getProductosMINUS(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Query q = session.createSQLQuery("SELECT pro.codigo_producto, pro.nombre_producto FROM lista_producto as pro\n" +
+                                         "LEFT JOIN (SELECT cat.cat_codigo_producto as codigo_producto, cat.cat_nombre_producto as nombre_producto \n" +
+                                         "           FROM catalogo as cat) as t2 USING (codigo_producto, nombre_producto)\n" +
+                                         "WHERE (t2.codigo_producto IS NULL);").setResultTransformer(Transformers.aliasToBean(ProductoListaDTO.class));
+        List<ProductoListaDTO> resultList=q.list();
+        transaction.commit();
+        session.close();
+        return resultList;
+    }
+    
     public void agregaArticulo(int codigoProducto){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Query query = session.createSQLQuery("CALL sp_agregaArticulo(:codigoProducto)");
-        query.setParameter("codigoProducto", codigoProducto);
-        query.executeUpdate();
+        Query temp = session.createSQLQuery("SELECT COUNT(*) FROM catalogo WHERE cat_codigo_producto = :codProd");
+        temp.setParameter("codProd", codigoProducto);
+        int hayProd = Integer.parseInt(temp.list().get(0).toString());
+        Query querA, querB;
+        if(hayProd == 1) {
+            querA = session.createSQLQuery("CALL sp_agregaArticulo(:codigoProducto)");
+            querA.setParameter("codigoProducto", codigoProducto);
+            querA.executeUpdate();
+        } else {
+            querB = session.createSQLQuery("CALL sp_insertaArtCat(:codigoProducto)");
+            querB.setParameter("codigoProducto", codigoProducto);
+            querB.executeUpdate();
+        }
         transaction.commit();
         session.close();
     }

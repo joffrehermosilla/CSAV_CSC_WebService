@@ -155,15 +155,16 @@ public class CatalogoResource {
         return gson.toJson(lista);
     }
     
-    @GET
+    @POST
     @Path("getCatalogo")
     @Produces("application/json")
-    public String getCatalogo() {
+    public String getCatalogo(String data) {
         Gson gson =new Gson();        
         List lista = null;
+        CatalogoDTO catalogoDTO = gson.fromJson(data, CatalogoDTO.class);
         try{
-            lista = catalogoHelper.getCatalogo();
-            System.out.println("------>"+lista);
+            lista = catalogoHelper.getCatalogo(catalogoDTO.getListaCatalogo());
+            System.out.println("dwadwadwaqq-_> "+gson.toJson(lista));
         }
         catch(Exception ex){
             System.out.println("getCatalogo: "+ex);
@@ -177,7 +178,7 @@ public class CatalogoResource {
     public Response updateCatalogo(){
         Response respuesta = null;
         try{
-            catalogoHelper.acualizaCatalogo();
+            catalogoHelper.actualizaCatalogo();
             respuesta = Response.status(200).build();
         }
         catch(Exception ex){
@@ -196,7 +197,7 @@ public class CatalogoResource {
         Gson gson = new Gson();
         CatalogoDTO catalogoDTO = gson.fromJson(data, CatalogoDTO.class);
         try{
-            catalogoHelper.cambiarEstadoArt(catalogoDTO.getCat_codigo_producto());
+            catalogoHelper.quitaArticuloCat(catalogoDTO.getCat_codigo_producto());
             respuesta = Response.status(200).entity(catalogoDTO).build();
         }
         catch(Exception ex){
@@ -212,11 +213,24 @@ public class CatalogoResource {
         Gson gson =new Gson();
         List lista = null;
         try{
-            lista = catalogoHelper.getArticulos();
-            System.out.println("wadawd------>"+lista);
+            lista = catalogoHelper.getArticulosSacados();
         }
         catch(Exception ex){
             System.out.println("getArticulosSacados: "+ex);
+        }
+        return gson.toJson(lista);
+    }
+    @GET
+    @Path("getProductoMINUS")
+    @Produces("application/json")
+    public String getProductoMINUS() {
+        Gson gson =new Gson();
+        List lista = null;
+        try{
+            lista = catalogoHelper.getProductosMINUS();
+        }
+        catch(Exception ex){
+            System.out.println("getProductoMINUS: "+ex);
         }
         return gson.toJson(lista);
     }

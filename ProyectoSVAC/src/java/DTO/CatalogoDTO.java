@@ -25,6 +25,8 @@ public class CatalogoDTO {
     int codigo_estadoCatalogo;
     String descripcion;
 
+    String listaCatalogo;
+
     public int getCodigo_catalogo() {
         return codigo_catalogo;
     }
@@ -175,6 +177,14 @@ public class CatalogoDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getListaCatalogo() {
+        return listaCatalogo;
+    }
+
+    public void setListaCatalogo(String listaCatalogo) {
+        this.listaCatalogo = listaCatalogo;
     }
     
     
