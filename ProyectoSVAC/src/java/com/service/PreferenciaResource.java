@@ -109,4 +109,18 @@ public class PreferenciaResource {
         return respuesta;
     }
     
+    @GET
+    @Path("getPromocionesSel")
+    @Produces("application/json")
+    public String getPromocionesSel() {
+        Gson gson =new Gson();
+        List lista = null;
+        try {
+            lista = preferenciaHelper.getPromociones();
+        } catch(Exception e) {
+            System.out.println("getPromocionesSel: "+e.getMessage());
+        }
+        return gson.toJson(lista);
+    }
+    
 }

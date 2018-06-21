@@ -8,7 +8,7 @@
             <li><a id="clickP" data-toggle="tab" href="#generaPromocion">Menu 2</a></li>
             <li><a id="clickQ" data-toggle="tab" href="#generaReporteStock">Menu 3</a></li>
         </ul>
-        <div style="padding-bottom: 20px; padding-top: 60px;">
+        <div style="padding-bottom: 20px; padding-top: 66px;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-1">&nbsp;</div>
