@@ -1,9 +1,6 @@
 package com.service;
 
-import DTO.CatalogoDTO;
-import DTO.DetallePedidoDTO;
-import DTO.PedidoReporteDTO;
-import DTO.ProductoListaDTO;
+import DTO.ClientePreferenciaDTO;
 import DTO.ProductoxClienteDTO;
 import DTO.UsuarioDTO;
 import com.google.gson.Gson;
@@ -16,7 +13,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.POST;
 import javax.ws.rs.core.Response;
@@ -122,5 +118,21 @@ public class PreferenciaResource {
         }
         return gson.toJson(lista);
     }
+    
+    @POST
+    @Path("getCalificaciones")
+    @Produces("application/json")
+    public String getCalificaciones(String data) {
+        Gson gson =new Gson();
+        List lista = null;
+        ClientePreferenciaDTO clientePreferenciaDTO = gson.fromJson(data, ClientePreferenciaDTO.class);
+        try {
+            lista = preferenciaHelper.getCalificacion(clientePreferenciaDTO.getCodigo_usuario());
+        } catch(Exception e) {
+            System.out.println("getCalificaciones: "+e.getMessage());
+        }
+        return gson.toJson(lista);
+    }
+    
     
 }

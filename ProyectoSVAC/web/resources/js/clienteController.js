@@ -1,16 +1,16 @@
 var app = angular.module("myClient",['ngStorage','angularUtils.directives.dirPagination']);
 
 app.controller("clientCtrl", function($scope, $http, $window) {
-   
+    
+    var sesionCodigoUsuario = sessionStorage.getItem('idUsuarioLogged');
+    
     $scope.getNombreUsuario = function() {
-        var sesionCodigoUsuario = sessionStorage.getItem('idUsuarioLogged');
         $http({
             method: 'POST',
             url: 'http://localhost:8084/ProyectoSVAC/webresources/preferencia/getNombreUsu',
             data: {  codigo_usuario : sesionCodigoUsuario  }
         }).then(function successCallback(response) {
             $scope.ListaNombres = response.data;
-            
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
@@ -28,6 +28,7 @@ app.controller("clientCtrl", function($scope, $http, $window) {
             $scope.lengthCatalogo = 'Catalogo de los '+response.data.length+' mejores productos';
             $scope.getCatalogoNoCalificado();
             $scope.getPromociones();
+            $scope.getHistorialCalifica();
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
@@ -61,11 +62,26 @@ app.controller("clientCtrl", function($scope, $http, $window) {
                 }
             }).then(function successCallback(response) {
                 alert("Producto calificado");
+                $scope.getHistorialCalifica();
                 $(".modalCalifica").modal('hide');
             }, function errorCallback(response) {
                 alert("Error aqui");
             });
         };
+    };
+    
+    //Devuelve el historial de calificaciones
+    $scope.getHistorialCalifica = function() {
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8084/ProyectoSVAC/webresources/preferencia/getCalificaciones',
+            data: { codigo_usuario : sesionCodigoUsuario
+            }
+        }).then(function successCallback(response) {
+            $scope.listaCalificaciones = response.data;
+        }, function errorCallback(response) {
+            alert("no funciona ERROOR");
+        });
     };
     
     //un GET de los promociones
@@ -82,13 +98,15 @@ app.controller("clientCtrl", function($scope, $http, $window) {
         });
     };
     
-    var x = 0;
-    var arrayCod = [];
-    var arrayCant = [];
     /*Esta es la parte mas tryhard del codigo: 
      *Agregar producto al carrito y usar sus variables en el directive.
      *Quita el producto del carrito puramente dinamico.
      *Se usa el storage para almacenar las listas y objetos - JSON Arrays*/
+    var arrayCod = [];
+    var arrayCant = [];
+    var divTotal = document.getElementById("panelCARRITO");
+    var divA = document.createElement("div");
+    
     $scope.addProductoCarrito = function(event) {
         var cadenaProducto = event.currentTarget.value.split('-');
         var codProducto = parseInt(cadenaProducto[0]);
@@ -99,8 +117,6 @@ app.controller("clientCtrl", function($scope, $http, $window) {
             if(cantProducto === null || cantProducto === undefined || cantProducto === "") {
                 alert('Digite la cantidad que desee');
             } else {
-                var divTotal = document.getElementById("panelCARRITO");
-                var divA = document.createElement("div");
                 var divRow = document.createElement("div");
                 var divB = document.createElement("div");
                 var divC = document.createElement("div");
@@ -134,10 +150,15 @@ app.controller("clientCtrl", function($scope, $http, $window) {
                                           var cadena = event.currentTarget.value.split('-');\n\
                                           var _codProd = parseInt(cadena[0]);\n\
                                           var _cantidadPro = parseInt(cadena[1]);\n\
-                                          sessionStorage.removeItem('listaCodProd');\n\
-                                          sessionStorage.setItem('listaCodProd', JSON.stringify(arregCodProd.filter(function checkCod(m) { return m !== \"\"+_codProd; })));\n\
-                                          sessionStorage.removeItem('listaCantProd');\n\
-                                          sessionStorage.setItem('listaCantProd', JSON.stringify(arregCantidad.filter(function checkCant(p) { return p !== \"\"+_cantidadPro; })));\n\
+                                          var indexEncontrado = arregCodProd.findIndex(function checkIndex(p) { return p === \"\"+_codProd });\n\
+                                          arregCodProd.splice(indexEncontrado, 1);\n\
+                                          arregCantidad.splice(indexEncontrado, 1);\n\
+                                          sessionStorage.setItem('listaCodProd', JSON.stringify(arregCodProd));\n\
+                                          sessionStorage.setItem('listaCantProd', JSON.stringify(arregCantidad));\n\
+                                          localStorage.setItem('pqCodigoProducto', _codProd);\n\
+                                          localStorage.setItem('pqcantidadProducto', _cantidadPro);\n\
+                                          \n\
+                                          $(\"button[value='"+codProducto+"-"+nombreProducto+"']\").removeAttr(\"disabled\",\"disabled\").addClass(\"btn-yellow\").css(\"background-color\",\"\");\n\
                                           $(\".lenProd[value = '"+codProducto+"-"+cantProducto+"']\").remove();\n\
                                           alert(\"Se elimino del pedido.\") } ); ");
                 divC.appendChild(i);
@@ -147,9 +168,25 @@ app.controller("clientCtrl", function($scope, $http, $window) {
                 localStorage.setItem('pqCodigoProducto', codProducto);
                 localStorage.setItem('pqcantidadProducto', cantProducto);
                 
-                //Agregando una lista codigoProd y cantidad a la sesion
-                arrayCod.push(localStorage.getItem("pqCodigoProducto"));
-                arrayCant.push(localStorage.getItem("pqcantidadProducto"));
+                //Agregando una lista codigoProd y cantidad al carrito - En proceso
+                var arregFiltrado = arrayCod.filter(f => !JSON.parse(sessionStorage.getItem("listaCodProd")).includes(f));
+                var arregIndex = [];
+                if(arregFiltrado.length === 0) {
+                    arrayCod.push(localStorage.getItem("pqCodigoProducto"));
+                    arrayCant.push(localStorage.getItem("pqcantidadProducto"));
+                    localStorage.clear();
+                } else {
+                    for(var i=0; i<arregFiltrado.length; i++) {
+                        arregIndex.push(arregFiltrado.findIndex(function checkIndex(p) { return p === ""+arregFiltrado[i]; }));
+                    }
+                    for(var i=arregIndex.length-1; i>=0 ; i--) {
+                        arrayCod.splice(arregIndex[i], 1);
+                        arrayCant.splice(arregIndex[i], 1);
+                    }
+                    arrayCod.push(localStorage.getItem("pqCodigoProducto"));
+                    arrayCant.push(localStorage.getItem("pqcantidadProducto"));
+                    localStorage.clear();
+                }
                 sessionStorage.setItem('listaCodProd', JSON.stringify(arrayCod));
                 sessionStorage.setItem('listaCantProd', JSON.stringify(arrayCant));
             }
@@ -183,35 +220,40 @@ app.controller("clientCtrl", function($scope, $http, $window) {
         $scope.generaPedido = function() {
             var jsonArray;
             var pluginArrayArg = new Array();
-            var cadenaCodProd = sessionStorage.getItem("listaCodProd");
-            var cadenaCantidad = sessionStorage.getItem("listaCantProd");
-            var arregloCodProd = JSON.parse(cadenaCodProd);
-            var arregloCantidad = JSON.parse(cadenaCantidad);
+            var cadenaCodProd = sessionStorage.getItem("listaCodProd"),
+                cadenaCantidad = sessionStorage.getItem("listaCantProd"),
+                arregloCodProd = JSON.parse(cadenaCodProd),
+                arregloCantidad = JSON.parse(cadenaCantidad);
             
-            //Convertiendo a JSON Array con multiple arrays y objetos
-            var jsonArg1 = new Object();
-            (value === "-99") ? jsonArg1.fkcodigo_promocion_venta = value : jsonArg1.fkcodigo_promocion_venta = codigoPromo;
-            jsonArg1.cantidad_sku_pedido = cantidadPromo;
-            jsonArg1.descuento_sku_pedido = descPromo;
-            for (var i = 0; i < arregloCodProd.length; i++) {
-                for (var j = 0; j < arregloCantidad.length; j++) {
-                    var jsonArg2 = new Object();
-                    jsonArg2.fkcodigo_producto = arregloCodProd[i];
-                    jsonArg2.cantidadProductoPed = arregloCantidad[i];
-                    pluginArrayArg.push(jsonArg2);
-                    break;
+            if(arregloCodProd === null || arregloCodProd.length === 0) {
+                alert("Debe seleccionar la promocion y luego seleccionar los productos a su carrito para generar el pedido.");
+            } else {
+                //Convertiendo a JSON Array con multiple arrays y objetos
+                var jsonArg1 = new Object();
+                (value === "-99") ? jsonArg1.fkcodigo_promocion_venta = value : jsonArg1.fkcodigo_promocion_venta = codigoPromo;
+                jsonArg1.cantidad_sku_pedido = cantidadPromo;
+                jsonArg1.descuento_sku_pedido = descPromo;
+                for (var i = 0; i < arregloCodProd.length; i++) {
+                    for (var j = 0; j < arregloCantidad.length; j++) {
+                        var jsonArg2 = new Object();
+                        jsonArg2.fkcodigo_producto = arregloCodProd[i];
+                        jsonArg2.cantidadProductoPed = arregloCantidad[i];
+                        pluginArrayArg.push(jsonArg2);
+                        break;
+                    }
                 }
+                jsonArg1.lista_pedido = pluginArrayArg;
+                jsonArray = JSON.stringify(jsonArg1);
+                alert(jsonArray);
+
+
+                alert("Pedido solicitado.. procesando..");
+
+                sessionStorage.removeItem('listaCodProd');
+                sessionStorage.removeItem('listaCantProd');
+                localStorage.clear();
+                $window.location.href = '/ProyectoSVAC/resources/views/vCliente.jsp';
             }
-            jsonArg1.lista_pedido = pluginArrayArg;
-            jsonArray = JSON.stringify(jsonArg1);
-            alert(jsonArray);
-            
-            
-            alert("Pedido solicitado.. procesando..");
-            
-            sessionStorage.removeItem('listaCodProd');
-            sessionStorage.removeItem('listaCantProd');
-            $window.location.href = '/ProyectoSVAC/resources/views/vCliente.jsp';
         };
     };
     

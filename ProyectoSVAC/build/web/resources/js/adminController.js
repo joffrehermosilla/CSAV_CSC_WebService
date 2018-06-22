@@ -192,6 +192,7 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
             }
         }).then(function successCallback(response) {
             alert("Actualiza Catalogo: Se ejecuto correctamente");
+            $("#modalActualiza").modal('hide');
             if(seleccionado === 'Por calificacion') {
                 $scope.getCatalogo('lista_A');
             } else if(seleccionado === 'Por cant. pedida') {
@@ -230,6 +231,34 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
                 });
             }
         };
+        $scope.agregaArticulo = function() {
+            var idProducto = $scope.articuloSacado;
+            seleccionado = $('#idListaCatalogo :selected').text();
+            if(idProducto === undefined || idProducto === null) {
+                alert("Seleccione el producto que desee agregar al catalogo.");
+            }
+            else if(lenghtTOP >= 10) {
+                alert("Capacidad maxima: 10 articulos.");
+            }
+            else {
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/agregaArticulo',
+                    data: { cat_codigo_producto : idProducto }
+                }).then(function successCallback(response) {
+                    alert("Agrega Articulo: Se ejecuto correctamente");
+                    if(seleccionado === 'Por calificacion') {
+                        $scope.getCatalogo('lista_A');
+                    } else if(seleccionado === 'Por cant. pedida') {
+                        $scope.getCatalogo('lista_B');
+                    }
+                    $scope.getArticulosSacados();
+                    $scope.getProductosResto();
+                }, function errorCallback(response) {
+                    alert("no funciona ERROOR");
+                });
+            }
+        };
     };
     $scope.getArticulosSacados = function() {
         $http({
@@ -254,30 +283,6 @@ app.controller("catalogoCtrl", function($scope, $http, $window) {
         }, function errorCallback(response) {
             alert("no funciona ERROOR");
         });
-    };
-    $scope.agregaArticulo = function() {
-        var idProducto = $scope.articuloSacado;
-        seleccionado = $('#idListaCatalogo :selected').text();
-        if(idProducto === undefined || idProducto === null) {
-            alert("Seleccione el producto que desee agregar al catalogo.");
-        }else {
-            $http({
-                method: 'POST',
-                url: 'http://localhost:8084/ProyectoSVAC/webresources/catalogo/agregaArticulo',
-                data: { cat_codigo_producto : idProducto }
-            }).then(function successCallback(response) {
-                alert("Agrega Articulo: Se ejecuto correctamente");
-                if(seleccionado === 'Por calificacion') {
-                    $scope.getCatalogo('lista_A');
-                } else if(seleccionado === 'Por cant. pedida') {
-                    $scope.getCatalogo('lista_B');
-                }
-                $scope.getArticulosSacados();
-                $scope.getProductosResto();
-            }, function errorCallback(response) {
-                alert("no funciona ERROOR");
-            });
-        }
     };
     
     //------------------------------------Gestionar Pedido--------------------------------------------

@@ -240,6 +240,38 @@
             </div>
         </div>
         
+        <div class="modal fade left" id="modalVerPreferencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-full-height modal-left" role="document">
+                <div class="modal-content">
+                    <div style="background-color: #eeeeee;border-color: #4c4f53; border-style: solid; height: 100%; width: 100%;">
+                        <div style="padding: 40px 30px 20px 30px;">
+                            <div style="text-align: center; color: #4a7918;">
+                                <strong class="titulogoSesion"><i class="fa fa-pencil-square-o fa-lg"></i>&nbsp;&nbsp;MIS PREFERENCIAS</strong>
+                            </div>
+                            <div style="text-align: center; padding-top: 19px;">
+                                <p>Historial de preferencias</p>
+                                <div  class="scrollbar scrollbar-indigo bordered-indigo thin" style="height: 75%;">
+                                    <table class="table table-responsive-sm table-fixed">
+                                        <tr>
+                                            <th class="table-active">Fecha</th>
+                                            <th class="table-active">Nombre del producto</th>
+                                            <th class="table-active">Puntuación</th>
+                                        </tr>
+                                        <tr ng-repeat="punt in listaCalificaciones">
+                                            <td>{{punt.fecha_voto_preferencia}}</td>
+                                            <td>{{punt.nombre_producto}}</td>
+                                            <td>{{punt.cantidad_puntos}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        
         
         <%@include file="foot.jspf" %>
         <script type="text/javascript">

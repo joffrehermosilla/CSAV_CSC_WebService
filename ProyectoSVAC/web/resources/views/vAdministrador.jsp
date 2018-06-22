@@ -65,7 +65,7 @@
                                                 <td>{{producto.ingreso_almacen_producto}}</td>
                                                 <td>{{producto.salida_almacen_producto}}</td>
                                                 <td>{{producto.cantidadUnidad}}</td>
-                                                <td align="center"><button class="btn-floating btn-lg purple-gradient btn-info" value="{{producto.codigo_producto}}">
+                                                <td align="center"><button class="btn-floating btn-lg purple-gradient btn-info" value="{{producto.codigo_producto}}" title="EN DESARROLLO">
                                                     <span class="fa fa-picture-o" aria-hidden="true"></span></button></td>
                                             </tr>
                                         </table>

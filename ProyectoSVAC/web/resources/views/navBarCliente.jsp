@@ -24,6 +24,8 @@
                   <ul class="dropdown-menu">
                       <li style="background-color: #7bc4f7;" id="liA"><a style="margin-top: 6px; color: #fff!important;" id="aA" onclick="t_verCatalogo()">Ver Catálogo</a></li>  
                       <li id="liB"><a id="aB" onclick="t_generaPedido()">Generar Pedido</a></li>
+                      <div class="dropdown-divider"></div>
+                      <li id="liC"><a id="aC" data-toggle="modal" href="#modalVerPreferencia">Ver Mis Preferencias</a></li>
                   </ul>
               </li>
           </ul>
