@@ -1,6 +1,7 @@
 package com.helper;
 
 import DTO.CatalogoDTO;
+import DTO.DetallePedidoDTO;
 import DTO.ProductoCalificarDTO;
 import DTO.UsuarioDTO;
 import java.util.List;
@@ -29,7 +30,7 @@ public class PreferenciaHelper {
     public List<CatalogoDTO> getCatalogo(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT * FROM catalogo WHERE fkcodigo_estadoCatalogo = 1").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
+        Query q = session.createSQLQuery("SELECT * FROM catalogo as cat WHERE fkcodigo_estadoCatalogo = 1 ORDER BY cat.promedioTotalProd DESC").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
         List<CatalogoDTO> resultList=q.list();
         transaction.commit();
         session.close();
@@ -64,6 +65,16 @@ public class PreferenciaHelper {
         query.executeUpdate();
         transaction.commit();
         session.close();
+    }
+    
+    public List<DetallePedidoDTO> getPromociones(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Query q = session.createSQLQuery("SELECT `codigo_promocion_venta`,`cantidad_sku_pedido`,`descuento_sku_pedido`,`fecha_inicio_promocion`,`fecha_expiracion_promocion`,`descripcion_promocion` FROM `promocion_venta`").setResultTransformer(Transformers.aliasToBean(DetallePedidoDTO.class));
+        List<DetallePedidoDTO> resultList=q.list();
+        transaction.commit();
+        session.close();
+        return resultList;
     }
     
 }

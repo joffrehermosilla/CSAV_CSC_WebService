@@ -201,8 +201,8 @@
                                                         <label for="modalLRInput11">Tu contraseña</label>
                                                     </div>
                                                     <div class="text-center mt-2" style="padding-bottom: 8px;">
-                                                        <button class="btn btn-success" type="submit" ng-click="loginRegistro()"
-                                                                style="height: 43px;">Iniciar Sesión</button>
+                                                        <input class="btn btn-success" type="submit" ng-click="loginRegistro()"
+                                                               style="height: 43px;" value="Iniciar Sesión">
                                                     </div>
                                                 </div>
                                             </div>
