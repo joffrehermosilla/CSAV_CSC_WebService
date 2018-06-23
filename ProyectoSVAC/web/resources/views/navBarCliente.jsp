@@ -1,14 +1,14 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar" style="background-color: #4e798e!important;">
     <div class="container">
         <!--Cerrar sesion-->
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" ng-click="cerrarSesion()" style="font-size: 15px;">
-          <span class="fa fa-sign-out" aria-hidden="true"></span>&nbsp;&nbsp;LogOut</a>
+          <a class="navbar-brand" href="#" ng-click="cerrarSesion() " style="font-size: 15px; font-weight: 400;">
+          <span class="fa fa-sign-out fa-lg" aria-hidden="true"></span>&nbsp;&nbsp;LogOut</a>
         </div>
         <!-- Brand -->
-        <a class="navbar-brand" href="http://localhost:8084/ProyectoSVAC/">
-          <strong class="blue-text">SVAC_CSC</strong>
+        <a class="navbar-brand">
+            <strong style="color: #e2e9ef!important;">SVACsC</strong>
         </a>
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -20,11 +20,12 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto" style="padding: 7px 3px 0px 3px;">
               <li class="nav-item dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones del Cliente&nbsp;<span class="caret"></span></a>
+                  <a href="#" style="color: #e2e9ef;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones del Cliente&nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                      <li style="background-color: #7bc4f7;" id="liA"><a style="margin-top: 6px; color: #fff!important;" id="aA" href="#" onclick="t_verCatalogo()">Ver Catálogo</a></li>  
-                      <li id="liB"><a id="aB" href="#" >Generar Pedido</a></li>
-                      <li id="liC"><a id="aC" href="#" onclick="t_gestionaPrefer()">Gestionar Preferencia</a></li>
+                      <li style="background-color: #7bc4f7;" id="liA"><a style="margin-top: 6px; color: #fff!important;" id="aA" onclick="t_verCatalogo()">Ver Catálogo</a></li>  
+                      <li id="liB"><a id="aB" onclick="t_generaPedido()">Generar Pedido</a></li>
+                      <div class="dropdown-divider"></div>
+                      <li id="liC"><a id="aC" data-toggle="modal" href="#modalVerPreferencia">Ver Mis Preferencias</a></li>
                   </ul>
               </li>
           </ul>
@@ -32,7 +33,7 @@
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item" style="padding: 7px 3px 0px 3px;">
               <ul class="nav navbar-nav navbar-right" ng-repeat="nombre in ListaNombres" style="padding-right: 45px;">
-                  <li><a href="#" style="color: #8a9e80;">{{nombre.nombre_usuario}} {{nombre.apellido_usuario}}</a></li>
+                  <li><a href="#" style="color: #e2e9ef; font-weight: bold;">{{nombre.nombre_usuario}} {{nombre.apellido_usuario}}</a></li>
               </ul>
             </li>
           </ul>

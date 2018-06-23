@@ -1,6 +1,8 @@
 package com.helper;
 
 import DTO.CatalogoDTO;
+import DTO.ClientePreferenciaDTO;
+import DTO.DetallePedidoDTO;
 import DTO.ProductoCalificarDTO;
 import DTO.UsuarioDTO;
 import java.util.List;
@@ -29,7 +31,7 @@ public class PreferenciaHelper {
     public List<CatalogoDTO> getCatalogo(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Query q = session.createSQLQuery("SELECT * FROM catalogo WHERE fkcodigo_estadoCatalogo = 1").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
+        Query q = session.createSQLQuery("SELECT * FROM catalogo as cat WHERE fkcodigo_estadoCatalogo = 1 ORDER BY cat.promedioTotalProd DESC").setResultTransformer(Transformers.aliasToBean(CatalogoDTO.class));
         List<CatalogoDTO> resultList=q.list();
         transaction.commit();
         session.close();
@@ -64,6 +66,33 @@ public class PreferenciaHelper {
         query.executeUpdate();
         transaction.commit();
         session.close();
+    }
+    
+    public List<DetallePedidoDTO> getPromociones(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Query q = session.createSQLQuery("SELECT `codigo_promocion_venta`,`cantidad_sku_pedido`,`descuento_sku_pedido`,`fecha_inicio_promocion`,`fecha_expiracion_promocion`,`descripcion_promocion` FROM `promocion_venta`").setResultTransformer(Transformers.aliasToBean(DetallePedidoDTO.class));
+        List<DetallePedidoDTO> resultList=q.list();
+        transaction.commit();
+        session.close();
+        return resultList;
+    }
+    
+    public List<ClientePreferenciaDTO> getCalificacion(int codigoUsuario){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Query q = session.createSQLQuery("SELECT cliPref.fecha_voto_preferencia, pro.nombre_producto, cliPref.cantidad_puntos \n" +
+                                         "FROM   cliente_tiene_preferencia as cliPref INNER JOIN\n" +
+                                         "       cliente as cli ON (cliPref.fkcodigo_cliente = cli.codigo_cliente) INNER JOIN\n" +
+                                         "       usuario as usu ON (cli.fkcodigo_usuario = usu.codigo_usuario) INNER JOIN\n" +
+                                         "       producto as pro ON (cliPref.fkcodigo_producto = pro.codigo_producto)\n" +
+                                         "WHERE (usu.codigo_usuario = :codigoUsuario)\n" +
+                                         "ORDER BY cliPref.fecha_voto_preferencia DESC").setResultTransformer(Transformers.aliasToBean(ClientePreferenciaDTO.class));
+        q.setParameter("codigoUsuario", codigoUsuario);
+        List<ClientePreferenciaDTO> resultList=q.list();
+        transaction.commit();
+        session.close();
+        return resultList;
     }
     
 }
