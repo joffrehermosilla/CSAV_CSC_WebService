@@ -245,7 +245,17 @@ app.controller("clientCtrl", function($scope, $http, $window) {
                 jsonArg1.lista_pedido = pluginArrayArg;
                 jsonArray = JSON.stringify(jsonArg1);
                 alert(jsonArray);
-
+                
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:8084/ProyectoSVAC/webresources/preferencia/generaPedido',
+                    data: jsonArray
+                }).then(function successCallback(response) {
+                    alert("funciono aqui");
+                }, function errorCallback(response) {
+                    alert("no funciona ERROOR genera Pedido");
+                });
+                
 
                 alert("Pedido solicitado.. procesando..");
 

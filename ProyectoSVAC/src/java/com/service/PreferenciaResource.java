@@ -1,6 +1,7 @@
 package com.service;
 
 import DTO.ClientePreferenciaDTO;
+import DTO.DetallePedidoDTO;
 import DTO.ProductoxClienteDTO;
 import DTO.UsuarioDTO;
 import com.google.gson.Gson;
@@ -63,7 +64,6 @@ public class PreferenciaResource {
         List lista = null;
         try {
             lista = preferenciaHelper.getCatalogo();
-            System.out.println(""+gson.toJson(lista));
         } catch(Exception e) {
             System.out.println("getCatalogo: "+e.getMessage());
         }
@@ -90,7 +90,6 @@ public class PreferenciaResource {
     public Response calificaProducto(String data) {
         Response respuesta = null;
         Gson gson =new Gson();
-        System.out.println("puntos ---> "+data);
         ProductoxClienteDTO productoxClienteDTO = gson.fromJson(data, ProductoxClienteDTO.class);
         try{
             preferenciaHelper.calificaProducto(productoxClienteDTO.getCodigo_usuario(), 
@@ -132,6 +131,23 @@ public class PreferenciaResource {
             System.out.println("getCalificaciones: "+e.getMessage());
         }
         return gson.toJson(lista);
+    }
+    
+    @POST
+    @Path("generaPedido")
+    @Produces("application/json")
+    public Response generaPedido(String data) {
+        Response respuesta = null;
+        Gson gson =new Gson();
+        ProductoxClienteDTO productoxClienteDTO = gson.fromJson(data, ProductoxClienteDTO.class);
+        try{
+            System.out.println("lista-> "+data);
+            respuesta = Response.status(200).entity(productoxClienteDTO).build();
+        }
+        catch(Exception ex){
+            respuesta = Response.status(500).entity(productoxClienteDTO).build();
+        }
+        return respuesta;
     }
     
     
