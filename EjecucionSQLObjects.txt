@@ -14,15 +14,22 @@ En cuanto al catalogo: El minimo de articulos que se presente son 10. (bota exce
 En cuanto a preferencias: Mejorar el front-end. (si alcanza tiempo)
 						  Si es posible, mostrar las imagenes de cada producto. (si alcanza tiempo)
 						  No califique el mismo producto una vez calificado. (por mes se abre de nuevo) -> actualiza el catalogo, y se abre de nuevo.
-						  Mostrar un aviso modal bottom o top en el que avisa el lapso de tiempo que se reinicia la temporada del catalogo.
+						  Mostrar un aviso modal bottom o top en el que avisa el lapso de tiempo que se reinicia la temporada del catalogo. (contador)
 -----------------------CUARTA ITERACION---------------------------						  
 Hacer el generar pedido (carrito de compras)
 
 
 INCIDENCIAS:
 CONEXION A LA BASE DE DATOS EN EL NET BEANS
-POSIBLEMENTE PORQUE NO CROE UNA CUENTA EN LA BD
+POSIBLEMENTE PORQUE NO CREA UNA CUENTA EN LA BD
 
+
+PASOS: CONFIGURAR SERVIDOR TOMCAT DEL NETBEANS -> CREAR CUENTA ADMIN 1234 EN EL PHPMYADMIN -> IMPORTAR ARCHIVO .SQL
+	 ->EJECUTAR DEL ARCHIVO EJECUCIONSQLOBJECT.TXT CADA OBJETO DE LA BD -> LEVANTAR LA PROGRA.
+
+BASE64 - FIREBASE.
+
+	 
 
 -------------------------------------------------------------------------------------
 CODIGO SQL QUE SE DEBE EJECUTAR
@@ -39,6 +46,7 @@ GROUP BY pro.nombre_producto
 ORDER BY promedioPuntaje DESC
 	 
 ----------------------------------------------------------------------------------------------------------	 
+/*posiblemente borrar*/
 
 CREATE VIEW lista_catalogo
 AS
@@ -53,7 +61,7 @@ FROM producto as pro INNER JOIN tipo_producto as tiPro ON (pro.fkcodigo_tipo_pro
      insumo as ins ON (ins.codigo_insumo = interMedio.fk_codigo_insumo)
 GROUP BY pro.codigo_producto, pro.nombre_producto
 ORDER BY promedioTotalProd DESC
-LIMIT 10
+LIMIT 5
 
 ----------------------------------------------------------------------------------
 
@@ -67,6 +75,7 @@ END
 //
 DELIMITER ;
 
+----------------------------------------------------------------------------------
 
 DELIMITER //
 CREATE PROCEDURE sp_catalogo()
@@ -96,8 +105,10 @@ BEGIN
 		 insumo as ins ON (ins.codigo_insumo = interMedio.fk_codigo_insumo)
     GROUP BY pro.codigo_producto, pro.nombre_producto
     ORDER BY promedioTotalProd DESC
-    LIMIT 10;
+    LIMIT 5;
     
+	ALTER TABLE catalogo AUTO_INCREMENT = 6;
+	
     END
 //
 DELIMITER ;
@@ -112,12 +123,37 @@ END
 //
 DELIMITER ;
 
-----------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 
 DELIMITER //
 CREATE PROCEDURE sp_agregaArticulo(IN codigoProducto INT)
 BEGIN
 	UPDATE catalogo SET catalogo.fkcodigo_estadoCatalogo = 1 WHERE catalogo.cat_codigo_producto = codigoProducto;
+END
+//
+DELIMITER ;
+
+-----------------------------------------------------------------------------------------------
+
+DELIMITER //
+CREATE PROCEDURE sp_insertaArtCat(IN codigoProducto INT)
+BEGIN
+
+INSERT INTO catalogo(cat_codigo_producto, cat_nombre_producto, cat_nombre_tipo_producto, cat_tiempoenhorno_tipo_producto, 
+                     cat_temperaturaenhorno_tipo_producto, cat_valor_neto, cat_valor_con_igv, cat_foto_producto, cat_preparacion_producto,
+                     cat_colores_producto, cat_nombre_insumo, cat_modelo_receta_producto, cantidadMasPedido, promedioTotalProd)
+SELECT pro.codigo_producto, pro.nombre_producto, tiPro.nombre_tipo_producto, tiPro.tiempoenhorno_tipo_producto, tiPro.temperaturaenhorno_tipo_producto,
+	   	   proPed.valor_neto, proPed.valor_con_igv, pro.foto_producto, pro.preparacion_producto, pro.colores_producto,	ins.nombre_insumo, 
+           recPro.modelo_receta_producto, SUM(proPed.cantidad_producto) as cantidadMasPedido, AVG(cliPref.cantidad_puntos) as promedioTotalProd
+    FROM producto as pro INNER JOIN tipo_producto as tiPro ON (pro.fkcodigo_tipo_producto = tiPro.codigo_tipo_producto) INNER JOIN
+         cliente_tiene_preferencia as cliPref ON (cliPref.fkcodigo_producto = pro.codigo_producto) INNER JOIN
+         producto_por_pedido as proPed ON (proPed.fkcodigo_producto = pro.codigo_producto) INNER JOIN
+         rece_produ_ti_insumo as interMedio ON (interMedio.fk_codigo_producto = pro.codigo_producto) INNER JOIN
+		 receta_producto as recPro ON (recPro.codigo_receta_producto = interMedio.fk_codigo_receta_producto) INNER JOIN
+		 insumo as ins ON (ins.codigo_insumo = interMedio.fk_codigo_insumo)
+    WHERE (pro.codigo_producto = codigoProducto)
+    GROUP BY pro.codigo_producto, pro.nombre_producto;
+
 END
 //
 DELIMITER ;
