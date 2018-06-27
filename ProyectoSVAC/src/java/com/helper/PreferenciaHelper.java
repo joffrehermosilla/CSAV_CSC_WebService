@@ -87,7 +87,7 @@ public class PreferenciaHelper {
                                          "       usuario as usu ON (cli.fkcodigo_usuario = usu.codigo_usuario) INNER JOIN\n" +
                                          "       producto as pro ON (cliPref.fkcodigo_producto = pro.codigo_producto)\n" +
                                          "WHERE (usu.codigo_usuario = :codigoUsuario)\n" +
-                                         "ORDER BY cliPref.fecha_voto_preferencia DESC").setResultTransformer(Transformers.aliasToBean(ClientePreferenciaDTO.class));
+                                         "ORDER BY cliPref.codigo_preferencia_sku DESC").setResultTransformer(Transformers.aliasToBean(ClientePreferenciaDTO.class));
         q.setParameter("codigoUsuario", codigoUsuario);
         List<ClientePreferenciaDTO> resultList=q.list();
         transaction.commit();

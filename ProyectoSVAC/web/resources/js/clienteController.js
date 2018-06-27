@@ -244,11 +244,17 @@ app.controller("clientCtrl", function($scope, $http, $window) {
                 }
                 jsonArg1.lista_pedido = pluginArrayArg;
                 jsonArray = JSON.stringify(jsonArg1);
-                alert(jsonArray);
-
-
-                alert("Pedido solicitado.. procesando..");
-
+                
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:8084/ProyectoSVAC/webresources/preferencia/generaPedido',
+                    data: jsonArray
+                }).then(function successCallback(response) {
+                    alert("Pedido solicitado.. procesando..");
+                }, function errorCallback(response) {
+                    alert("no funciona ERROOR genera Pedido");
+                });
+                
                 sessionStorage.removeItem('listaCodProd');
                 sessionStorage.removeItem('listaCantProd');
                 localStorage.clear();
